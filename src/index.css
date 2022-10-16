@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Major+Mono+Display&family=Space+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    body {
+        @apply bg-secondary text-white text-lg font-SpaceMono;
+    }
+
+    H1 {
+        @apply text-5xl font-MajorMonoDisplay;
+    }
+}
