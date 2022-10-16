@@ -7,10 +7,14 @@
 
 @layer components {
     body {
-        @apply bg-secondary text-white text-lg font-SpaceMono;
+        @apply flex flex-col px-20 py-5 bg-secondary text-white text-lg font-SpaceMono;
     }
 
     H1 {
         @apply text-5xl font-MajorMonoDisplay;
+    }
+
+    H2 {
+        @apply text-3xl font-MajorMonoDisplay;
     }
 }
