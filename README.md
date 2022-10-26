@@ -34,7 +34,7 @@ More explanations soon...
 ### Built With
 
 - [![React][react.js]][react-url]
-- [![TypeScript][typescript]][typescritp-url]
+- [![TypeScript][typescript]][typescript-url]
 - [![Tailwind][tailwindcss.com]][tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
