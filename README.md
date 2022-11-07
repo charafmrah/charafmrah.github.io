@@ -34,6 +34,7 @@ More explanations soon...
 ### Built With
 
 - [![React][react.js]][react-url]
+- [![TypeScript][typescript]][typescript-url]
 - [![Tailwind][tailwindcss.com]][tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -119,5 +120,7 @@ Charaf Mrah - [@charafmrah](https://twitter.com/charafmrah) - charaf4charaf@gmai
 [next-url]: https://nextjs.org/
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[tailwindcss.com]: https://img.shields.io/badge/Tailwind-563D7C?style=for-the-badge&logo=tailwind&logoColor=white
+[tailwindcss.com]: https://img.shields.io/badge/Tailwind-03a9f4?style=for-the-badge&logo=tailwindcss&logoColor=white
 [tailwind-url]: https://tailwindcss.com
+[typescript]: https://img.shields.io/badge/Typescript-0d47a1?style=for-the-badge&logo=typescript&logoColor=white
+[typescript-url]: https://typescriptlang.com
