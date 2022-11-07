@@ -23,5 +23,10 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    - run: git push -f git@github.com:charafmrah/charaf-mrah-portfolio.git main:gh-pages
+
+    - name: deploy
+    - uses: charafmrah/github-pages-deploy-action@v4
+    - with:
+          folder: dist # The folder the action should deploy.
+
     # - run: npm test
