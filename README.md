@@ -29,7 +29,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://charafmrah.com)
 
-More explanations soon...
+Portfolio website built using React & TypeScript & TailwindCSS.
+
+I will be adding more features to the website such as connecting it to a headless WordPress instance & adding a contact form.
 
 ### Built With
 
