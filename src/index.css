@@ -5,16 +5,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
     body {
-        @apply flex flex-col px-20 py-5 bg-secondary text-white text-lg font-SpaceMono;
+        @apply flex flex-col p-5 lg:p-10  bg-secondary text-hackerGreen text-lg font-SpaceMono;
     }
 
     H1 {
-        @apply text-5xl font-MajorMonoDisplay;
+        @apply text-5xl font-extrabold font-SpaceMono;
     }
 
     H2 {
-        @apply text-3xl font-MajorMonoDisplay;
+        @apply text-3xl font-bold font-SpaceMono;
+    }
+
+    a {
+        @apply underline;
     }
 }

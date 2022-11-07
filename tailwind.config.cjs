@@ -8,6 +8,7 @@ module.exports = {
         SpaceMono: ["Space Mono", "monospace"],
       },
       colors: {
+        hackerGreen: "#149414",
         secondary: "#28282B",
       },
     },
