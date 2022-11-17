@@ -22,4 +22,21 @@
     a {
         @apply underline;
     }
+
+   .container {
+        @apply flex w-[90%];
+   } 
+
+   .panel {
+    @apply bg-cover bg-center bg-no-repeat height[80vh] rounded-3xl cursor-pointer flex-[0.5] m-3 relative transition flex duration-700 ease-in text-white active:flex-[5];
+   }
+
+   .panel h3 { 
+    @apply text-2xl absolute bottom-5 left-5 m-0 opacity-0
+   }
+
+   .panel.active h3 {
+    @apply opacity-100 transition-opacity duration-700 ease-in;
+   }
+   
 }

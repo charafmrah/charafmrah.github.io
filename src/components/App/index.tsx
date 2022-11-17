@@ -1,4 +1,4 @@
-function App() {
+const App = () => {
   return (
     <div className="flex flex-col gap-10 max-w-3xl transition-all duration-700 ease-in-out">
       <h1>hi, this is charaf mrah!</h1>
@@ -64,6 +64,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
