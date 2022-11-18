@@ -2,9 +2,10 @@ import React from "react";
 
 interface Card {
   id: number;
-  url: string;
+  imageUrl: string;
   title: string;
   description: string;
+  projectUrl: string;
 }
 
 interface Props {
@@ -23,7 +24,9 @@ const MovingCards = ({ data }: Props) => {
           key={card.id}
           className={`panel ${activeId === card.id ? "active" : ""}`}
           onClick={() => onClick(card.id)}
-          style={{ backgroundImage: `url(${card.url})` }}
+          style={{
+            background: `linear-gradient(0deg, rgba(40, 40, 43, 0.9), rgba(255, 255, 255, 0.1)), url(${card.imageUrl})`,
+          }}
         >
           <h3>{card.title}</h3>
           <p>{card.description}</p>
