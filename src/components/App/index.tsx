@@ -1,39 +1,37 @@
+import MovingCards from "../MovingCards";
+import { cardsData } from "../../assets/DummyData";
+
 const App = () => {
   return (
-    <div className="flex flex-col gap-10 max-w-3xl transition-all duration-700 ease-in-out">
-      <h1>hi, this is charaf mrah!</h1>
+    <div className="flex flex-col gap-10  transition-all duration-700 ease-in-out">
+      <section>
+        <h1>hi, this is charaf mrah!</h1>
 
-      <a href="https://github.com/charafmrah" target="_blank">
-        <img
-          src="headshot.png"
-          alt="Charaf"
-          className="w-96 rounded-2xl shadow-lg shadow-hackerGreen hover:scale-105"
-        />
-      </a>
+        <a href="https://github.com/charafmrah" target="_blank">
+          <img
+            src="headshot.png"
+            alt="Charaf"
+            className="w-96 rounded-2xl shadow-lg shadow-hackerGreen hover:scale-105"
+          />
+        </a>
 
-      <p>software engineer & content creator.</p>
+        <p>software engineer & content creator.</p>
+      </section>
 
-      <div>
+      <section>
+        <h2>projects</h2>
+        <MovingCards data={cardsData} />
+      </section>
+
+      <section>
         <h2>skills</h2>
         <p>
           JavaScript - React - TailwindCSS - TypeScript - PHP - WordPress -
           Python - Django - HTML - CSS - SQL - Kotlin - Android SDK - Git
         </p>
-      </div>
+      </section>
 
-      <div>
-        <h2>projects</h2>
-        <p>
-          This website is a work in progress. For the meantime, you can check
-          out{" "}
-          <a target="_blank" href="https://github.com/charafmrah">
-            my GitHub profile
-          </a>{" "}
-          to check some of my projects
-        </p>
-      </div>
-
-      <div>
+      <section>
         <h2>contact</h2>
         <div className="flex flex-col lg:flex-row gap-5 overflow-hidden">
           <p>
@@ -61,7 +59,7 @@ const App = () => {
             </a>
           </p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

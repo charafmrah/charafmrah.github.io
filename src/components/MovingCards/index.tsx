@@ -4,6 +4,7 @@ interface Card {
   id: number;
   url: string;
   title: string;
+  description: string;
 }
 
 interface Props {
@@ -24,9 +25,8 @@ const MovingCards = ({ data }: Props) => {
           onClick={() => onClick(card.id)}
           style={{ backgroundImage: `url(${card.url})` }}
         >
-          <h3 className="text-2xl absolute bottom-5 left-5 m-0 opacity-0">
-            {card.title}
-          </h3>
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
         </div>
       ))}
     </div>
