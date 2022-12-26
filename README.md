@@ -15,7 +15,7 @@
     <a href="https://github.com/charafmrah/charaf-mrah-portfolio"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/charafmrah/charaf-mrah-portfolio">View Demo</a>
+    <a href="https://charafmrah.github.io/charaf-mrah-portfolio/">View Demo</a>
     ·
     <a href="https://github.com/charafmrah/charaf-mrah-portfolio/issues">Report Bug</a>
     ·
@@ -26,8 +26,6 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://charafmrah.com)
 
 Portfolio website built using React & TypeScript & TailwindCSS.
 
