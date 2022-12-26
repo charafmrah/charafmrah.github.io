@@ -6,6 +6,5 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://charafmrah.github.io",
-  base: "/charaf-mrah-portfolio",
   integrations: [mdx(), sitemap()],
 });
