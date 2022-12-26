@@ -28,8 +28,10 @@ const MovingCards = ({ data }: Props) => {
             background: `linear-gradient(0deg, rgba(40, 40, 43, 0.9), rgba(255, 255, 255, 0.1)), url(${card.imageUrl})`,
           }}
         >
-          <h3>{card.title}</h3>
-          <p>{card.description}</p>
+          <div className="absolute bottom-5 left-5 m-0">
+            <p className="text-slate-300">{card.description}</p>
+            <h3>{card.title}</h3>
+          </div>
         </div>
       ))}
     </div>
