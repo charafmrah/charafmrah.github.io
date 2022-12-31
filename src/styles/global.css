@@ -28,7 +28,7 @@ body[data-nav="true"] > main {
   transform: translateY(-50%);
 }
 
-body[data-nav="true"] > header > nav > #nav-links {
+body[data-nav="true"] > footer > nav > #nav-links {
   transform: translateY(0%) scale(1);
 }
 
