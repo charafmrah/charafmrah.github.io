@@ -28,73 +28,8 @@ body[data-nav="true"] > main {
   transform: translateY(-50%);
 }
 
-nav {
-  height: 50vh;
-  width: 100%;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  z-index: 1;
-  overflow: hidden;
-}
-
-#nav-links {  
-  display: flex;
-  gap: clamp(1rem, 2vw, 2rem);
-  margin-top: clamp(2rem, 2vw, 3rem);
-  padding: 0rem clamp(1rem, 2vw, 2rem);
-  transform: translateY(70%) scale(0.9);
-  transition: transform 500ms cubic-bezier(.13,.53,.38,.97); 
-}
-
-body[data-nav="true"] > nav > #nav-links {
+body[data-nav="true"] > header > nav > #nav-links {
   transform: translateY(0%) scale(1);
-}
-
-#nav-links > .nav-link {
-  text-decoration: none;
-}
-
-#nav-links > .nav-link > .nav-link-label {
-  color: white;
-  font-size: 1.25rem;
-  margin: 0rem;
-  text-transform: uppercase;
-}
-
-#nav-links > .nav-link > .nav-link-image {
-  width: max(20vw, 400px);
-  aspect-ratio: 1.8 / 1;
-  border-radius: 0.5rem;
-  margin-top: 0.75rem;
-  object-fit: cover;
-}
-
-#nav-toggle {
-  height: 5rem;
-  width: 5rem;
-  position: fixed;
-  z-index: 3;
-  left: 50%;
-  bottom: 3rem;
-  transform: translateX(-50%);
-  background-color: rgb(182, 142, 113);
-  border: none;
-  border-radius: 5rem;
-  outline: none;
-  box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
-  cursor: pointer;
-  transition: transform, background-color;
-  transition-timing-function: ease;
-  transition-duration: 400ms;
-}
-
-#nav-toggle:hover {
-  transform: translateX(-50%) scale(1.04);
-}
-
-#nav-toggle:active {
-  transform: translateX(-50%) scale(0.96);
 }
 
 body[data-nav="true"] > #nav-toggle {
@@ -122,54 +57,4 @@ body:not([data-nav="true"]) > #nav-toggle:hover > .open {
 body[data-nav="true"] > #nav-toggle > .close {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-}
-
-/* -- YouTube Link Styles -- */
-
-#source-link {
-  top: 60px;
-}
-
-#source-link > i {
-  color: rgb(94, 106, 210);
-}
-
-#yt-link {  
-  top: 10px;
-}
-
-#yt-link > i {
-  color: rgb(239, 83, 80);
-}
-
-.meta-link {
-  align-items: center;
-  backdrop-filter: blur(3px);
-  background-color: rgba(40, 40, 40, 0.9);
-  border-radius: 6px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  cursor: pointer;  
-  display: inline-flex;
-  gap: 5px;
-  left: 10px;
-  padding: 10px 20px;
-  position: fixed;
-  text-decoration: none;
-  transition: background-color 350ms, border-color 350ms;
-  z-index: 10000;
-}
-
-.meta-link:hover {
-  background-color: rgb(40, 40, 40);
-}
-
-.meta-link > i, .meta-link > span {
-  height: 20px;
-  line-height: 20px;
-}
-
-.meta-link > span {
-  color: white;
-  font-family: "Rubik", sans-serif;
-  transition: color 600ms;
 }

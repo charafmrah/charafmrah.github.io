@@ -10,10 +10,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body data-nav="false">
     <Header />
     <main></main>
 
     <Footer />
+    <script>
+      document
+        .getElementById("nav-toggle")
+        .addEventListener("click", toggleNav);
+
+      function toggleNav(): void {
+        document.body.dataset.nav =
+          document.body.dataset.nav === "true" ? "false" : "true";
+      }
+    </script>
   </body>
 </html>
