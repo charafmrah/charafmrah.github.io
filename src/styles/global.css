@@ -30,7 +30,7 @@ h1 {
 }
 
 main {
-  @apply flex flex-col justify-center items-center bg-white bg-center bg-cover h-[100vh] w-[100vw] relative z-[2] transition-all duration-500 ease-in-out transform;
+  @apply bg-white bg-center bg-cover h-[100vh] w-[100vw] m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
 }
 
 body[data-nav="true"] > main {

@@ -1,0 +1,14 @@
+<div class="container">
+  <slot />
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    height: 100%;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+  }
+</style>

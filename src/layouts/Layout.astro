@@ -1,9 +1,9 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import Card from "../components/Card.astro";
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Container from "../components/Container.astro";
 ---
 
 <!DOCTYPE html>
@@ -17,9 +17,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   </head>
   <body data-nav="false">
     <main>
-      <Card>
+      <Container>
         <slot />
-      </Card>
+      </Container>
     </main>
     <Footer />
 
