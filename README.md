@@ -10,7 +10,7 @@
   <h3 align="center">Personal Website</h3>
 
   <p align="center">
-    A portfolio website with a CMS.
+    A portfolio website.
     <br />
     <a href="https://github.com/charafmrah/charaf-mrah-portfolio"><strong>Explore the docs »</strong></a>
     <br />

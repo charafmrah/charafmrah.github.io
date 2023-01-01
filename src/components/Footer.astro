@@ -1,40 +1,41 @@
+---
+import home from "../images/home.jpg";
+import portfolio from "../images/portfolio.jpg";
+import blog from "../images/blog.jpg";
+import about from "../images/about.jpg";
+import contact from "../images/contact.jpg";
+import Bars from "./icons/Bars.astro";
+---
+
 <footer>
   <nav>
     <div id="nav-links">
       <a class="nav-link" href="/">
         <span class="nav-link-label rubik-font">Home</span>
-        <img
-          class="nav-link-image"
-          src="https://images.unsplash.com/photo-1666091863721-54331a5db52d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
-        />
+        <img class="nav-link-image" src={home} />
       </a>
       <a class="nav-link" href="/portfolio">
         <span class="nav-link-label rubik-font">Portfolio</span>
-        <img
-          class="nav-link-image"
-          src="https://images.unsplash.com/photo-1666055642230-1595470b98fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=995&q=80"
-        />
+        <img class="nav-link-image" src={portfolio} />
+      </a>
+      <a class="nav-link" href="/blog">
+        <span class="nav-link-label rubik-font">Blog</span>
+        <img class="nav-link-image" src={blog} />
       </a>
       <a class="nav-link" href="/about">
         <span class="nav-link-label rubik-font">About</span>
-        <img
-          class="nav-link-image"
-          src="https://images.unsplash.com/photo-1666005487638-61f45819c975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
-        />
+        <img class="nav-link-image" src={about} />
       </a>
       <a class="nav-link" href="/contact">
         <span class="nav-link-label rubik-font">Contact</span>
-        <img
-          class="nav-link-image"
-          src="https://images.unsplash.com/photo-1665910407771-bc84ad45676b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
-        />
+        <img class="nav-link-image" src={contact} />
       </a>
     </div>
   </nav>
 
   <button id="nav-toggle" type="button">
-    <i class="open fa-light fa-bars-staggered"></i>
-    <i class="close fa-light fa-xmark-large"></i>
+    <Bars class="open" />
+    <Bars class="close" />
   </button>
 </footer>
 
