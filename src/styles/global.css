@@ -1,12 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0px;
-  background-color: black;
+  @apply h-[100vh] w-[100vw] m-0 text-white font-Inter bg-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold text-2xl text-left;
+}
+
+a {
+  @apply text-white text-left;
+}
+
+h1 {
+  @apply text-6xl;
 }
 
 .rubik-font {
@@ -14,14 +30,7 @@ body {
 }
 
 main {
-  background-image: url("nasa-photo.jpg");
-  background-position: center 0%;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  z-index: 2;
-  transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
+  @apply bg-body-background bg-center bg-cover h-[100vh] w-[100vw] relative z-[2] transition-all duration-500 ease-in-out transform;
 }
 
 body[data-nav="true"] > main {
