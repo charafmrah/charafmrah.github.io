@@ -1,0 +1,30 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body data-nav="false">
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      document
+        .getElementById("nav-toggle")
+        .addEventListener("click", toggleNav);
+
+      function toggleNav(): void {
+        document.body.dataset.nav =
+          document.body.dataset.nav === "true" ? "false" : "true";
+      }
+    </script>
+  </body>
+</html>
