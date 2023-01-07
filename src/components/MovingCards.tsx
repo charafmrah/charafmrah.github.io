@@ -6,6 +6,7 @@ interface Card {
   title: string;
   description: string;
   projectUrl: string;
+  bgColor: string;
 }
 
 interface Props {
@@ -25,11 +26,15 @@ const MovingCards = ({ data }: Props) => {
           className={`panel ${activeId === card.id ? "active" : ""}`}
           onClick={() => onClick(card.id)}
           style={{
-            background: `linear-gradient(0deg, rgba(40, 40, 43, 0.9), rgba(255, 255, 255, 0.1)), url(${card.imageUrl})`,
+            background: card.bgColor,
           }}
         >
-          <h2>{card.title}</h2>
-          <p>{card.description}</p>
+          <p className="card-id">{card.id}</p>
+
+          <a href={card.projectUrl} target="_blank">
+            <h2>{card.title}</h2>
+            <p>{card.description}</p>
+          </a>
         </div>
       ))}
     </div>

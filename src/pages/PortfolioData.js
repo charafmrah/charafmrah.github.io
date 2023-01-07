@@ -1,34 +1,54 @@
 export const cardsData = [
   {
     id: 1,
-    imageUrl:
-      "https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    imageUrl: "",
     title: "Web Pangolin Studio",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    projectUrl: "",
+    description:
+      "A single page application that allows users to generate and save AI-generated art. ",
+    projectUrl: "https://github.com/charafmrah/web-pangolin-studio-frontend",
+    bgColor: "#E07A5F",
   },
   {
     id: 2,
-    imageUrl:
-      "https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    imageUrl: "",
     title: "Flight Planning System",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    projectUrl: "",
+    description:
+      "An Android app that helps users find the most efficient route through a network of airports. ",
+    projectUrl: "https://github.com/charafmrah/flight-planning-system",
+    bgColor: "#D4CBE5",
   },
   {
     id: 3,
-    imageUrl:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80",
-    title: "the college route",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    projectUrl: "",
+    imageUrl: "",
+    title: "Network Intrusion Detection",
+    description:
+      "Applying machine learning algorithms to classify military network connections as normal or anomalous. ",
+    projectUrl: "https://github.com/charafmrah/network-intrusion-detection",
+    bgColor: "#3D405B",
   },
   {
     id: 4,
-    imageUrl:
-      "https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80",
+    imageUrl: "",
+    title: "Home Health Monitor",
+    description:
+      "An IoT device & Next Js website to control & visualize the data using AWS.",
+    projectUrl: "https://github.com/charafmrah/home-health-monitor",
+    bgColor: "#81B29A",
+  },
+  {
+    id: 5,
+    imageUrl: "",
+    title: "the college route",
+    description: "A blog website for college students.",
+    projectUrl: "https://thecollegeroute.com",
+    bgColor: "#F2CC8F",
+  },
+  {
+    id: 6,
+    imageUrl: "",
     title: "Portfolio Website",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    projectUrl: "",
+    description: "My portfolio website.",
+    projectUrl: "https://charafmrah.com",
+    bgColor: "#9BB1FF",
   },
 ];
