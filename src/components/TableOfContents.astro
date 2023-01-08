@@ -1,0 +1,77 @@
+<nav class="toc">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li>
+      <a href="#dev">Developer Mode</a>
+      <ul>
+        <li><a href="#1">Edit HTML</a></li>
+        <li><a href="#2">Element Classes</a></li>
+        <li><a href="#3">Slide Classes</a></li>
+        <li><a href="#4">Export HTML</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#css">CSS Editor</a>
+      <ul>
+        <li><a href="#css-fonts">Custom Fonts</a></li>
+        <li><a href="#css-developer-mode">Developer Mode</a></li>
+        <li><a href="#css-examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
+  <svg
+    class="toc-marker"
+    width="200"
+    height="200"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      stroke="#444"
+      stroke-width="3"
+      fill="transparent"
+      stroke-dasharray="0, 0, 0, 1000"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      transform="translate(-0.5, -0.5)"></path>
+  </svg>
+</nav>
+
+<style>
+  .toc {
+    position: fixed;
+    left: 3em;
+    top: 5em;
+    padding: 1em;
+    width: 14em;
+    line-height: 2;
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc ul ul {
+    padding-left: 2em;
+  }
+  .toc li a {
+    display: inline-block;
+    color: #aaa;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .toc li.visible > a {
+    color: #111;
+    transform: translate(5px);
+  }
+  .toc-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .toc-marker path {
+    transition: all 0.3s ease;
+  }
+</style>

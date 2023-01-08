@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 
 export interface Props {
   content: {
@@ -20,37 +21,55 @@ const {
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
-    </style>
   </head>
 
   <body data-nav="false">
     <main>
+      <TableOfContents client:load />
       <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="title">{title}</h1>
-        {pubDate && <time>{pubDate}</time>}
-        {
-          updatedDate && (
-            <div>
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        <hr />
-        <slot />
+        <div class="contents">
+          <h1 class="title">{title}</h1>
+          <p>{description}</p>
+          <hr />
+          <slot />
+        </div>
       </article>
     </main>
 
     <Footer />
     <script src="../components/menu.ts"></script>
+    <script src="../components/toc.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      main {
+        height: 100vh;
+        overflow: auto;
+        padding: 5em 5em 10em 17em;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .contents {
+        padding: 1em;
+        width: 100%;
+        max-width: 800px;
+        font-size: 1.2em;
+      }
+      .contents img {
+        max-width: 100%;
+      }
+      .contents h2,
+      .contents h3 {
+        padding-top: 1em;
+      }
+      @media screen and (max-width: 1200px) {
+        body {
+          font-size: 14px;
+        }
+      }
+    </style>
   </body>
 </html>
