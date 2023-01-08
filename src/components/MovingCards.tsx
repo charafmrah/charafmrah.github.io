@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/movingcards.css";
 
 interface Card {
   id: number;
