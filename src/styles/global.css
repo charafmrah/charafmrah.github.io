@@ -91,10 +91,19 @@ body[data-nav="true"] > #nav-toggle > .close {
 .panel > .card-id {
   @apply absolute top-5 right-5 text-white font-extrabold text-8xl opacity-100;
 }
+
 .panel p {
   @apply text-lg absolute bottom-14 left-5 m-0 opacity-0;
 }
 
 .panel.active p {
   @apply opacity-100 transition duration-700 ease-in;
+}
+
+.panel a {
+  @apply hidden;
+}
+
+.panel.active a {
+  @apply block;
 }
