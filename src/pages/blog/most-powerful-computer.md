@@ -1,0 +1,32 @@
+---
+layout: "../../layouts/BlogPost.astro"
+title: "How to get the most powerful computer in the world"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jun 03 2020"
+heroImage: "/placeholder-hero.jpg"
+---
+If we can leave data storing to the cloud, why can’t we leave the processing for it as well?
+
+In my last blog post I talked briefly about how we need a phone that doesn’t need upgrading every few years. I didn’t go in detail about how I envisioned the phone. So in this blog post I’m just going to describe what I think will be the next big revolution in both computers and post computer devices (phones, tablets, watches…etc).
+1 – Cloud specs:
+
+The super powerful computer is already here, but not as we’ve imagined it. A network of computers that form the cloud is definitely the most powerful computer we can imagine right now. Now imagine if all the big cloud companies join forces… It will create a super-cloud, the more computers and devices connected to the cloud the more powerful it gets.
+
+The cloud right now is used mostly for storage and some processing. It’s not used to it’s limits yet, and it for sure has a bright future ahead of it. To imagine the super powerful computer, you can think about Google Stadia that was released last year. It’s like playing video games through a live stream, so all the processing happens at the cloud. Of course there was a lot of issues with it, it’s still far from perfect. But, it’s a big improvement and it gives hope to the super powerful computer in my head.
+
+The super powerful computer will be in any size you want, and in the thickness of a screen only. It will only be a screen with simple internals to stream all the computing, processing a storing happening in the cloud.
+2 – Service price:
+
+The cost of making such a device will be much less than our current computers if cloud computing advances more. That will allow companies to lower the price and possibly make it like a service. You won’t own your phone anymore, it will be a service provided by companies like Apple, Google, Samsung…etc.
+
+This won’t make a lot of people happy I know. But the truth is, this way people in a bad financial situation will be able to access cheaper plans for example ( or even free versions, why not!). This will allow companies to both get more customers, and get enough income to keep their business going.
+3 – A “forever” device:
+
+The most important feature of this device(apart from it being super powerful), is that in theory you will never have to replace it. It will always be there, all you have to change is going to be the screens that you use. As long as you’re paying for the service, you’ll always get the latest version when you pick up the device (upgrades will happen in the cloud, no more updates).
+
+This is not good news to phone manufactures of course. But maybe they can turn their business into manufacturing the screens in different dimensions for different uses.
+4 – One system for everything
+
+This super powerful cloud/device can mean one device for everything as well. Or perhaps we should call it Operating Software at this point since it’s no longer physically there for us. It will mean that syncing will go to the next level. You’ll be able to access the same content in different screen form factors.
+
+That means that you watch, phone, TV, computer…etc, will have the same content and the same computing capabilities. This is far more powerful than the current cloud syncing that we already have, this will allow us to have the same exact applications everywhere (maybe with modifications to the design only).

@@ -23,15 +23,6 @@ import Container from "../components/Container.astro";
     </main>
     <Footer />
 
-    <script>
-      document
-        .getElementById("nav-toggle")
-        .addEventListener("click", toggleNav);
-
-      function toggleNav(): void {
-        document.body.dataset.nav =
-          document.body.dataset.nav === "true" ? "false" : "true";
-      }
-    </script>
+    <script src="../components/menu.ts"></script>
   </body>
 </html>
