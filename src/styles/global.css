@@ -17,12 +17,16 @@ h6 {
   @apply font-bold text-2xl text-left text-slate-900 mb-5 mt-8;
 }
 
-a {
-  @apply text-orange-500 text-left;
+h1 {
+  @apply text-8xl mt-0 mb-5;
 }
 
-h1 {
-  @apply text-6xl mt-0 mb-5;
+h2 {
+  @apply text-6xl font-bold mb-5;
+}
+
+a {
+  @apply text-orange-500 text-left;
 }
 
 hr {
