@@ -18,7 +18,7 @@ h6 {
 }
 
 a {
-  @apply text-white text-left;
+  @apply text-orange-500 text-left;
 }
 
 h1 {
