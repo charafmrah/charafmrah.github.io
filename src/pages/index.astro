@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Page from "../components/Page.astro";
 import TypewriterText from "../components/TypewriterText";
+import MovingCards from "../components/MovingCards";
+
+import { cardsData } from "../assets/data/PortfolioData";
 ---
 
 <Layout>
@@ -13,16 +16,43 @@ import TypewriterText from "../components/TypewriterText";
     />
   </Page>
   <Page>
-    <h2>About Me</h2>
+    <h2>Who am I?</h2>
     <p>
-      Blah blah blah I code sometimes blah blah blah PHP is dead blah blah blah
-      HTML is a language blah blah blah
+      Welcome to my portfolio site! I am a software engineer with a passion for
+      creating and building innovative projects. With experience in a wide range
+      of languages and technologies, I am always looking for new challenges and
+      opportunities to grow as a developer. Thank you for visiting and I hope
+      you enjoy exploring my work.
     </p>
   </Page>
-</Layout>
+  <Page>
+    <h2>Skills</h2>
+    <p>
+      Proficient in languages such as PHP, Java, JavaScript, Python, and Kotlin
+      Experienced in technologies such as HTML, CSS, Bootstrap, WordPress,
+      Android SDK, Flutter, Git, MySQL, SQLite, Firebase, Linux, and Apache
+      Skilled in web design, user interfaces, and software development best
+      practices
+    </p>
+  </Page>
+  <Page id="projects">
+    <h2>Projects</h2>
 
-<style>
-  p {
-    margin-top: 10px;
-  }
-</style>
+    <MovingCards data={cardsData} client:load />
+  </Page>
+  <Page>
+    <h2>Contact</h2>
+    <p>
+      If you would like to get in touch with me, please feel free to send me an
+      email at <a href="mailto:charaf4charaf@gmail.com"
+        >charaf4charaf@gmail.com</a
+      >
+    </p>
+  </Page>
+
+  <style>
+    p {
+      margin-top: 10px;
+    }
+  </style>
+</Layout>
