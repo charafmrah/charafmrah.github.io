@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/movingcards.css";
+import ArrowUpRight from "../assets/icons/ArrowUpRight.svg";
 
 interface Card {
   id: number;

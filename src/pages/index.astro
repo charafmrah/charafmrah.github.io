@@ -1,20 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Page from "../components/Page.astro";
-import TypewriterText from "../components/TypewriterText";
 import MovingCards from "../components/MovingCards";
+import Table from "../components/Table";
 
 import { cardsData } from "../assets/data/PortfolioData";
+import Skills from "./home/Skills.astro";
+import Contact from "./home/Contact.astro";
+import About from "./home/About.astro";
+import Landing from "./home/Landing.astro";
 ---
 
 <Layout>
   <div id="home">
     <Page>
-      <h1 class="mb-5">Hi! I'm Charaf Mrah 👋</h1>
-      <TypewriterText
-        text={["Software Engineer", "Web Developer", "Freelancer"]}
-        client:load
-      />
+      <Landing />
     </Page>
   </div>
   <div id="projects">
@@ -25,44 +25,18 @@ import { cardsData } from "../assets/data/PortfolioData";
   <div id="about">
     <Page>
       <div class="content">
-        <h2>Who am I?</h2>
-        <p>
-          Welcome to my portfolio site! I am a software engineer with a passion
-          for creating and building innovative projects. With experience in a
-          wide range of languages and technologies, I am always looking for new
-          challenges and opportunities to grow as a developer. Thank you for
-          visiting and I hope you enjoy exploring my work.
-        </p>
+        <About />
       </div>
     </Page>
   </div>
   <Page>
     <div class="content">
-      <h2>Skills</h2>
-      <p>
-        Proficient in languages such as PHP, Java, JavaScript, Python, and
-        Kotlin
-      </p>
-
-      <p>
-        Experienced in technologies such as HTML, CSS, Bootstrap, WordPress,
-        Android SDK, Flutter, Git, MySQL, SQLite, Firebase, and Linux
-      </p>
-      <p>
-        Skilled in web design, user interfaces, and software development best
-        practices
-      </p>
+      <Skills />
     </div>
   </Page>
   <Page>
     <div class="content">
-      <h2>Contact</h2>
-      <p>
-        If you would like to get in touch with me, please feel free to send me
-        an email at <a href="mailto:charaf4charaf@gmail.com"
-          >charaf4charaf@gmail.com</a
-        >
-      </p>
+      <Contact />
     </div>
   </Page>
 </Layout>

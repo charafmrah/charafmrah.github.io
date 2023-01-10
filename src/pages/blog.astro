@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Page from "../components/Page.astro";
+import Table from "../components/Table";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -12,6 +13,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 
 <Layout>
   <Page>
+    <Table />
     <ul>
       {
         posts.map((post) => (

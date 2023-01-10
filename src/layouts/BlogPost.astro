@@ -25,15 +25,17 @@ const {
 
   <body data-nav="false">
     <main>
-      <TableOfContents client:load />
-      <article>
-        <div class="contents">
-          <h1 class="title">{title}</h1>
-          <p>{description}</p>
-          <hr />
-          <slot />
-        </div>
-      </article>
+      <div class="page">
+        <TableOfContents client:load />
+        <article>
+          <div class="contents">
+            <h1 class="title">{title}</h1>
+            <p>{description}</p>
+            <hr />
+            <slot />
+          </div>
+        </article>
+      </div>
     </main>
 
     <Footer />
@@ -44,7 +46,7 @@ const {
         box-sizing: border-box;
       }
 
-      main {
+      .page {
         height: 100vh;
         overflow: auto;
         padding: 5em 5em 10em 17em;
