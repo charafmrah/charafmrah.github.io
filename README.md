@@ -27,6 +27,8 @@
 
 ## About The Project
 
+!["Portfolio website"](product.gif)
+
 Portfolio website built using React & TypeScript & TailwindCSS.
 
 I will be adding more features to the website such as connecting it to a headless WordPress instance & adding a contact form.
