@@ -7,7 +7,7 @@
     <img src="public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Personal Website</h3>
+  <h3 align="center">My Portfolio Website</h3>
 
   <p align="center">
     A portfolio website.
@@ -29,9 +29,9 @@
 
 !["Portfolio website"](product.gif)
 
-Portfolio website built using React & TypeScript & TailwindCSS.
+This is my portfolio website. I built it using [Astro](https://astro.build/), a new static site generator.
 
-I will be adding more features to the website such as connecting it to a headless WordPress instance & adding a contact form.
+I will be adding more features to it in the future.
 
 ### Built With
 
