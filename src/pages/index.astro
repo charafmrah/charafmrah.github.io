@@ -35,12 +35,23 @@ import Landing from "../components/home/Landing.astro";
       <Skills />
     </div>
   </Page>
-  <Page>
-    <div class="content">
-      <Contact />
-    </div>
-  </Page>
+  <div id="contact">
+    <Page>
+      <div class="content">
+        <Contact />
+      </div>
+    </Page>
+  </div>
 </Layout>
+
+<script>
+  const appHeight = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty("--page-height", `${window.innerHeight}px`);
+  };
+  window.addEventListener("resize", appHeight);
+  appHeight();
+</script>
 
 <style>
   .content {

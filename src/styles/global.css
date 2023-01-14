@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --page-height: 100%;
+}
+
 body {
   @apply m-0 h-[100vh] w-[100vw] text-slate-700 font-Inter bg-black;
 }
