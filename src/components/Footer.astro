@@ -45,13 +45,7 @@ import Bars from "../assets/icons/Bars.astro";
 
 <style>
   nav {
-    height: 50vh;
-    width: 100%;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    z-index: 1;
-    overflow: hidden;
+    @apply h-[100vh] md:h-[50vh] overflow-y-scroll py-5 px-12 w-full absolute bottom-0 left-0 z-[1] overflow-hidden;
   }
 
   .nav-link-label {
@@ -106,8 +100,9 @@ import Bars from "../assets/icons/Bars.astro";
   }
 
   #nav-links {
-    display: flex;
-    gap: clamp(1rem, 2vw, 2rem);
+    @apply flex flex-col items-center md:flex-row gap-5;
+  }
+  #nav-links {
     margin-top: clamp(2rem, 2vw, 3rem);
     padding: 0rem clamp(1rem, 2vw, 2rem);
     transform: translateY(70%) scale(0.9);

@@ -43,7 +43,7 @@ main {
 }
 
 body[data-nav="true"] > main {
-  transform: translateY(-50%);
+  @apply translate-y-[-100%] md:translate-y-[-50%];
 }
 
 body[data-nav="true"] > footer > nav > #nav-links {
@@ -51,7 +51,7 @@ body[data-nav="true"] > footer > nav > #nav-links {
 }
 
 body[data-nav="true"] > #nav-toggle {
-  background-color: rgb(85, 130, 149);
+  @apply bg-orange-400;
 }
 
 #nav-toggle > i {
