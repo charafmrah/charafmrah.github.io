@@ -8,6 +8,10 @@
   --page-height: 100%;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   @apply m-0 h-[var(--page-height)] min-h-[-webkit-fill-available] w-[100vw] text-slate-700 font-Inter bg-black;
 }
@@ -46,19 +50,19 @@ main {
   @apply h-[100vh] w-[100vw] bg-white bg-center bg-cover m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
 }
 
-body[data-nav="true"] > main {
-  @apply translate-y-[-100%] md:translate-y-[-50%];
+body[data-nav="true"]>main {
+  @apply translate-y-[-100%] md: translate-y-[-50%];
 }
 
-body[data-nav="true"] > footer > nav > #nav-links {
+body[data-nav="true"]>footer>nav>#nav-links {
   transform: translateY(0%) scale(1);
 }
 
-body[data-nav="true"] > #nav-toggle {
+body[data-nav="true"]>#nav-toggle {
   @apply bg-orange-400;
 }
 
-#nav-toggle > i {
+#nav-toggle>i {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -71,12 +75,12 @@ body[data-nav="true"] > #nav-toggle {
   transition-duration: 400ms;
 }
 
-body:not([data-nav="true"]) > #nav-toggle:hover > .open {
+body:not([data-nav="true"])>#nav-toggle:hover>.open {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-body[data-nav="true"] > #nav-toggle > .close {
+body[data-nav="true"]>#nav-toggle>.close {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
