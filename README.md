@@ -137,5 +137,5 @@ Charaf Mrah - [@charafmrah](https://twitter.com/charafmrah) - charaf4charaf@gmai
 [tailwind-url]: https://tailwindcss.com
 [typescript]: https://img.shields.io/badge/Typescript-0d47a1?style=for-the-badge&logo=typescript&logoColor=white
 [typescript-url]: https://typescriptlang.com
-[astro]: https://img.shields.io/badge/Astro-0d47a1?style=for-the-badge&logo=astro&logoColor=white
+[astro]: https://img.shields.io/badge/Astro-?style=for-the-badge&logo=astro&logoColor=white
 [astro-url]: https://astro.build
