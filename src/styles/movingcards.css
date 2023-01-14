@@ -1,5 +1,5 @@
 .moving-cards {
-  @apply flex w-[90%] my-5 gap-5;
+  @apply flex  w-[90%] my-5 gap-5;
 }
 
 .panel {
