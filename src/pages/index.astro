@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 import Skills from "../components/home/Skills.astro";
 import Contact from "../components/home/Contact.astro";
@@ -8,13 +8,13 @@ import Landing from "../components/home/Landing.astro";
 import Projects from "../components/home/Projects.astro";
 ---
 
-<Layout>
+<MainLayout>
   <Landing />
   <Projects />
   <About />
   <Skills />
   <Contact />
-</Layout>
+</MainLayout>
 
 <script>
   const appHeight = () => {
