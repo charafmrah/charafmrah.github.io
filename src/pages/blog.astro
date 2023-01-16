@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Page from "../components/Page.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import HorizontalPageLayout from "../layouts/HorizontalPageLayout.astro";
 import Table from "../components/Table";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -11,8 +11,8 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 );
 ---
 
-<Layout>
-  <Page>
+<MainLayout>
+  <HorizontalPageLayout>
     <Table />
     <ul>
       {
@@ -30,8 +30,8 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
         ))
       }
     </ul>
-  </Page>
-</Layout>
+  </HorizontalPageLayout>
+</MainLayout>
 
 <style>
   ul {
