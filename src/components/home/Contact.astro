@@ -1,35 +1,40 @@
-<div id="text">
-  <div class="line">
-    <p class="word">Contact</p>
-    <p class="word">Me</p>
-  </div>
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+---
 
-  <div class="line">
-    <p class="word">Via A</p>
-    <a
-      id="calendly-link"
-      href="https://calendly.com/charafmrah/15min"
-      target="_blank"
-      class="word fancy">Meeting</a
-    >
-  </div>
+<PageLayout id={"contact"}>
+  <div id="text">
+    <div class="line">
+      <p class="word">Contact</p>
+      <p class="word">Me</p>
+    </div>
 
-  <div class="line">
-    <p class="word">Or On Twitter</p>
-  </div>
+    <div class="line">
+      <p class="word">Via A</p>
+      <a
+        id="calendly-link"
+        href="https://calendly.com/charafmrah/15min"
+        target="_blank"
+        class="word fancy">Meeting</a
+      >
+    </div>
 
-  <div class="line">
-    <a
-      id="twitter-link"
-      href="https://twitter.com/charafmrah"
-      target="_blank"
-      class="word fancy"
-    >
-      @charafmrah
-    </a>
-  </div>
-</div>
+    <div class="line">
+      <p class="word">Or On Twitter</p>
+    </div>
 
+    <div class="line">
+      <a
+        id="twitter-link"
+        href="https://twitter.com/charafmrah"
+        target="_blank"
+        class="word fancy"
+      >
+        @charafmrah
+      </a>
+    </div>
+  </div>
+</PageLayout>
 <style is:inline>
   :root {
     --orange: rgb(255, 159, 67);

@@ -1,4 +1,8 @@
-<section class="page">
+---
+const id = Astro.props.id;
+---
+
+<section id={id} class="page">
   <slot />
 </section>
 

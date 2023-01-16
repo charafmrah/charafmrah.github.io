@@ -1,12 +1,15 @@
 ---
 import TypewriterText from "../../components/TypewriterText";
+import PageLayout from "../../layouts/PageLayout.astro";
 ---
 
-<h1>Hi! I'm Charaf Mrah 👋</h1>
-<TypewriterText
-  text={["Software Engineer", "Web Developer", "Freelancer"]}
-  client:load
-/>
+<PageLayout id={"home"}>
+  <h1>Hi! I'm Charaf Mrah 👋</h1>
+  <TypewriterText
+    text={["Software Engineer", "Web Developer", "Freelancer"]}
+    client:load
+  />
+</PageLayout>
 
 <style>
   h1 {

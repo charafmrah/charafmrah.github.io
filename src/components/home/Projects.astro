@@ -1,0 +1,9 @@
+---
+import MovingCards from "../MovingCards";
+import { cardsData } from "../../assets/data/PortfolioData";
+import PageLayout from "../../layouts/PageLayout.astro";
+---
+
+<PageLayout id={"projects"}>
+  <MovingCards data={cardsData} client:load />
+</PageLayout>
