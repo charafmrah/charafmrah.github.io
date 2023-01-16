@@ -45,6 +45,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         overflow-y: hidden;
         scroll-behavior: smooth;
       }
+
+      .hidden {
+        opacity: 0;
+        filter: blur(10px);
+        transition: all 1s;
+      }
+
+      @media (prefers-reduced-motion) {
+        .hidden {
+          transition: none;
+        }
+      }
+
+      .show {
+        opacity: 1;
+        filter: blur(0);
+      }
     </style>
   </body>
 </html>

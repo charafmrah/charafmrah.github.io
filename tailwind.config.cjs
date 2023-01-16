@@ -6,10 +6,15 @@ module.exports = {
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
       },
-      backgroundImage: {
-        "body-background": "url('/src/images/background.jpg')",
+      colors: {
+        "light-orange": "#E07A5F",
+        "light-pink": "#D4CBE5",
+        "light-green": "#81B29A",
+        "light-yellow": "#F2CC8F",
+        "dark-purple": "#3D405B",
+        "blueish-purple": "#9BB1FF",
       },
     },
+    plugins: [],
   },
-  plugins: [],
 };
