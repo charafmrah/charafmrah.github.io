@@ -33,8 +33,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
           : (container.scrollLeft -= 1000);
       });
     </script>
+    <script>
+      let options = {
+        root: null,
+        rootMargin: "0px",
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      });
 
-    <style>
+      const hiddentElements = document.querySelectorAll(".component-hidden");
+      hiddentElements.forEach((element) => {
+        observer.observe(element);
+      }, options);
+    </script>
+
+    <style is:inline>
       .container {
         display: flex;
         min-width: 100%;
@@ -46,14 +66,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         scroll-behavior: smooth;
       }
 
-      .hidden {
+      .component-hidden {
         opacity: 0;
-        filter: blur(10px);
-        transition: all 1s;
+        filter: blur(5px);
+        transform: translateY(100%);
+        transition: all 0.5s;
       }
 
       @media (prefers-reduced-motion) {
-        .hidden {
+        .component-hidden {
           transition: none;
         }
       }
@@ -61,6 +82,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
       .show {
         opacity: 1;
         filter: blur(0);
+        transform: translateY(0);
       }
     </style>
   </body>

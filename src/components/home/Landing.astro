@@ -4,15 +4,11 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"home"}>
-  <h1>Hi! I'm Charaf Mrah 👋</h1>
-  <TypewriterText
-    text={["Software Engineer", "Web Developer", "Freelancer"]}
-    client:load
-  />
+  <div class="component-hidden text-center">
+    <h1>Hi! I'm Charaf Mrah 👋</h1>
+    <TypewriterText
+      text={["Software Engineer", "Web Developer", "Freelancer"]}
+      client:load
+    />
+  </div>
 </HorizontalPageLayout>
-
-<style>
-  h1 {
-    @apply text-center;
-  }
-</style>

@@ -3,7 +3,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"contact"}>
-  <div id="text">
+  <div id="text" class="component-hidden">
     <div class="line">
       <p class="word">Contact</p>
       <p class="word">Me</p>
@@ -37,8 +37,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 </HorizontalPageLayout>
 <style is:inline>
   :root {
-    --orange: rgb(255, 159, 67);
-    --yellow: rgb(255, 234, 67);
+    --orange: #ff9f43;
+    --yellow: #ffea43;
   }
 
   @keyframes float {
