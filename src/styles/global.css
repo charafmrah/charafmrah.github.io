@@ -49,38 +49,3 @@ hr {
 main {
   @apply h-[100vh] w-[100vw] bg-white bg-center bg-cover m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
 }
-
-body[data-nav="true"] > main {
-  @apply translate-y-[-100%] md:translate-y-[-50%];
-}
-
-body[data-nav="true"] > footer > nav > #nav-links {
-  transform: translateY(0%) scale(1);
-}
-
-body[data-nav="true"] > #nav-toggle {
-  @apply bg-orange-400;
-}
-
-#nav-toggle > i {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  color: rgb(246, 231, 224);
-  font-size: 1.75rem;
-  opacity: 0;
-  transition: transform, opacity;
-  transition-timing-function: ease;
-  transition-duration: 400ms;
-}
-
-body:not([data-nav="true"]) > #nav-toggle:hover > .open {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-body[data-nav="true"] > #nav-toggle > .close {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}

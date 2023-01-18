@@ -5,6 +5,7 @@ import blog from "../assets/images/blog.jpg";
 import about from "../assets/images/about.jpg";
 import contact from "../assets/images/contact.jpg";
 import Bars from "../assets/icons/Bars.astro";
+import Close from "../assets/icons/Close.astro";
 ---
 
 <footer>
@@ -36,12 +37,38 @@ import Bars from "../assets/icons/Bars.astro";
   </nav>
 
   <button id="nav-toggle" type="button">
-    <!--
-    <Bars class="open" />
-    <Bars class="close" />
-     -->
+    <i class="nav-toggle-icon">
+      <Bars />
+    </i>
+    <i class="nav-close-icon">
+      <Close />
+    </i>
   </button>
 </footer>
+
+<style is:global>
+  body[data-nav="true"] > main {
+    @apply translate-y-[-100%] md:translate-y-[-50%];
+  }
+
+  body[data-nav="true"] > footer > nav > #nav-links {
+    transform: translateY(0%) scale(1);
+  }
+
+  body[data-nav="true"] > footer > #nav-toggle {
+    @apply bg-white;
+  }
+
+  body:not([data-nav="true"]) > footer > #nav-toggle > .nav-toggle-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  body[data-nav="true"] > footer > #nav-toggle > .nav-close-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+</style>
 
 <style>
   nav {
