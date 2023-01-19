@@ -1,9 +1,9 @@
 .moving-cards {
-  @apply flex flex-col max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-scroll w-[90%] my-5 gap-5;
+  @apply flex flex-col justify-center items-center max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-scroll w-[90%] py-52 gap-5;
 }
 
 .panel {
-  @apply p-5 bg-cover bg-center bg-no-repeat h-[50vh] cursor-pointer lg:flex-[0.5] relative transition flex flex-col duration-300 ease-in text-white;
+  @apply p-5 bg-cover bg-center bg-no-repeat min-w-full h-[50vh] cursor-pointer lg:flex-[0.5] relative transition flex flex-col duration-300 ease-in text-white;
 }
 
 .panel.active {
