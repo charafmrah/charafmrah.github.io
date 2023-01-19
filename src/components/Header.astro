@@ -1,5 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
+import DarkLightMode from "../assets/icons/DarkLightMode.astro";
+import Resume from "../assets/icons/Resume.astro";
 import logo from "../assets/images/logo.png";
 ---
 
@@ -9,8 +11,8 @@ import logo from "../assets/images/logo.png";
   <a href="/#home">
     <Image src={logo} width={200} alt="charaf mrah" />
   </a>
-  <div class="flex gap-5 text-black font-semibold text-xl">
-    <button>Resume</button>
-    <button>Dark</button>
+  <div class="flex gap-5 items-center text-black font-semibold text-xl">
+    <DarkLightMode />
+    <Resume />
   </div>
 </div>
