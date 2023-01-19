@@ -6,13 +6,20 @@ import logo from "../assets/images/logo.png";
 ---
 
 <div
-  class="z-20 w-full bg-white py-2 px-5 absolute top-0 left-0 flex flex-col lg:flex-row items-center gap-3 justify-between"
+  class="z-20 w-full bg-white py-2 px-5 absolute top-0 left-0 flex items-center gap-3 justify-between"
 >
-  <a href="/#home">
+  <a href="/#home" class="shrink-0">
     <Image src={logo} width={200} alt="charaf mrah" />
   </a>
-  <div class="flex gap-5 items-center text-black font-semibold text-xl">
+  <div
+    class="flex gap-5 justify-center items-center text-black font-semibold text-xl"
+  >
     <DarkLightMode />
-    <Resume />
+    <a
+      href="https://docs.google.com/document/d/1C0H51uE7jfJ9IL7-pILhSeYVvDy_crgKwBM2Sb3aeAg/edit?usp=sharing"
+      target="_blank"
+    >
+      <Resume />
+    </a>
   </div>
 </div>
