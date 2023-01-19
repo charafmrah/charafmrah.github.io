@@ -8,17 +8,9 @@ const id = Astro.props.id;
 
 <style>
   .page {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: var(--page-height);
-    max-height: var(--page-height);
-    min-height: -webkit-fill-available;
-    width: 100vw;
-    min-height: -webkit-fill-available;
+    @apply px-6 flex-none flex flex-col justify-center items-center h-[var(--page-height)] max-h-[var(--page-height)] min-h-[-webkit-fill-available] w-full overflow-hidden;
+  }
+  .page {
     scroll-snap-align: start;
-    overflow: hidden;
   }
 </style>
