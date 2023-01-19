@@ -1,5 +1,5 @@
 .moving-cards {
-  @apply flex flex-col max-h-[var(--page-height)] lg:flex-row overflow-scroll w-[90%] my-5 gap-5;
+  @apply flex flex-col max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-scroll w-[90%] my-5 gap-5;
 }
 
 .panel {
