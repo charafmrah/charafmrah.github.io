@@ -3,33 +3,76 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"skills"}>
-  <div
-    id="skills"
-    class="component-hidden flex gap-2 text-lg md:gap-44 md:text-2xl justify-center font-semibold list-outside"
-  >
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>React</li>
-      <li>Node.js</li>
-      <li>Next.js</li>
-      <li>Express.js</li>
-      <li>WordPress</li>
-      <li>Android SDK</li>
-      <li>Flutter</li>
-      <li>Git</li>
-      <li>MySQL</li>
-      <li>SQLite</li>
-      <li>Firebase</li>
-      <li>Linux</li>
-    </ul>
-    <ul>
-      <li>JavaScript</li>
-      <li>Python</li>
-      <li>Java</li>
-      <li>PHP</li>
-      <li>Kotlin</li>
-      <li>TypeScript</li>
-    </ul>
+  <div class="component-hidden skills-card">
+    <div class="tools">
+      <div class="circle">
+        <span class="red box"></span>
+      </div>
+      <div class="circle">
+        <span class="yellow box"></span>
+      </div>
+      <div class="circle">
+        <span class="green box"></span>
+      </div>
+    </div>
+    <div
+      class="p-5 flex flex-col gap-2 text-lg md:text-xl justify-center font-semibold"
+    >
+      <div>
+        <h3>Programming languages:</h3>
+        <p>JavaScript - Java - Python - PHP - Kotlin - TypeScript</p>
+      </div>
+      <div>
+        <h3>Technologies:</h3>
+        <p>
+          React - HTML - CSS - Node.js - Next.js - Express.js - WordPress -
+          Android SDK - Flutter - Git - MySQL - SQLite - Firebase - Linux
+        </p>
+      </div>
+    </div>
   </div>
+  <div id="skills" class=""></div>
 </HorizontalPageLayout>
+
+<style>
+  .skills-card {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #f8fbfe;
+    border-radius: 8px;
+    z-index: 1;
+  }
+
+  .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+  }
+
+  .circle {
+    padding: 0 4px;
+  }
+
+  .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+  }
+
+  .red {
+    background-color: #ff605c;
+  }
+
+  .yellow {
+    background-color: #ffbd44;
+  }
+
+  .green {
+    background-color: #00ca4e;
+  }
+</style>

@@ -6,6 +6,7 @@ import Contact from "../components/home/Contact.astro";
 import About from "../components/home/About.astro";
 import Landing from "../components/home/Landing.astro";
 import Projects from "../components/home/Projects.astro";
+import Experience from "../components/home/Experience.astro";
 ---
 
 <MainLayout>
@@ -13,6 +14,13 @@ import Projects from "../components/home/Projects.astro";
   <Projects />
   <About />
   <Skills />
+  <Experience
+    jobs={[
+      { title: "Test 1", date: "2020-2021", description: "test description 1" },
+      { title: "Test 2", date: "2020-2021", description: "test description 2" },
+      { title: "Test 3", date: "2020-2021", description: "test description 3" },
+    ]}
+  />
   <Contact />
 </MainLayout>
 

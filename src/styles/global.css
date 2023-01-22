@@ -33,6 +33,10 @@ h2 {
   @apply text-6xl font-bold mb-5;
 }
 
+h3 {
+  @apply text-slate-700 font-bold mb-5;
+}
+
 a {
   @apply text-orange-500 text-left;
 }

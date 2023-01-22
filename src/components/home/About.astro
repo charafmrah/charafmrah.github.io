@@ -3,17 +3,16 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"about"}>
-  <div class="component-hidden max-w-2xl">
+  <div class="component-hidden max-w-1xl">
     <div class="box">
       <span></span>
-      <div class="content mb-3 text-white">
-        <h2 class="text-2xl mb-3 text-white">Who am I?</h2>
+      <div class="content mb-3 text-slate-800">
+        <h2 class="text-3xl mb-3 text-slate-900 font-bold">Who am I?</h2>
         <p class="text-xl">
           I am a software engineer with a passion for creating and building
           innovative projects. With experience in a wide range of languages and
           technologies, I am always looking for new challenges and opportunities
-          to grow as a developer. Thank you for visiting and I hope you enjoy
-          exploring my work.
+          to grow as a developer.
         </p>
       </div>
     </div>
@@ -24,7 +23,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   .box {
     position: relative;
     width: 440px;
-    height: 600px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,8 +39,6 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     width: 50%;
     height: 100%;
     text-decoration: none;
-    background: #fff;
-    border-radius: 8px;
     transform: skewX(15deg);
     transition: 0.5s;
   }
@@ -53,8 +50,6 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     left: 100px;
     width: 50%;
     height: 100%;
-    background: #fff;
-    border-radius: 8px;
     transform: skewX(15deg);
     transition: 0.5s;
     filter: blur(30px);
@@ -88,21 +83,12 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     left: 0;
     width: 0;
     height: 0;
-    border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: 0.1s;
     animation: animate 2s ease-in-out infinite;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  }
-
-  .box span::before {
-    top: -80px;
-    left: 80px;
-    width: 100px;
-    height: 100px;
-    opacity: 1;
   }
 
   .box span::after {
@@ -112,7 +98,6 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     right: 0;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     opacity: 0;
@@ -121,28 +106,18 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     animation-delay: -1s;
   }
 
-  .box span:after {
-    bottom: -80px;
-    right: 80px;
-    width: 100px;
-    height: 100px;
-    opacity: 1;
-  }
-
   .box .content {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 400px;
-    height: 508px;
+    height: 400px;
     padding: 20px 40px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
     z-index: 1;
     transform: 0.5s;
-    color: #fff;
     justify-content: center;
     align-items: center;
   }
