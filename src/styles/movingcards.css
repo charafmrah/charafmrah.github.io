@@ -19,7 +19,11 @@
 }
 
 .panel > .card-id {
-  @apply opacity-0 lg:opacity-100 absolute top-5 right-5 text-white font-extrabold text-8xl;
+  @apply flex justify-center opacity-0 lg:opacity-100 absolute top-5 right-5 text-white font-extrabold text-8xl;
+}
+
+.panel.active > .card-id {
+  @apply justify-start;
 }
 
 .panel p {
