@@ -1,0 +1,46 @@
+---
+const text = Astro.props.text;
+---
+
+<button class="button">
+  <span class="text-slate-900">&nbsp;{text}&nbsp;</span>
+  <span class="hover-text" aria-hidden="true">&nbsp;{text}&nbsp;</span>
+</button>
+
+<style>
+  .button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    --border-right: 6px;
+    --animation-color: #fb923c;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-weight: 600;
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+  }
+
+  .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+  }
+
+  .button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color));
+  }
+</style>
