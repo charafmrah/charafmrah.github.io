@@ -51,5 +51,5 @@ hr {
 }
 
 main {
-  @apply h-[100vh] w-[100vw] bg-white bg-center bg-cover m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
+  @apply h-[100vh] w-[100vw] bg-slate-100 bg-center bg-cover m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
 }
