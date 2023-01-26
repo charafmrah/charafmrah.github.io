@@ -4,7 +4,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 const jobs = Astro.props.jobs;
 ---
 
-<HorizontalPageLayout id="jobs">
+<HorizontalPageLayout id={"jobs"}>
   <div class="component-hidden jobs-cards-wrapper">
     {
       jobs.map((job) => (

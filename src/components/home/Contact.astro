@@ -3,7 +3,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"contact"}>
-  <div id="text" class="component-hidden">
+  <div id="contact-text" class="component-hidden">
     <div class="line">
       <p class="word">Contact</p>
       <p class="word">Me</p>
@@ -81,7 +81,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     text-decoration: none;
   }
 
-  #text:has(.fancy:hover) .word:not(.fancy:hover) {
+  #contact-text:has(.fancy:hover) .word:not(.fancy:hover) {
     opacity: 0.2;
   }
 
