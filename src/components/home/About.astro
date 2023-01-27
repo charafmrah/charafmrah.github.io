@@ -5,18 +5,9 @@ import image from "../../assets/images/headshot.png";
 
 <HorizontalPageLayout id={"about"}>
   <div class="component-hidden flex gap-20 justify-center max-w-3xl">
-    <div>
-      <h2>Who am I?</h2>
-      <p>
-        I am a software engineer with a passion for creating and building
-        innovative projects. With experience in a wide range of languages and
-        technologies, I am always looking for new challenges and opportunities
-        to grow as a developer.
-      </p>
-    </div>
     <div class="about-card shrink-0">
       <div class="blob"></div>
-      <span class="img"></span>
+      <span class="img"><img src={image} class="" /></span>
       <h3>
         Charaf<br /><span>Mrah</span>
       </h3>
@@ -63,13 +54,22 @@ import image from "../../assets/images/headshot.png";
         </a>
       </div>
     </div>
+    <div>
+      <h2>Who am I?</h2>
+      <p>
+        I am a software engineer with a passion for creating and building
+        innovative projects. With experience in a wide range of languages and
+        technologies, I am always looking for new challenges and opportunities
+        to grow as a developer.
+      </p>
+    </div>
   </div>
 </HorizontalPageLayout>
 
 <style>
   .about-card {
-    width: 190px;
-    height: 254px;
+    width: 250px;
+    height: 400px;
     background: #fff;
     border-radius: 10px;
     text-align: center;
@@ -98,13 +98,14 @@ import image from "../../assets/images/headshot.png";
   .about-card .img {
     display: flex;
     margin: 30px auto 10px auto;
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     background-color: #fb923c;
     border-radius: 50%;
     font-size: 11px;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     transition: all 0.5s;
   }
 
@@ -115,6 +116,13 @@ import image from "../../assets/images/headshot.png";
     margin: 0 auto;
     background-color: #fff;
     z-index: 99999;
+  }
+
+  img {
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-card h3 {

@@ -34,7 +34,7 @@ h2 {
 }
 
 h3 {
-  @apply text-slate-700 font-bold mb-5;
+  @apply text-4xl text-slate-800 font-bold mb-5;
 }
 
 a {

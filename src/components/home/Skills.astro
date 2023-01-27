@@ -3,7 +3,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"skills"}>
-  <div class="component-hidden skills-card">
+  <div
+    class="component-hidden skills-card flex flex-col justify-center max-w-3xl max-h-96"
+  >
     <div class="tools">
       <div class="circle">
         <span class="red box"></span>
@@ -19,7 +21,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
       class="p-5 flex flex-col gap-2 text-lg md:text-xl justify-center font-semibold"
     >
       <div>
-        <h3>Programming languages:</h3>
+        <h3 class="mt-0">Programming languages:</h3>
         <p>JavaScript - Java - Python - PHP - Kotlin - TypeScript</p>
       </div>
       <div>
@@ -35,8 +37,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
 <style>
   .skills-card {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     background-color: #f8fbfe;
@@ -47,7 +49,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   .tools {
     display: flex;
     align-items: center;
-    padding: 9px;
+    padding-left: 1.25rem;
   }
 
   .circle {
@@ -64,14 +66,14 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   }
 
   .red {
-    background-color: #ff605c;
+    background-color: #f87171;
   }
 
   .yellow {
-    background-color: #ffbd44;
+    background-color: #fb923c;
   }
 
   .green {
-    background-color: #00ca4e;
+    background-color: #34d399;
   }
 </style>
