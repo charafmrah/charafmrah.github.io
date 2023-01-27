@@ -4,7 +4,7 @@ import image from "../../assets/images/headshot.png";
 ---
 
 <HorizontalPageLayout id={"about"}>
-  <div class="component-hidden flex gap-20 justify-center max-w-3xl">
+  <div class="component-hidden flex flex-wrap gap-20 justify-center max-w-3xl">
     <div class="about-card shrink-0">
       <div class="blob"></div>
       <span class="img"><img src={image} class="" /></span>
@@ -14,8 +14,8 @@ import image from "../../assets/images/headshot.png";
       <div id="socials" class="flex gap-3 justify-center">
         <a href="https://twitter.com/charafmrah" target="_blank">
           <svg
-            height="35"
-            width="35"
+            height="40"
+            width="40"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             viewBox="0 0 1024 1024"
@@ -28,8 +28,8 @@ import image from "../../assets/images/headshot.png";
         </a>
         <a href="https://linkedin.com/in/charafmrah" target="_blank">
           <svg
-            height="35"
-            width="35"
+            height="40"
+            width="40"
             xmlns="http://www.w3.org/2000/svg"
             class="ionicon"
             viewBox="0 0 512 512"
@@ -40,8 +40,8 @@ import image from "../../assets/images/headshot.png";
         </a>
         <a href="https://github.com/charafmrah" target="_blank">
           <svg
-            height="35"
-            width="35"
+            height="40"
+            width="40"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             viewBox="0 0 1024 1024"
@@ -54,13 +54,18 @@ import image from "../../assets/images/headshot.png";
         </a>
       </div>
     </div>
-    <div>
-      <h2>Who am I?</h2>
-      <p>
-        I am a software engineer with a passion for creating and building
-        innovative projects. With experience in a wide range of languages and
-        technologies, I am always looking for new challenges and opportunities
-        to grow as a developer.
+    <div class="flex-1">
+      <h2 class="mt-0">Who am I?</h2>
+      <p class="text-xl mb-5">
+        I'm a software engineer with a passion for technology and an
+        appreciation for the finer things in life: football (soccer), chess, and
+        books.
+      </p>
+      <p class="text-xl">
+        Growing up in a small town in Algeria, I was exposed to computers and
+        the internet at a young age and have since turned my hobby into a career
+        building real-world websites and apps. I'm a quick learner and have
+        experience with a variety of languages and technologies.
       </p>
     </div>
   </div>
@@ -77,7 +82,7 @@ import image from "../../assets/images/headshot.png";
   }
 
   .about-card:hover {
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.323);
     background-color: #fb923c;
   }
 
@@ -128,15 +133,15 @@ import image from "../../assets/images/headshot.png";
   .about-card h3 {
     margin: 0;
     text-align: center;
-    padding: 15px 10px;
-    font-size: 25px;
+    padding: 25px 10px;
+    font-size: 32px;
     transition: all 0.1s;
     z-index: -99;
-    line-height: 17px;
+    line-height: 25px;
   }
 
   .about-card span {
-    font-size: 18px;
+    font-size: 25px;
   }
 
   .about-card:hover h3 {
@@ -152,7 +157,7 @@ import image from "../../assets/images/headshot.png";
   .about-card:hover > #socials {
     opacity: 1;
     position: relative;
-    bottom: 25px;
+    bottom: 60px;
     text-align: center;
     transition: all 0.6s;
   }

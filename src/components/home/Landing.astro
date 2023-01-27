@@ -5,10 +5,48 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
 <HorizontalPageLayout id={"home"}>
   <div class="component-hidden text-center">
-    <h1 class="text-center">Hi! I'm Charaf Mrah 👋</h1>
-    <TypewriterText
-      text={["Software Engineer", "Web Developer", "Freelancer"]}
-      client:load
-    />
+    <h1 class="text-center">
+      Hi! I'm <span data-value="Charaf Mrah" id="name" class=""
+        >Charaf Mrah</span
+      >
+    </h1>
+    <div class="font-semibold">
+      <TypewriterText
+        text={["Software Engineer", "Web Developer", "Freelancer"]}
+        client:load
+      />
+    </div>
   </div>
 </HorizontalPageLayout>
+
+<script>
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  let interval = null;
+
+  (document.querySelector("#name") as HTMLElement).onmouseover = (event) => {
+    let iteration = 0;
+
+    clearInterval(interval);
+
+    interval = setInterval(() => {
+      const input = event.target as HTMLElement;
+      input.innerText = input.innerText
+        .split("")
+        .map((letter, index) => {
+          if (index < iteration) {
+            return input.dataset.value[index];
+          }
+
+          return letters[Math.floor(Math.random() * 26)];
+        })
+        .join("");
+
+      if (iteration >= input.dataset.value.length) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 30);
+  };
+</script>
