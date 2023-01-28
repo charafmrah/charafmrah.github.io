@@ -1,5 +1,5 @@
 .moving-cards {
-  @apply flex flex-col justify-center items-center max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-y-scroll w-[90%] py-52 gap-5;
+  @apply flex flex-col lg:justify-center items-center max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-y-scroll w-[90%] pt-20 pb-52 gap-5;
 }
 
 .panel {

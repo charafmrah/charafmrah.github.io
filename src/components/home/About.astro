@@ -4,7 +4,9 @@ import image from "../../assets/images/headshot.png";
 ---
 
 <HorizontalPageLayout id={"about"}>
-  <div class="component-hidden flex flex-wrap gap-20 justify-center max-w-3xl">
+  <div
+    class="component-hidden flex flex-wrap gap-20 justify-center max-w-3xl max-h-[50vh]"
+  >
     <div class="about-card shrink-0">
       <div class="blob"></div>
       <span class="img"><img src={image} class="" /></span>
@@ -74,7 +76,7 @@ import image from "../../assets/images/headshot.png";
 <style>
   .about-card {
     width: 250px;
-    height: 400px;
+    height: 100%;
     background: #fff;
     border-radius: 10px;
     text-align: center;
