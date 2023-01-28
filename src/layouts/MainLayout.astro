@@ -18,7 +18,9 @@ import Header from "../components/Header.astro";
   <body data-nav="false">
     <Header />
     <main>
-      <div class="container">
+      <div
+        class="container flex min-w-full flex-row items-center overflow-x-scroll overflow-y-hidden snap-mandatory snap-x scroll-smooth"
+      >
         <slot />
       </div>
     </main>
@@ -57,37 +59,5 @@ import Header from "../components/Header.astro";
         observer.observe(element);
       }, options);
     </script>
-
-    <style is:inline>
-      .container {
-        display: flex;
-        min-width: 100%;
-        flex-direction: row;
-        align-items: center;
-        scroll-snap-type: x mandatory;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        scroll-behavior: smooth;
-      }
-
-      .component-hidden {
-        opacity: 0;
-        filter: blur(5px);
-        transform: translateX(100%);
-        transition: all 0.5s;
-      }
-
-      @media (prefers-reduced-motion) {
-        .component-hidden {
-          transition: none;
-        }
-      }
-
-      .show {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-    </style>
   </body>
 </html>

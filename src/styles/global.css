@@ -53,3 +53,10 @@ hr {
 main {
   @apply h-[100vh] w-[100vw] bg-slate-100 bg-center bg-cover m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
 }
+
+.component-hidden {
+  @apply opacity-0 blur-sm translate-x-full motion-reduce:transition-none transition-all duration-500;
+}
+.show {
+  @apply opacity-100 blur-0 translate-y-0;
+}
