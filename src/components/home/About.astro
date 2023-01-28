@@ -5,9 +5,11 @@ import image from "../../assets/images/headshot.png";
 
 <HorizontalPageLayout id={"about"}>
   <div
-    class="component-hidden flex flex-wrap gap-20 justify-center max-w-3xl max-h-[50vh]"
+    class="about component-hidden flex flex-wrap gap-5 lg:gap-20 lg:justify-center items-center overflow-y-scroll max-w-3xl h-full lg:max-h-[50vh] pt-20 pb-52 lg:py-52"
   >
-    <div class="about-card shrink-0">
+    <div
+      class="about-card shrink-0 w-full lg:w-[250px] h-[50vh] lg:h-full bg-white rounded-md text-center transition-all duration-500"
+    >
       <div class="blob"></div>
       <span class="img"><img src={image} class="" /></span>
       <h3>
@@ -74,15 +76,6 @@ import image from "../../assets/images/headshot.png";
 </HorizontalPageLayout>
 
 <style>
-  .about-card {
-    width: 250px;
-    height: 100%;
-    background: #fff;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.5s;
-  }
-
   .about-card:hover {
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.323);
     background-color: #fb923c;
@@ -162,5 +155,16 @@ import image from "../../assets/images/headshot.png";
     bottom: 60px;
     text-align: center;
     transition: all 0.6s;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .about::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .about {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 </style>
