@@ -2,6 +2,17 @@
   @apply flex flex-col lg:justify-center items-center max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-y-scroll w-full lg:w-[90%] pt-20 pb-52 lg:py-52 gap-5;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.moving-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.moving-cards {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .panel {
   @apply p-5 bg-cover bg-center bg-no-repeat min-w-full lg:min-w-0 h-[50vh] cursor-pointer lg:flex-[0.5] relative transition flex flex-col duration-300 ease-in text-white;
 }

@@ -5,7 +5,7 @@ import Logo from "./Logo.astro";
 ---
 
 <div
-  class="z-20 w-full py-2 px-5 absolute top-0 left-0 flex items-center gap-3 justify-between"
+  class="header lg:header-desktop z-20 w-full py-2 px-5 absolute top-0 left-0 flex items-center gap-3 justify-between transition-all ease-in-out duration-500"
 >
   <a href="/#home" class="shrink-0">
     <Logo text="Charaf" />
@@ -24,3 +24,11 @@ import Logo from "./Logo.astro";
     </a>
   </div>
 </div>
+
+<style>
+  body[data-nav="true"] > .header {
+    transition: all 500ms;
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+</style>
