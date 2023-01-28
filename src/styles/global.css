@@ -57,6 +57,7 @@ main {
 .component-hidden {
   @apply opacity-0 blur-sm translate-x-full motion-reduce:transition-none transition-all duration-500;
 }
+
 .show {
-  @apply opacity-100 blur-0 translate-y-0;
+  @apply opacity-100 blur-0 translate-x-0;
 }
