@@ -44,7 +44,6 @@ import Header from "../components/Header.astro";
         rootMargin: "0px",
       };
       const observer = new IntersectionObserver((entries) => {
-        console.log(entries);
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
