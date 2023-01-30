@@ -4,6 +4,13 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
 ---
 
 <!DOCTYPE html>
@@ -15,7 +22,21 @@ import Header from "../components/Header.astro";
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
     />
   </head>
+
   <body data-nav="false">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-59JLRZ4JB2");
+    </script>
+
     <Header />
     <main>
       <div
