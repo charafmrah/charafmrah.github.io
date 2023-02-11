@@ -79,7 +79,7 @@ import Close from "../assets/icons/Close.astro";
 
 <style>
   nav {
-    @apply h-[var(--page-height)]  md:h-[50vh] overflow-y-scroll pt-5 pb-36 px-12 w-full absolute bottom-0 left-0 z-[1] overflow-hidden;
+    @apply absolute  bottom-0 left-0 z-[1] h-[var(--page-height)] w-full overflow-hidden overflow-y-scroll px-12 pt-5 pb-40 md:h-[50vh];
   }
 
   .nav-link-label {
@@ -136,7 +136,7 @@ import Close from "../assets/icons/Close.astro";
   }
 
   #nav-links {
-    @apply flex flex-col items-center md:flex-row gap-5;
+    @apply flex flex-col items-center gap-5 md:flex-row;
   }
   #nav-links {
     margin-top: clamp(1rem, 1vw, 2rem);

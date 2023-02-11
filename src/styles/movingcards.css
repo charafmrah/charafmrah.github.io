@@ -1,5 +1,5 @@
 .moving-cards {
-  @apply flex flex-col lg:justify-center items-center max-h-[var(--page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] lg:flex-row overflow-y-scroll w-full lg:w-[90%] pt-20 pb-52 lg:py-52 gap-5;
+  @apply flex h-[var(--page-height)] max-h-[var(--page-height)] min-h-[-webkit-fill-available] w-full flex-col items-center gap-5 overflow-y-scroll pt-20 pb-40 lg:w-[90%] lg:flex-row lg:justify-center lg:py-52;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -14,7 +14,7 @@
 }
 
 .panel {
-  @apply p-5 bg-cover bg-center bg-no-repeat min-w-full lg:min-w-0 h-[50vh] cursor-pointer lg:flex-[0.5] relative transition flex flex-col duration-300 ease-in text-white;
+  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat p-5 text-white transition duration-300 ease-in lg:min-w-0 lg:flex-[0.5];
 }
 
 .panel.active {
@@ -22,7 +22,7 @@
 }
 
 .panel h2 {
-  @apply text-3xl text-white lg:absolute lg:bottom-5 lg:left-5 m-0  lg:opacity-0;
+  @apply m-0 text-3xl text-white lg:absolute lg:bottom-5 lg:left-5  lg:opacity-0;
 }
 
 .panel.active h2 {
@@ -30,7 +30,7 @@
 }
 
 .panel > .card-id {
-  @apply flex justify-center opacity-0 lg:opacity-100 absolute top-5 right-5 text-white font-extrabold text-8xl;
+  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-white opacity-0 lg:opacity-100;
 }
 
 .panel.active > .card-id {
@@ -38,15 +38,15 @@
 }
 
 .panel p {
-  @apply text-lg lg:absolute bottom-14 left-5 m-0 lg:opacity-0;
+  @apply bottom-14 left-5 m-0 text-lg lg:absolute lg:opacity-0;
 }
 
 .panel.active p {
-  @apply lg:opacity-100 transition duration-700 ease-in;
+  @apply transition duration-700 ease-in lg:opacity-100;
 }
 
 .panel a {
-  @apply lg:hidden text-white;
+  @apply text-white lg:hidden;
 }
 
 .panel.active a {
