@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply m-0 max-h-[var(-page-height)] h-[var(--page-height)] min-h-[-webkit-fill-available] w-[100vw] text-slate-700 font-Inter bg-black;
+  @apply m-0 h-[var(--page-height)] max-h-[var(-page-height)] min-h-[-webkit-fill-available] w-screen bg-black font-Inter text-slate-700;
 }
 
 h1,
@@ -22,23 +22,23 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold text-2xl text-left text-slate-900 mb-5 mt-8;
+  @apply mb-5 mt-8 text-left text-2xl font-bold text-slate-900;
 }
 
 h1 {
-  @apply text-6xl mt-0 mb-5;
+  @apply mt-0 mb-5 text-6xl;
 }
 
 h2 {
-  @apply text-6xl font-bold mb-5;
+  @apply mb-5 text-6xl font-bold;
 }
 
 h3 {
-  @apply text-4xl text-slate-800 font-bold mb-5;
+  @apply mb-5 text-4xl font-bold text-slate-800;
 }
 
 a {
-  @apply text-orange-500 text-left;
+  @apply text-left text-orange-500;
 }
 
 hr {
@@ -51,14 +51,13 @@ hr {
 }
 
 main {
-  @apply h-[100vh] w-[100vw] bg-slate-100 bg-center bg-cover m-0 relative z-[2] transition-all duration-500 ease-in-out transform;
+  @apply relative z-[2] m-0 h-full w-full transform bg-slate-100 bg-cover bg-center transition-all duration-500 ease-in-out;
 }
 
 .component-hidden {
-  @apply opacity-0 blur-sm translate-x-full motion-reduce:transition-none transition-all duration-500;
+  @apply translate-x-full opacity-0 blur-sm transition-all duration-500 motion-reduce:transition-none;
 }
 
 .show {
-  @apply opacity-100 blur-0 translate-x-0;
+  @apply translate-x-0 opacity-100 blur-0;
 }
-
