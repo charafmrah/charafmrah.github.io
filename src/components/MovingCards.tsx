@@ -31,7 +31,22 @@ const MovingCards = ({ data }: Props) => {
           }}
         >
           <p className="card-id">{card.id}</p>
-
+          <a href={card.projectUrl} target="_blank">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="white"
+              className="absolute top-2 right-2 h-20 w-20 "
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+              ></path>
+            </svg>
+          </a>
           <a href={card.projectUrl} target="_blank">
             <h2>{card.title}</h2>
           </a>

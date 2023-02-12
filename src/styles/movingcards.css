@@ -38,7 +38,7 @@
 }
 
 .panel p {
-  @apply bottom-14 left-5 m-0 text-lg lg:absolute lg:opacity-0;
+  @apply bottom-14 left-5 m-0 text-lg font-medium lg:absolute lg:opacity-0;
 }
 
 .panel.active p {
@@ -51,4 +51,12 @@
 
 .panel.active a {
   @apply block;
+}
+
+.panel svg {
+  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-white opacity-0;
+}
+
+.panel.active svg {
+  @apply justify-end md:opacity-100;
 }
