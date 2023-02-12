@@ -25,7 +25,7 @@ declare global {
 
   <body
     data-nav="false"
-    class="m-0 h-[var(--page-height)] max-h-[var(-page-height)] min-h-[-webkit-fill-available] w-screen bg-black font-Inter text-slate-700"
+    class="m-0 w-screen bg-black font-Inter text-slate-700"
   >
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
@@ -42,10 +42,10 @@ declare global {
 
     <Header />
     <main
-      class="relative z-[2] m-0 h-full w-full transform bg-slate-100 bg-cover bg-center transition-all duration-500 ease-in-out"
+      class="relative z-[2] m-0 w-full transform bg-slate-100 bg-cover bg-center transition-all duration-500 ease-in-out"
     >
       <div
-        class="container flex min-h-full min-w-full snap-x snap-mandatory flex-row items-center overflow-y-hidden overflow-x-scroll scroll-smooth"
+        class="container flex min-w-full snap-x snap-mandatory flex-row items-center overflow-y-hidden overflow-x-scroll scroll-smooth"
       >
         <slot />
       </div>
