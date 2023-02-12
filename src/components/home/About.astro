@@ -5,17 +5,17 @@ import image from "../../assets/images/headshot.png";
 
 <HorizontalPageLayout id={"about"}>
   <div
-    class="about component-hidden flex flex-wrap gap-5 lg:gap-20 lg:justify-center items-center overflow-y-scroll max-w-3xl h-full max-h-xl pt-20 pb-52 lg:py-52"
+    class="about component-hidden max-h-xl flex h-full max-w-3xl flex-wrap items-center gap-5 overflow-y-scroll pt-20 pb-52 lg:justify-center lg:gap-20 lg:py-52"
   >
     <div
-      class="about-card shrink-0 w-full lg:w-[250px] h-[50vh] bg-white rounded-md text-center transition-all duration-500"
+      class="about-card h-[50vh] w-full shrink-0 rounded-md bg-white text-center transition-all duration-500 lg:w-[250px]"
     >
       <div class="blob"></div>
       <span class="img"><img src={image} /></span>
       <h3>
         Charaf<br /><span>Mrah</span>
       </h3>
-      <div id="socials" class="flex gap-3 justify-center">
+      <div id="socials" class="flex justify-center gap-3">
         <a href="https://twitter.com/charafmrah" target="_blank">
           <svg
             height="40"
@@ -60,7 +60,7 @@ import image from "../../assets/images/headshot.png";
     </div>
     <div class="flex-1">
       <h2 class="mt-0">Who am I?</h2>
-      <p class="text-xl mb-5">
+      <p class="mb-5 text-xl">
         I'm a software engineer with a passion for technology and an
         appreciation for the finer things in life: football (soccer), chess, and
         books.
