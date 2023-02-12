@@ -39,7 +39,16 @@ const {
     </main>
 
     <Footer />
-    <script src="../components/menu.ts"></script>
+    <script>
+      document
+        .getElementById("nav-toggle")
+        .addEventListener("click", toggleNav);
+
+      function toggleNav(): void {
+        document.body.dataset.nav =
+          document.body.dataset.nav === "true" ? "false" : "true";
+      }
+    </script>
     <script src="../components/toc.js"></script>
     <style>
       * {
