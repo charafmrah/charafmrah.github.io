@@ -1,10 +1,14 @@
 ---
 const id = Astro.props.id;
+const customization = Astro.props.class;
 ---
 
 <section
   id={id}
-  class="flex h-[var(--page-height)] max-h-[var(-page-height)] min-h-[-webkit-fill-available] w-screen max-w-full flex-none snap-start flex-col items-center justify-center overflow-hidden overflow-y-scroll px-6"
+  class:list={[
+    customization,
+    "flex h-[var(--page-height)] max-h-[var(-page-height)] min-h-[-webkit-fill-available] w-screen max-w-full flex-none snap-start flex-col items-center justify-center overflow-hidden overflow-y-scroll px-6",
+  ]}
 >
   <slot />
 </section>
