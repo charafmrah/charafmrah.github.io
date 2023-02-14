@@ -44,3 +44,30 @@ a {
 .show {
   @apply translate-x-0 opacity-100 blur-0;
 }
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0f172a;
+}
+
+/* Selection */
+::selection {
+  color: white;
+  background: #fb923c;
+}

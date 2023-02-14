@@ -14,15 +14,15 @@
 }
 
 .panel {
-  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat p-5 text-white transition duration-300 ease-in lg:min-w-0 lg:flex-[0.5];
+  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat p-5 text-white transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5];
 }
 
 .panel.active {
-  @apply lg:flex-[5];
+  @apply transition-all duration-300 ease-in-out lg:flex-[5];
 }
 
 .panel h2 {
-  @apply m-0 text-3xl text-white lg:absolute lg:bottom-5 lg:left-5  lg:opacity-0;
+  @apply m-0 text-3xl text-white transition-all duration-700 ease-in lg:absolute lg:bottom-5 lg:left-5  lg:opacity-0;
 }
 
 .panel.active h2 {
@@ -42,7 +42,7 @@
 }
 
 .panel.active p {
-  @apply transition duration-700 ease-in lg:opacity-100;
+  @apply transition-all duration-700 ease-in lg:opacity-100;
 }
 
 .panel a {
@@ -54,9 +54,9 @@
 }
 
 .panel svg {
-  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-white opacity-0;
+  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-white opacity-0 transition;
 }
 
 .panel.active svg {
-  @apply justify-end md:opacity-100;
+  @apply justify-end transition-opacity  md:opacity-100;
 }

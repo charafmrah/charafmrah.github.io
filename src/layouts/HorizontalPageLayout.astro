@@ -12,3 +12,14 @@ const customization = Astro.props.class;
 >
   <slot />
 </section>
+
+<script>
+  const container = document.querySelector(".container");
+
+  container.addEventListener("wheel", (e: WheelEvent) => {
+    e.preventDefault();
+    e.deltaY > 0
+      ? (container.scrollLeft += 1000)
+      : (container.scrollLeft -= 1000);
+  });
+</script>
