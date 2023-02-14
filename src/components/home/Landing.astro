@@ -7,12 +7,12 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   <div id="home-container" class="component-hidden text-center">
     <canvas id="demo-canvas"></canvas>
     <div
-      class="absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 p-0 text-center"
+      class="absolute top-1/2 left-1/2 m-0 w-full -translate-x-1/2 -translate-y-1/2 p-0 px-5 text-center"
     >
-      <h1 class="text-center">
+      <h1 class="text-center font-thin lg:text-8xl">
         Hi! I'm <span data-value="Charaf Mrah" id="name">Charaf Mrah</span>
       </h1>
-      <div class="font-semibold">
+      <div class="font-normal lg:text-2xl">
         <TypewriterText
           text={["Software Engineer", "Web Developer", "Freelancer"]}
           client:load
