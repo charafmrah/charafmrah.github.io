@@ -22,7 +22,7 @@ h6 {
 }
 
 h1 {
-  @apply mt-0 mb-5 text-6xl;
+  @apply mt-0 mb-5 text-4xl lg:text-6xl;
 }
 
 h2 {
