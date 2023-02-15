@@ -58,7 +58,12 @@ declare global {
         .getElementById("nav-toggle")
         .addEventListener("click", toggleNav);
 
+      document.querySelectorAll("a.nav-link").forEach((link) => {
+        link.addEventListener("click", toggleNav);
+      });
+
       function toggleNav(): void {
+        console.log("toggle");
         document.body.dataset.nav =
           document.body.dataset.nav === "true" ? "false" : "true";
       }
