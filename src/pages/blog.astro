@@ -41,13 +41,15 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                             </>
                           </a>
                         </h2>
-                        <Image
-                          src={import(
-                            `../assets/images/hero/${post.frontmatter.heroImage}`
-                          )}
-                          alt={post.frontmatter.title}
-                          class="relative z-10 mb-5 h-64 w-full rounded-lg object-cover shadow-lg"
-                        />
+                        {post.frontmatter.heroImage && (
+                          <Image
+                            src={import(
+                              `../assets/images/hero/${post.frontmatter.heroImage}.png`
+                            )}
+                            alt={post.frontmatter.title}
+                            class="relative z-10 mb-5 h-64 w-full rounded-lg object-cover shadow-lg"
+                          />
+                        )}
                       </>
 
                       <>

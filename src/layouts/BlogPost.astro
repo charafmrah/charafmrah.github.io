@@ -21,7 +21,7 @@ const {
   <div
     class="page h-screen overflow-auto py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
   >
-    <TableOfContents client:load />
+    <TableOfContents />
     <article>
       <div class="contents">
         <h1 class="title">{title}</h1>
@@ -29,7 +29,7 @@ const {
           heroImage && (
             <Image
               class="mb-10 w-full rounded-lg"
-              src={import(`../assets/images/hero/${heroImage}`)}
+              src={import(`../assets/images/hero/${heroImage}.png`)}
               alt="Hero image"
             />
           )
