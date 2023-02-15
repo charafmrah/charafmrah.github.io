@@ -1,7 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HorizontalPageLayout from "../layouts/HorizontalPageLayout.astro";
-import Table from "../components/Table";
+import { Image } from "@astrojs/image/components";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -14,7 +13,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 <MainLayout>
   <div class="min-h-screen w-full max-w-7xl lg:col-span-3">
     <section>
-      <div class="p-5 lg:py-12 lg:px-5">
+      <div class="p-5 lg:py-32 lg:px-5">
         <div class="mt-20">
           <h1
             class="text-4xl font-bold tracking-tighter text-black lg:text-8xl"
@@ -23,7 +22,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
           </h1>
         </div>
         <div
-          class="mt-8 space-y-12 text-base text-zinc-500 dark:text-zinc-500 lg:col-span-3 lg:mt-24"
+          class="mt-8 space-y-12 text-base text-zinc-800 lg:col-span-3 lg:mt-24"
         >
           {
             posts.map((post) => (
@@ -32,7 +31,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                   <>
                     <div class="group relative flex flex-col items-start md:col-span-3">
                       <>
-                        <h2 class="text-base font-semibold tracking-tight text-black dark:text-white">
+                        <h2 class="text-2xl font-semibold tracking-tight text-black ">
                           <a href={post.url}>
                             <>
                               <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
@@ -42,10 +41,17 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                             </>
                           </a>
                         </h2>
+                        <Image
+                          src={import(
+                            `../assets/images/hero/${post.frontmatter.heroImage}`
+                          )}
+                          alt={post.frontmatter.title}
+                          class="relative z-10 mb-5 h-64 w-full rounded-lg object-cover shadow-lg"
+                        />
                       </>
 
                       <>
-                        <p class="relative z-10 mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+                        <p class="relative z-10 mt-2 mb-2 text-xl text-slate-600">
                           {post.frontmatter.description}
                         </p>
                         <div
@@ -70,7 +76,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                       </>
                     </div>
                     <time
-                      class="relative z-10 order-first mt-1 mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-400 md:block"
+                      class="relative z-10 order-first mt-1 mb-3 flex items-center text-base text-zinc-500 dark:text-zinc-400 md:block"
                       datetime={post.frontmatter.pubDate}
                     >
                       {new Date(post.frontmatter.pubDate).toLocaleDateString(

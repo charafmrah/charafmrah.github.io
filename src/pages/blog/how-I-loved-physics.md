@@ -1,9 +1,9 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "I hated physics"
-description: "Lorem ipsum dolor sit amet"
+description: "In this blog post, I share my personal journey from hating physics to becoming fascinated with the field of astronomy and cosmology. Through my experience with Khan Academy and a newfound curiosity, I realized the importance of truly understanding the details of the universe and how physics plays a crucial role in it. I highlight the beauty of physics in the way it requires a mastery of basics and mathematical concepts to build upon, as well as the exciting research and discoveries that come with it. Despite past mediocre grades in physics, I am now determined to pursue a deeper understanding and potentially make my own contributions to the field. I encourage readers to also explore scientific fields to find out if they too are passionate about them."
 pubDate: "Dec 21 2019"
-heroImage: "/placeholder-hero.jpg"
+heroImage: "how-I-loved-physics.png"
 ---
 In these last few days I became more curious about Astronomy and cosmology. I have always been interested in the universe and space through watching documentaries on National geographic and through YouTube. But I have never thought about diving deeper into it. I always felt amazed by the facts that I read about the universe, how huge our universe is and how much we still don’t know about it.
 

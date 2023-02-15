@@ -1,7 +1,7 @@
 ---
 import TableOfContents from "../components/TableOfContents.astro";
 import MainLayout from "./MainLayout.astro";
-
+import { Image } from "@astrojs/image/components";
 export interface Props {
   content: {
     title: string;
@@ -23,18 +23,28 @@ const {
     <article>
       <div class="contents">
         <h1 class="title">{title}</h1>
-
+        {
+          heroImage && (
+            <Image
+              class="mb-10 w-full rounded-lg"
+              src={import(`../assets/images/hero/${heroImage}`)}
+              alt="Hero image"
+            />
+          )
+        }
         <p>{description}</p>
-        <hr />
-        <slot />
+        <hr class="mb-10" />
+        <slot class="" />
       </div>
     </article>
   </div>
 </MainLayout>
+
 <script src="./toc.js"></script>
-<style>
-  * {
-    box-sizing: border-box;
+
+<style is:global>
+  p {
+    @apply mb-10;
   }
 
   .page {
@@ -58,6 +68,7 @@ const {
   .contents h3 {
     padding-top: 1em;
   }
+
   @media screen and (max-width: 1200px) {
     body {
       font-size: 14px;

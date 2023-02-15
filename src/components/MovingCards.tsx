@@ -49,7 +49,7 @@ const MovingCards = ({ data }: Props) => {
           </a>
           {/* card.imageUrl && (
             <img
-              src={`/${card.imageUrl}`}
+              src={`/projects/${card.imageUrl}`}
               alt="project screenshot"
               className="h-auto w-auto"
               loading="lazy"
