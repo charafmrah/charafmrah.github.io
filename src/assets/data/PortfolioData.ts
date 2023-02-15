@@ -10,7 +10,7 @@ export const cardsData = [
   },
   {
     id: 2,
-    imageUrl: "",
+    imageUrl: "flight-planning-system.png",
     title: "Flight Planning System",
     description:
       "An Android app that helps users find the most efficient route through a network of airports. ",
@@ -19,7 +19,7 @@ export const cardsData = [
   },
   {
     id: 3,
-    imageUrl: "",
+    imageUrl: "network-intrusion-detection.png",
     title: "Network Intrusion Detection",
     description:
       "Applying machine learning algorithms to classify military network connections as normal or anomalous. ",
@@ -28,7 +28,7 @@ export const cardsData = [
   },
   {
     id: 4,
-    imageUrl: "",
+    imageUrl: "home-health-monitor.png",
     title: "Home Health Monitor",
     description:
       "An IoT device & Next Js website to control & visualize the data using AWS.",
@@ -37,7 +37,7 @@ export const cardsData = [
   },
   {
     id: 5,
-    imageUrl: "",
+    imageUrl: "the-college-route.png",
     title: "the college route",
     description: "A blog website for college students.",
     projectUrl: "https://thecollegeroute.com",
@@ -45,7 +45,7 @@ export const cardsData = [
   },
   {
     id: 6,
-    imageUrl: "",
+    imageUrl: "portfolio.png",
     title: "Portfolio Website",
     description: "My portfolio website.",
     projectUrl: "https://charafmrah.com",

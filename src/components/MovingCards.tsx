@@ -20,7 +20,7 @@ const MovingCards = ({ data }: Props) => {
   const onClick = (id: number) => setActiveId(id);
 
   return (
-    <div className="component-hidden moving-cards">
+    <div className="component-hidden moving-cards ">
       {data.map((card) => (
         <div
           key={card.id}
@@ -47,6 +47,14 @@ const MovingCards = ({ data }: Props) => {
               ></path>
             </svg>
           </a>
+          {/* card.imageUrl && (
+            <img
+              src={`/${card.imageUrl}`}
+              alt="project screenshot"
+              className="h-auto w-auto"
+              loading="lazy"
+            />
+          )*/}
           <a href={card.projectUrl} target="_blank">
             <h2>{card.title}</h2>
           </a>
