@@ -46,13 +46,6 @@ import Close from "../assets/icons/Close.astro";
   </button>
 </footer>
 
-<script>
-  export function navigate(): void {
-    document.body.dataset.nav =
-      document.body.dataset.nav === "true" ? "false" : "true";
-  }
-</script>
-
 <style is:global>
   body[data-nav="true"] > main {
     @apply translate-y-[-100%] md:translate-y-[-50%];

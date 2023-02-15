@@ -1,7 +1,6 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
 import TableOfContents from "../components/TableOfContents.astro";
+import MainLayout from "./MainLayout.astro";
 
 export interface Props {
   content: {
@@ -18,69 +17,50 @@ const {
 } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
+<MainLayout>
+  <div class="page">
+    <TableOfContents client:load />
+    <article>
+      <div class="contents">
+        <h1 class="title">{title}</h1>
 
-  <body data-nav="false">
-    <main>
-      <div class="page">
-        <TableOfContents client:load />
-        <article>
-          <div class="contents">
-            <h1 class="title">{title}</h1>
-            <p>{description}</p>
-            <hr />
-            <slot />
-          </div>
-        </article>
+        <p>{description}</p>
+        <hr />
+        <slot />
       </div>
-    </main>
+    </article>
+  </div>
+</MainLayout>
+<script src="./toc.js"></script>
+<style>
+  * {
+    box-sizing: border-box;
+  }
 
-    <Footer />
-    <script>
-      document
-        .getElementById("nav-toggle")
-        .addEventListener("click", toggleNav);
+  .page {
+    height: 100vh;
+    overflow: auto;
+    padding: 5em 5em 10em 17em;
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-      function toggleNav(): void {
-        document.body.dataset.nav =
-          document.body.dataset.nav === "true" ? "false" : "true";
-      }
-    </script>
-    <script src="../components/toc.js"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      .page {
-        height: 100vh;
-        overflow: auto;
-        padding: 5em 5em 10em 17em;
-        font-size: 16px;
-        line-height: 1.6;
-      }
-
-      .contents {
-        padding: 1em;
-        width: 100%;
-        max-width: 800px;
-        font-size: 1.2em;
-      }
-      .contents img {
-        max-width: 100%;
-      }
-      .contents h2,
-      .contents h3 {
-        padding-top: 1em;
-      }
-      @media screen and (max-width: 1200px) {
-        body {
-          font-size: 14px;
-        }
-      }
-    </style>
-  </body>
-</html>
+  .contents {
+    padding: 1em;
+    width: 100%;
+    max-width: 800px;
+    font-size: 1.2em;
+  }
+  .contents img {
+    max-width: 100%;
+  }
+  .contents h2,
+  .contents h3 {
+    padding-top: 1em;
+  }
+  @media screen and (max-width: 1200px) {
+    body {
+      font-size: 14px;
+    }
+  }
+</style>

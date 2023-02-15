@@ -53,7 +53,7 @@ declare global {
     </main>
     <Footer />
 
-    <script>
+    <script is:inline>
       document
         .getElementById("nav-toggle")
         .addEventListener("click", toggleNav);
@@ -62,8 +62,7 @@ declare global {
         link.addEventListener("click", toggleNav);
       });
 
-      function toggleNav(): void {
-        console.log("toggle");
+      function toggleNav() {
         document.body.dataset.nav =
           document.body.dataset.nav === "true" ? "false" : "true";
       }
