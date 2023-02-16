@@ -20,7 +20,7 @@ const MovingCards = ({ data }: Props) => {
   const onClick = (id: number) => setActiveId(id);
 
   return (
-    <div className="component-hidden moving-cards ">
+    <div className="moving-cards component-hidden">
       {data.map((card) => (
         <div
           key={card.id}
