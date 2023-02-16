@@ -22,8 +22,8 @@ const {
     class="page h-screen overflow-auto py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
   >
     <TableOfContents />
-    <article>
-      <div class="contents">
+    <div class="contents">
+      <article id="single-article">
         <h1 class="title">{title}</h1>
         {
           heroImage && (
@@ -37,8 +37,8 @@ const {
         <p>{description}</p>
         <hr class="mb-10" />
         <slot class="" />
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
 </MainLayout>
 
@@ -47,9 +47,6 @@ const {
 <style is:global>
   p {
     @apply mb-10;
-  }
-
-  .page {
   }
 
   .contents {

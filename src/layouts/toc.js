@@ -1,4 +1,4 @@
-let toc = document.querySelector(".toc");
+let toc = document.getElementById("toc");
 let tocPath = document.querySelector(".toc-marker path");
 let tocItems;
 
