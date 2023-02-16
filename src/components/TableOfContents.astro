@@ -68,6 +68,10 @@
       }
       tocOl.append(tocFragment);
       toc.append(tocOl);
+      window.addEventListener("resize", drawPath, false);
+      document
+        .getElementById("page-wrapper")
+        .addEventListener("scroll", sync, false);
       drawPath();
     } else {
       toc.style.display = "none";
@@ -86,11 +90,6 @@
   let pathLength;
 
   let lastPathStart, lastPathEnd;
-
-  window.addEventListener("resize", drawPath, false);
-  document
-    .getElementById("page-wrapper")
-    .addEventListener("scroll", sync, false);
 
   function drawPath() {
     tocItems = [].slice.call(toc.querySelectorAll("li"));
