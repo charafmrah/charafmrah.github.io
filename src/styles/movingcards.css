@@ -38,7 +38,7 @@
 }
 
 .panel p {
-  @apply bottom-14 left-5 m-0 text-lg font-medium lg:absolute lg:opacity-0;
+  @apply bottom-14 left-5 m-0 text-lg font-medium text-white lg:absolute lg:opacity-0;
 }
 
 .panel.active p {

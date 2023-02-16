@@ -26,11 +26,15 @@ h1 {
 }
 
 h2 {
-  @apply mb-5 text-6xl font-bold;
+  @apply mb-5 text-4xl font-bold lg:text-6xl;
 }
 
 h3 {
   @apply mb-5 text-4xl font-bold text-slate-800;
+}
+
+p {
+  @apply mb-5 text-left text-base text-slate-800;
 }
 
 a {
