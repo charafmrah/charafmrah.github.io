@@ -12,6 +12,10 @@ html {
   height: -webkit-fill-available;
 }
 
+body {
+  @apply scroll-smooth;
+}
+
 h1,
 h2,
 h3,

@@ -88,7 +88,7 @@
   let lastPathStart, lastPathEnd;
 
   window.addEventListener("resize", drawPath, false);
-  document.querySelector("#page").addEventListener("scroll", sync, false);
+  window.addEventListener("scroll", sync, false);
 
   function drawPath() {
     tocItems = [].slice.call(toc.querySelectorAll("li"));
@@ -196,7 +196,7 @@
 
 <style is:inline>
   #toc {
-    position: fixed;
+    position: absolute;
     left: 1rem;
     top: 5rem;
     padding: 1rem;
