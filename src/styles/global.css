@@ -40,7 +40,6 @@ h3 {
 p {
   @apply mb-5 text-left text-base text-slate-800;
 }
-
 a {
   @apply text-left text-orange-500;
 }
