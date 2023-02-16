@@ -56,7 +56,7 @@ const {
     </script>
 
     <div
-      class="absolute top-0 left-0 z-20 flex w-full items-center justify-start gap-3 bg-white px-5 py-4 transition-all duration-500 ease-in-out lg:w-32 lg:bg-transparent lg:px-8"
+      class="header absolute top-0 left-0 z-20 flex w-full items-center justify-start gap-3 bg-white px-5 py-4 transition-all duration-500 ease-in-out lg:w-32 lg:bg-transparent lg:px-8"
     >
       <a href="/blog" class="w-full shrink-0">
         <button
@@ -151,6 +151,11 @@ const {
       .contents h2,
       .contents h3 {
         padding-top: 1em;
+      }
+      body[data-nav="true"] > .header {
+        transition: all 500ms;
+        transform: translateY(-100%);
+        visibility: hidden;
       }
     </style>
   </body>
