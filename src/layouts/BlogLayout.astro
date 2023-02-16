@@ -1,0 +1,91 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Header from "../components/Header.astro";
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+  </head>
+
+  <body
+    data-nav="false"
+    class="m-0 w-screen bg-black font-Inter text-slate-700"
+  >
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-59JLRZ4JB2");
+    </script>
+
+    <main
+      role="main"
+      class="relative z-[2] m-0 transform bg-slate-100 bg-cover bg-center transition-all duration-500 ease-in-out"
+    >
+      <div
+        class="container flex min-w-full snap-x snap-mandatory flex-row items-center overflow-y-hidden overflow-x-scroll scroll-smooth"
+      >
+        <slot />
+      </div>
+    </main>
+    <Footer />
+
+    <script is:inline>
+      document
+        .getElementById("nav-toggle")
+        .addEventListener("click", toggleNav);
+
+      document.querySelectorAll("a.nav-link").forEach((link) => {
+        link.addEventListener("click", toggleNav);
+      });
+
+      function toggleNav() {
+        document.body.dataset.nav =
+          document.body.dataset.nav === "true" ? "false" : "true";
+      }
+    </script>
+
+    <script>
+      let options = {
+        root: null,
+        rootMargin: "0px",
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      });
+
+      const hiddentElements = document.querySelectorAll(".component-hidden");
+      hiddentElements.forEach((element) => {
+        observer.observe(element);
+      }, options);
+    </script>
+  </body>
+</html>

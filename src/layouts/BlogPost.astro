@@ -1,6 +1,6 @@
 ---
 import TableOfContents from "../components/TableOfContents.astro";
-import MainLayout from "./MainLayout.astro";
+import BlogLayout from "./BlogLayout.astro";
 import { Image } from "@astrojs/image/components";
 export interface Props {
   content: {
@@ -17,7 +17,7 @@ const {
 } = Astro.props;
 ---
 
-<MainLayout>
+<BlogLayout>
   <div
     id="page"
     class="h-screen overflow-auto scroll-smooth py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
@@ -41,7 +41,7 @@ const {
       </article>
     </div>
   </div>
-</MainLayout>
+</BlogLayout>
 
 <style is:global>
   p {

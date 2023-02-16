@@ -1,5 +1,5 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
 import { Image } from "@astrojs/image/components";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -10,7 +10,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 );
 ---
 
-<MainLayout>
+<BlogLayout>
   <div class="min-h-screen w-full max-w-7xl lg:col-span-3">
     <section>
       <div class="p-5 md:py-32 lg:px-5">
@@ -99,7 +99,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       </div>
     </section>
   </div>
-</MainLayout>
+</BlogLayout>
 
 <style>
   ul {
