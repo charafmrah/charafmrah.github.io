@@ -1,7 +1,7 @@
 ---
 ---
 
-<nav id="toc" class="hidden lg:block">
+<nav id="toc" class="fixed top-20 left-6 w-72 px-4 leading-8">
   <svg
     class="toc-marker"
     width="200"
@@ -88,7 +88,9 @@
   let lastPathStart, lastPathEnd;
 
   window.addEventListener("resize", drawPath, false);
-  window.addEventListener("scroll", sync, false);
+  document
+    .getElementById("page-wrapper")
+    .addEventListener("scroll", sync, false);
 
   function drawPath() {
     tocItems = [].slice.call(toc.querySelectorAll("li"));
@@ -195,14 +197,6 @@
 </script>
 
 <style is:inline>
-  #toc {
-    position: absolute;
-    left: 1rem;
-    top: 5rem;
-    padding: 1rem;
-    width: 18rem;
-    line-height: 2;
-  }
   #toc ul {
     list-style: none;
     padding: 0;

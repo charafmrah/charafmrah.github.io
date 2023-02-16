@@ -1,7 +1,18 @@
 ---
 import TableOfContents from "../components/TableOfContents.astro";
-import BlogLayout from "./BlogLayout.astro";
 import { Image } from "@astrojs/image/components";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Logo from "../components/Logo.astro";
+
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
 export interface Props {
   content: {
     title: string;
@@ -17,49 +28,129 @@ const {
 } = Astro.props;
 ---
 
-<BlogLayout>
-  <TableOfContents />
-  <div
-    id="page"
-    class="mb-32 mt-10 h-full min-h-screen overflow-auto scroll-smooth px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+  </head>
+
+  <body
+    data-nav="false"
+    class="m-0 w-screen bg-black font-Inter text-slate-700"
   >
-    <div class="contents">
-      <article id="single-article">
-        <h1 class="title">{title}</h1>
-        {
-          heroImage && (
-            <Image
-              class="mb-10 w-full rounded-lg"
-              src={import(`../assets/images/hero/${heroImage}.png`)}
-              alt="Hero image"
-            />
-          )
-        }
-        <p>{description}</p>
-        <hr class="mb-10" />
-        <slot class="" />
-      </article>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-59JLRZ4JB2");
+    </script>
+
+    <div
+      class="absolute top-0 left-0 z-20 flex w-full items-center justify-start gap-3 px-8 py-4 transition-all duration-500 ease-in-out"
+    >
+      <a href="/blog" class="shrink-0">
+        <button
+          class="rounded-lg border-2 border-black py-2 px-14 text-lg font-bold text-black hover:bg-black hover:text-white"
+          >Back</button
+        >
+      </a>
     </div>
-  </div>
-</BlogLayout>
+    <main
+      role="main"
+      class="relative z-[2] m-0 transform bg-slate-100 bg-cover bg-center transition-all duration-500 ease-in-out"
+    >
+      <div class="container flex min-w-full flex-row items-center">
+        <div
+          id="page-wrapper"
+          class="h-screen overflow-scroll scroll-smooth px-5 pb-32 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
+        >
+          <TableOfContents />
+          <div class="contents">
+            <article id="single-article">
+              <h1 class="title">{title}</h1>
+              {
+                heroImage && (
+                  <Image
+                    class="mb-10 w-full rounded-lg"
+                    src={import(`../assets/images/hero/${heroImage}.png`)}
+                    alt="Hero image"
+                  />
+                )
+              }
+              <p>{description}</p>
+              <hr class="mb-10" />
+              <slot class="" />
+            </article>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
 
-<style is:global>
-  p {
-    @apply mb-10;
-  }
+    <script is:inline>
+      document
+        .getElementById("nav-toggle")
+        .addEventListener("click", toggleNav);
 
-  img {
-    @apply mb-5 max-w-full rounded-md shadow-md;
-  }
+      document.querySelectorAll("a.nav-link").forEach((link) => {
+        link.addEventListener("click", toggleNav);
+      });
 
-  .contents {
-    padding: 1em;
-    width: 100%;
-    max-width: 800px;
-    font-size: 1.2em;
-  }
-  .contents h2,
-  .contents h3 {
-    padding-top: 1em;
-  }
-</style>
+      function toggleNav() {
+        document.body.dataset.nav =
+          document.body.dataset.nav === "true" ? "false" : "true";
+      }
+    </script>
+
+    <script>
+      let options = {
+        root: null,
+        rootMargin: "0px",
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      });
+
+      const hiddentElements = document.querySelectorAll(".component-hidden");
+      hiddentElements.forEach((element) => {
+        observer.observe(element);
+      }, options);
+    </script>
+    <style is:global>
+      p {
+        @apply mb-10;
+      }
+
+      img {
+        @apply mb-5 max-w-full rounded-md shadow-md;
+      }
+
+      .contents {
+        padding: 1em;
+        width: 100%;
+        max-width: 800px;
+        font-size: 1.2em;
+      }
+      .contents h2,
+      .contents h3 {
+        padding-top: 1em;
+      }
+    </style>
+  </body>
+</html>
