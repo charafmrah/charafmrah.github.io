@@ -78,18 +78,20 @@ const {
           <TableOfContents />
           <div class="contents">
             <article id="single-article">
-              <h1 class="title">{title}</h1>
-              {
-                heroImage && (
-                  <Image
-                    class="mb-10 w-full rounded-lg"
-                    src={import(`../assets/images/hero/${heroImage}.png`)}
-                    alt="Hero image"
-                  />
-                )
-              }
-              <p>{description}</p>
-              <hr class="mb-10" />
+              <header>
+                <h1 class="title">{title}</h1>
+                {
+                  heroImage && (
+                    <Image
+                      class="mb-10 w-full rounded-lg"
+                      src={import(`../assets/images/hero/${heroImage}.png`)}
+                      alt="Hero image"
+                    />
+                  )
+                }
+                <p>{description}</p>
+                <hr class="mb-10" />
+              </header>
               <slot class="" />
             </article>
           </div>
