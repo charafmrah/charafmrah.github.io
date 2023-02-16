@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import Header from "../components/Header.astro";
+import Logo from "../components/Logo.astro";
 
 declare global {
   interface Window {
@@ -40,6 +40,13 @@ declare global {
       gtag("config", "G-59JLRZ4JB2");
     </script>
 
+    <div
+      class="absolute top-0 left-0 z-20 flex w-full items-center justify-start gap-3 py-2 px-5 transition-all duration-500 ease-in-out"
+    >
+      <a href="/#home" class="shrink-0">
+        <Logo text="Charaf" />
+      </a>
+    </div>
     <main
       role="main"
       class="relative z-[2] m-0 transform bg-slate-100 bg-cover bg-center transition-all duration-500 ease-in-out"
