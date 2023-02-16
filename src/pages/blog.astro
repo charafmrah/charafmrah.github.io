@@ -11,15 +11,15 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 ---
 
 <BlogLayout>
-  <div class="min-h-screen w-full max-w-7xl lg:col-span-3">
-    <section>
-      <div class="mt-20">
-        <h1 class="text-4xl font-bold tracking-tighter text-black lg:text-8xl">
-          Blog
-        </h1>
-      </div>
+  <div class="min-h-screen w-full lg:col-span-3">
+    <section class="flex w-full shrink-0 flex-col lg:flex-row lg:gap-40">
+      <h1
+        class="mt-20 max-w-xl text-4xl font-bold tracking-tighter text-black lg:text-8xl"
+      >
+        Blog
+      </h1>
       <div
-        class="mt-8 mb-32 space-y-12 text-base text-zinc-800 lg:col-span-3 lg:mt-24"
+        class="mt-8 mb-32 space-y-12 text-base text-zinc-800 lg:col-span-3 lg:mt-24 lg:pr-72"
       >
         {
           posts.map((post) => (
@@ -28,7 +28,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                 <>
                   <div class="group relative flex flex-col items-start md:col-span-3">
                     <>
-                      <h2 class="text-2xl font-semibold tracking-tight text-black ">
+                      <h2 class="mt-0 text-2xl font-semibold tracking-tight text-black ">
                         <a href={post.url}>
                           <>
                             <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
