@@ -19,7 +19,8 @@ const {
 
 <MainLayout>
   <div
-    class="page h-screen overflow-auto py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
+    id="page"
+    class="h-screen overflow-auto py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
   >
     <TableOfContents />
     <div class="contents">
@@ -41,8 +42,6 @@ const {
     </div>
   </div>
 </MainLayout>
-
-<script src="./toc.js"></script>
 
 <style is:global>
   p {
