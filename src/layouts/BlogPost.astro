@@ -20,7 +20,7 @@ const {
 <MainLayout>
   <div
     id="page"
-    class="h-screen overflow-auto py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
+    class="h-screen overflow-auto scroll-smooth py-28 px-5 text-base md:px-40 lg:px-80 lg:pt-20 lg:pb-32"
   >
     <TableOfContents />
     <div class="contents">
@@ -48,14 +48,15 @@ const {
     @apply mb-10;
   }
 
+  img {
+    @apply mb-5 max-w-full rounded-md shadow-md;
+  }
+
   .contents {
     padding: 1em;
     width: 100%;
     max-width: 800px;
     font-size: 1.2em;
-  }
-  .contents img {
-    max-width: 100%;
   }
   .contents h2,
   .contents h3 {

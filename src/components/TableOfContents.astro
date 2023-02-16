@@ -68,6 +68,7 @@
       }
       tocOl.append(tocFragment);
       toc.append(tocOl);
+      drawPath();
     } else {
       toc.style.display = "none";
     }
@@ -88,8 +89,6 @@
 
   window.addEventListener("resize", drawPath, false);
   document.querySelector("#page").addEventListener("scroll", sync, false);
-
-  drawPath();
 
   function drawPath() {
     tocItems = [].slice.call(toc.querySelectorAll("li"));
@@ -198,10 +197,10 @@
 <style is:inline>
   #toc {
     position: fixed;
-    left: 3em;
-    top: 5em;
-    padding: 1em;
-    width: 14em;
+    left: 1rem;
+    top: 5rem;
+    padding: 1rem;
+    width: 18rem;
     line-height: 2;
   }
   #toc ul {
