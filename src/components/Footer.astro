@@ -8,7 +8,7 @@ import { Image, Picture } from "@astrojs/image/components";
   <nav>
     <div id="nav-links">
       <a class="nav-link" href="/#home" onclick="">
-        <span class="nav-link-label rubik-font">Home</span>
+        <span class="nav-link-label">Home</span>
         <Image
           class="nav-link-image"
           src={import("../assets/images/home.jpg")}
@@ -16,25 +16,23 @@ import { Image, Picture } from "@astrojs/image/components";
         />
       </a>
       <a class="nav-link" href="/#projects">
-        <span class="nav-link-label rubik-font">Projects</span>
+        <span class="nav-link-label">Projects</span>
         <Image
           class="nav-link-image"
           src={import("../assets/images/projects.jpg")}
           alt="Home"
         />
       </a>
-      <!--
-        <a class="nav-link" href="/blog">
-          <span class="nav-link-label rubik-font">Blog</span>
+      <a class="nav-link" href="/blog">
+        <span class="nav-link-label">Blog</span>
         <Image
           class="nav-link-image"
           src={import("../assets/images/blog.jpg")}
           alt="Home"
         />
-        </a>
-       -->
+      </a>
       <a class="nav-link" href="/#about">
-        <span class="nav-link-label rubik-font">About</span>
+        <span class="nav-link-label">About</span>
         <Image
           class="nav-link-image"
           src={import("../assets/images/about.jpg")}
