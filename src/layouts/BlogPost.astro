@@ -5,7 +5,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import Logo from "../components/Logo.astro";
+import { SEO } from "astro-seo";
 
 declare global {
   interface Window {
@@ -32,9 +32,19 @@ const {
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <link
-      rel="stylesheet"
-      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title: { title },
+          type: "website",
+          image: "https://charafmrah.com/thumbnail.jpg",
+        },
+      }}
+      twitter={{
+        creator: "@charafmrah",
+      }}
     />
   </head>
 
