@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/image": "^0.15.0",
     "@astrojs/mdx": "^0.13.0",
+    "@astrojs/partytown": "^1.0.3",
     "@astrojs/react": "^1.2.2",
     "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
