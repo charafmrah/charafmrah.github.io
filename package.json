@@ -25,6 +25,7 @@
     "astro": "^2.0.12",
     "astro-compress": "^1.1.33",
     "astro-robots-txt": "^0.4.0",
+    "astro-seo": "^0.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.31.3",

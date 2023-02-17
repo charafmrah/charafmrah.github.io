@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
+import { SEO } from "astro-seo";
 
 declare global {
   interface Window {
@@ -20,6 +21,20 @@ declare global {
     <link
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <SEO
+      title="Charaf Mrah"
+      description="A creative software engineer with a passion for building beautiful and performant web applications."
+      openGraph={{
+        basic: {
+          title: "Charaf Mrah",
+          type: "website",
+          image: "https://charafmrah.com/thumbnail.jpg",
+        },
+      }}
+      twitter={{
+        creator: "@charafmrah",
+      }}
     />
   </head>
 
