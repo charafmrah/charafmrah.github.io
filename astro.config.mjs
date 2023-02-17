@@ -16,9 +16,15 @@ import compress from "astro-compress";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
+import prefetch from "@astrojs/prefetch";
+
+// https://astro.build/config
+import robotsTxt from "astro-robots-txt";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://charafmrah.com",
   integrations: [image({
     serviceEntryPoint: "@astrojs/image/sharp"
-  }), mdx(), sitemap(), tailwind(), react(), compress(), partytown()]
+  }), mdx(), sitemap(), tailwind(), react(), compress(), partytown(), prefetch(), robotsTxt()]
 });
