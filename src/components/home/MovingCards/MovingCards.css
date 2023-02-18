@@ -14,7 +14,7 @@
 }
 
 .panel {
-  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col bg-cover bg-center bg-no-repeat p-5 text-white transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5];
+  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col rounded-lg bg-cover bg-center bg-no-repeat p-5 text-white transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5] lg:rounded-none;
 }
 
 .panel.active {
@@ -22,7 +22,7 @@
 }
 
 .panel .card-info {
-  @apply m-0 flex w-auto flex-col gap-2 text-3xl text-white transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5  lg:opacity-0;
+  @apply m-0 flex w-auto flex-col gap-8 text-3xl text-white transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5 lg:gap-2  lg:opacity-0;
 }
 
 .panel.active .card-info {
