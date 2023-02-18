@@ -10,27 +10,38 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     </div>
 
     <div class="line">
-      <p class="word">Via A</p>
-      <a
-        id="calendly-link"
-        href="https://calendly.com/charafmrah/15min"
-        target="_blank"
-        class="word fancy">Meeting</a
-      >
+      <p class="word">
+        Via A
+        <a
+          id="calendly-link"
+          href="https://calendly.com/charafmrah/15min"
+          target="_blank"
+          class="word fancy">Meeting</a
+        >
+      </p>
     </div>
 
     <div class="line">
-      <p class="word">Or On Twitter</p>
-    </div>
-
-    <div class="line">
+      <p class="word">Or</p>
       <a
-        id="twitter-link"
-        href="https://twitter.com/charafmrah"
+        id="social-link"
+        href="https://linkedin.com/in/charafmrah"
         target="_blank"
         class="word fancy"
       >
-        @charafmrah
+        LinkedIn</a
+      >
+    </div>
+
+    <div class="line">
+      <p class="word">Or By</p>
+      <a
+        id="email-link"
+        href="mailto:charaf4charaf@gmail.com"
+        class="component-hidden word fancy"
+        id="email"
+      >
+        Email
       </a>
     </div>
   </div>
@@ -167,5 +178,6 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     });
   };
   enhance("calendly-link");
-  enhance("twitter-link");
+  enhance("social-link");
+  enhance("email-link");
 </script>
