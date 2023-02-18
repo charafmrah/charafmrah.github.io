@@ -7,6 +7,15 @@ export const cardsData = [
       "A single page application that allows users to generate and save AI-generated art. ",
     projectUrl: "https://github.com/charafmrah/web-pangolin-studio-frontend",
     bgColor: "#e879f9",
+    technologies: [
+      "https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white",
+      "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
+      "https://img.shields.io/badge/Tailwind-563D7C?style=for-the-badge&logo=tailwindcss&logoColor=white",
+      "https://img.shields.io/badge/JavaScript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black",
+      "https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black",
+      "https://img.shields.io/badge/Python-ffe873?style=for-the-badge&logo=python",
+      "https://img.shields.io/badge/Django-4caf50?style=for-the-badge&logo=django&logoColor=white",
+    ],
   },
   {
     id: 2,

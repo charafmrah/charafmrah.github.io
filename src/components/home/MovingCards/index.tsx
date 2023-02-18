@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/movingcards.css";
+import "./MovingCards.css";
 
 interface Card {
   id: number;
@@ -8,6 +8,7 @@ interface Card {
   description: string;
   projectUrl: string;
   bgColor: string;
+  technologies: Array<string>;
 }
 
 interface Props {
@@ -47,6 +48,22 @@ const MovingCards = ({ data }: Props) => {
               ></path>
             </svg>
           </a>
+          <div className="flex gap-2">
+            {
+              /* images of technologies used */
+              card.technologies &&
+                card.technologies.map((tech) => {
+                  return (
+                    <img
+                      src={`${tech}`}
+                      alt="project screenshot"
+                      className="h-auto w-auto"
+                      loading="lazy"
+                    />
+                  );
+                })
+            }
+          </div>
           {/* card.imageUrl && (
             <img
               src={`/projects/${card.imageUrl}`}
