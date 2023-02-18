@@ -14,7 +14,7 @@
 }
 
 .panel {
-  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col rounded-lg bg-cover bg-center bg-no-repeat p-5 text-white transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5] lg:rounded-none;
+  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col rounded-lg bg-cover bg-center bg-no-repeat p-5 text-white shadow-lg transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5] lg:rounded-none lg:shadow-none;
 }
 
 .panel.active {
