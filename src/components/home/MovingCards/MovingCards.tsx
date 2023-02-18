@@ -48,22 +48,6 @@ const MovingCards = ({ data }: Props) => {
               ></path>
             </svg>
           </a>
-          <div className="flex gap-2">
-            {
-              /* images of technologies used */
-              card.technologies &&
-                card.technologies.map((tech) => {
-                  return (
-                    <img
-                      src={`${tech}`}
-                      alt="project screenshot"
-                      className="h-auto w-auto"
-                      loading="lazy"
-                    />
-                  );
-                })
-            }
-          </div>
           {/* card.imageUrl && (
             <img
               src={`/projects/${card.imageUrl}`}
@@ -72,12 +56,30 @@ const MovingCards = ({ data }: Props) => {
               loading="lazy"
             />
           )*/}
-          <a href={card.projectUrl} target="_blank">
-            <h2>{card.title}</h2>
-          </a>
-          <a href={card.projectUrl} target="_blank">
-            <p>{card.description}</p>
-          </a>
+          <div className="card-info">
+            <div className="flex flex-wrap gap-2">
+              {
+                /* images of technologies used */
+                card.technologies &&
+                  card.technologies.map((tech) => {
+                    return (
+                      <img
+                        src={`${tech}`}
+                        alt="project screenshot"
+                        className="h-auto w-auto"
+                        loading="lazy"
+                      />
+                    );
+                  })
+              }
+            </div>
+            <a href={card.projectUrl} target="_blank">
+              <p className="text-lg font-medium">{card.description}</p>
+            </a>
+            <a href={card.projectUrl} target="_blank">
+              <h3 className="m-0 text-3xl text-white">{card.title}</h3>
+            </a>
+          </div>
         </div>
       ))}
     </div>

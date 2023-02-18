@@ -21,28 +21,20 @@
   @apply transition-all duration-300 ease-in-out lg:flex-[5];
 }
 
-.panel h2 {
-  @apply m-0 text-3xl text-white transition-all duration-700 ease-in lg:absolute lg:bottom-5 lg:left-5  lg:opacity-0;
+.panel .card-info {
+  @apply m-0 flex w-auto flex-col gap-2 text-3xl text-white transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5  lg:opacity-0;
 }
 
-.panel.active h2 {
+.panel.active .card-info {
   @apply opacity-100 transition duration-700 ease-in;
 }
 
 .panel > .card-id {
-  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-white opacity-0 lg:opacity-100;
+  @apply absolute top-5 left-5 flex justify-center text-8xl font-extrabold text-white opacity-0 lg:opacity-100;
 }
 
 .panel.active > .card-id {
   @apply justify-start;
-}
-
-.panel p {
-  @apply bottom-14 left-5 m-0 text-lg font-medium text-white lg:absolute lg:opacity-0;
-}
-
-.panel.active p {
-  @apply transition-all duration-700 ease-in lg:opacity-100;
 }
 
 .panel a {
@@ -59,12 +51,4 @@
 
 .panel.active svg {
   @apply justify-end transition-opacity  md:opacity-100;
-}
-
-.panel img {
-  @apply bottom-[7rem] left-5 m-0  text-lg font-medium lg:absolute lg:opacity-0;
-}
-
-.panel.active img {
-  @apply transition-all duration-700 ease-in lg:opacity-100;
 }
