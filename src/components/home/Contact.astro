@@ -49,8 +49,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
 <style is:inline>
   :root {
-    --orange: #fb923c;
-    --yellow: #fbbf24;
+    --primary: #fb923c;
+    --secondary: #fbbf24;
   }
   p {
     all: unset;
@@ -92,7 +92,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     opacity: 0.2;
   }
   .fancy {
-    color: var(--orange);
+    color: var(--primary);
   }
   .fancy span {
     display: inline-block;
@@ -109,9 +109,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   .fancy:hover > .outer > .inner > .letter {
     background: linear-gradient(
       to right,
-      var(--orange),
-      var(--yellow),
-      var(--orange)
+      var(--primary),
+      var(--secondary),
+      var(--primary)
     );
     background-size: 1000%;
     -webkit-background-clip: text;
