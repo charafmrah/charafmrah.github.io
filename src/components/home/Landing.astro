@@ -1,8 +1,6 @@
 ---
 import TypewriterText from "../../components/global/TypewriterText";
 import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
-
-import githubIcon from "../../assets/icons/logo-github.svg";
 ---
 
 <HorizontalPageLayout id={"home"} class="from-slate-100 to-slate-300">
@@ -14,13 +12,22 @@ import githubIcon from "../../assets/icons/logo-github.svg";
       <h1 class="text-center lg:text-5xl">
         Hi! I'm <span data-value="Charaf Mrah" id="name">Charaf Mrah</span>
       </h1>
-      <div class="font-normal lg:text-xl">
+      <div class="font-medium lg:text-xl">
         <TypewriterText
           text={["Software Engineer", "Web Developer", "Freelancer"]}
           client:load
         />
       </div>
-      <p>Swipe left</p>
+
+      <div class="items-align flex flex-col justify-center lg:hidden">
+        <lottie-player
+          src="/swipe-left.json"
+          background="transparent"
+          speed="1"
+          style="height: 100px;"
+          loop
+          autoplay></lottie-player>
+      </div>
     </div>
   </div>
 </HorizontalPageLayout>
