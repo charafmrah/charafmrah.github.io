@@ -3,181 +3,45 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"contact"}>
-  <div id="contact-text" class="component-hidden">
-    <div class="line">
-      <p class="word">Contact</p>
-      <p class="word">Me</p>
-    </div>
+  <div class="mx-auto max-w-6xl rounded-md bg-white p-6 shadow-lg">
+    <h2 class="text-4xl font-bold capitalize">Contact</h2>
 
-    <div class="line">
-      <p class="word">
-        Via A
-        <a
-          id="calendly-link"
-          href="https://calendly.com/charafmrah/15min"
-          target="_blank"
-          class="word fancy">Meeting</a
+    <form id="contact-form">
+      <input type="hidden" name="contact_number" />
+      <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div class="font-medium">
+          <label class="text-gray-700" for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+          />
+        </div>
+
+        <div class="font-medium">
+          <label class="text-gray-700" for="emailAddress">Email Address</label>
+          <input
+            id="emailAddress"
+            type="email"
+            class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+          />
+        </div>
+      </div>
+
+      <div class="mt-5 font-medium">
+        <label class="text-gray-700" for="message">Message</label>
+        <textarea
+          id="message"
+          rows="4"
+          class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+        ></textarea>
+      </div>
+      <div class="mt-6 flex justify-end">
+        <button
+          class="transform rounded-md bg-orange-400 px-8 py-2.5 font-medium leading-5 text-white transition-colors duration-300 hover:bg-black hover:text-white focus:outline-none"
+          >Send</button
         >
-      </p>
-    </div>
-
-    <div class="line">
-      <p class="word">Or</p>
-      <a
-        id="social-link"
-        href="https://linkedin.com/in/charafmrah"
-        target="_blank"
-        class="word fancy"
-      >
-        LinkedIn</a
-      >
-    </div>
-
-    <div class="line">
-      <p class="word">Or By</p>
-      <a
-        id="email-link"
-        href="mailto:charaf4charaf@gmail.com"
-        class="component-hidden word fancy"
-        id="email"
-      >
-        Email
-      </a>
-    </div>
+      </div>
+    </form>
   </div>
 </HorizontalPageLayout>
-
-<style is:inline>
-  :root {
-    --primary: #fb923c;
-    --secondary: #fbbf24;
-  }
-  p {
-    all: unset;
-  }
-  @keyframes float {
-    from,
-    to {
-      transform: translateY(-0%);
-    }
-    50% {
-      transform: translateY(-3%);
-    }
-  }
-  @keyframes background-pan {
-    from {
-      background-position: 1000% center;
-    }
-    to {
-      background-position: 0% center;
-    }
-  }
-  .line {
-    display: flex;
-    justify-content: space-between;
-  }
-  .word {
-    color: #0f172a;
-    font-size: clamp(2rem, 8vw, 4rem);
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    margin: 0rem;
-    text-transform: uppercase;
-    transition: opacity 250ms ease;
-  }
-  a {
-    text-decoration: none;
-  }
-  #contact-text:has(.fancy:hover) .word:not(.fancy:hover) {
-    opacity: 0.2;
-  }
-  .fancy {
-    color: var(--primary);
-  }
-  .fancy span {
-    display: inline-block;
-  }
-  .fancy > .outer {
-    transition: transform 350ms ease;
-  }
-  .fancy:hover > .outer {
-    transition-duration: 800ms;
-  }
-  .fancy:hover > .outer > .inner {
-    animation: float 5s ease infinite;
-  }
-  .fancy:hover > .outer > .inner > .letter {
-    background: linear-gradient(
-      to right,
-      var(--primary),
-      var(--secondary),
-      var(--primary)
-    );
-    background-size: 1000%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: background-pan 150s linear infinite;
-  }
-  .fancy:hover > .outer:nth-child(1) {
-    transform: translate(-80%, 60%) rotate(8deg);
-  }
-  .fancy:hover > .outer:nth-child(2) {
-    transform: translate(-40%, 20%) rotate(4deg);
-  }
-  .fancy:hover > .outer:nth-child(3) {
-    transform: translate(-10%, 60%) rotate(-6deg);
-  }
-  .fancy:hover > .outer:nth-child(4) {
-    transform: translate(0%, 8%) rotate(-8deg);
-  }
-  .fancy:hover > .outer:nth-child(5) {
-    transform: translate(0%, -20%) rotate(5deg);
-  }
-  .fancy:hover > .outer:nth-child(6) {
-    transform: translate(0%, 20%) rotate(-3deg);
-  }
-  .fancy:hover > .outer:nth-child(7) {
-    transform: translate(0%, -40%) rotate(-5deg);
-  }
-  .fancy:hover > .outer:nth-child(8) {
-    transform: translate(0%, 15%) rotate(10deg);
-  }
-  .fancy:hover > .outer:nth-child(9) {
-    transform: translate(0%, -50%) rotate(8deg);
-  }
-  .fancy:hover > .outer:nth-child(10) {
-    transform: translate(0%, 15%) rotate(-6deg);
-  }
-  .fancy:hover > .outer:nth-child(11) {
-    transform: translate(50%, -10%) rotate(-3deg);
-  }
-  .fancy:hover > .outer:nth-child(12) {
-    transform: translate(120%, -30%) rotate(-10deg);
-  }
-</style>
-
-<script>
-  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-  const enhance = (id) => {
-    const element = document.getElementById(id),
-      text = element.innerText.split("");
-    element.innerText = "";
-    text.forEach((value, index) => {
-      const outer = document.createElement("span");
-      outer.className = "outer";
-      const inner = document.createElement("span");
-      inner.className = "inner";
-      inner.style.animationDelay = `${rand(-5000, 0)}ms`;
-      const letter = document.createElement("span");
-      letter.className = "letter";
-      letter.innerText = value;
-      letter.style.animationDelay = `${index * 1000}ms`;
-      inner.appendChild(letter);
-      outer.appendChild(inner);
-      element.appendChild(outer);
-    });
-  };
-  enhance("calendly-link");
-  enhance("social-link");
-  enhance("email-link");
-</script>
