@@ -13,15 +13,17 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
           <label class="text-gray-700" for="name">Name</label>
           <input
             id="name"
+            name="name"
             type="text"
             class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
           />
         </div>
 
         <div class="font-medium">
-          <label class="text-gray-700" for="emailAddress">Email Address</label>
+          <label class="text-gray-700" for="email">Email</label>
           <input
-            id="emailAddress"
+            id="email"
+            name="email"
             type="email"
             class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
           />
@@ -32,6 +34,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
         <label class="text-gray-700" for="message">Message</label>
         <textarea
           id="message"
+          name="message"
           rows="4"
           class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
         ></textarea>
@@ -43,5 +46,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
         >
       </div>
     </form>
+    <p id="sucess" class="text-lg font-medium">
+      Your message was sent successfully, I'll get back to you asap.
+    </p>
   </div>
 </HorizontalPageLayout>

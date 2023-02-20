@@ -1,13 +1,14 @@
 ---
+import MouseDown from "../../assets/icons/MouseDown.astro";
 import TypewriterText from "../../components/global/TypewriterText";
 import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
-<HorizontalPageLayout id={"home"} >
+<HorizontalPageLayout id={"home"}>
   <div id="home-container" class="component-hidden text-center">
     <canvas id="demo-canvas"></canvas>
     <div
-      class="absolute top-1/2 left-1/2 m-0 w-full -translate-x-1/2 -translate-y-1/2 p-0 px-5 text-center"
+      class="absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 p-0 px-5 text-center"
     >
       <h1 class="text-center lg:text-5xl">
         Hi! I'm <span data-value="Charaf Mrah" id="name">Charaf Mrah</span>
@@ -19,6 +20,11 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
         />
       </div>
 
+      <div class="mt-5 flex justify-center">
+        <a href="#projects">
+          <MouseDown />
+        </a>
+      </div>
       <div class="items-align flex flex-col justify-center lg:hidden">
         <lottie-player
           src="/swipe-left.json"
