@@ -10,7 +10,9 @@ import image from "../../assets/images/headshot.png";
   <div
     class="about component-hidden max-h-xl flex h-full max-w-3xl flex-col items-center justify-center overflow-y-scroll lg:justify-center lg:py-52"
   >
-    <h2 class="mt-0 self-start text-left lg:text-6xl">Who am I?</h2>
+    <h2 class="mt-0 self-start text-left lg:text-6xl">
+      <span data-value="Who am I?" id="name">Who am I?</span>
+    </h2>
     <div class="font-medium">
       <p class="mb-1 text-xl md:mb-5">
         I'm a software engineer with a passion for technology and an
@@ -65,3 +67,36 @@ import image from "../../assets/images/headshot.png";
     </div>
   </div>
 </HorizontalPageLayout>
+
+<script>
+  // Hacker Typer
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  let interval = null;
+
+  (document.querySelector("#name") as HTMLElement).onmouseover = (event) => {
+    let iteration = 0;
+
+    clearInterval(interval);
+
+    interval = setInterval(() => {
+      const input = event.target as HTMLElement;
+      input.innerText = input.innerText
+        .split("")
+        .map((letter, index) => {
+          if (index < iteration) {
+            return input.dataset.value[index];
+          }
+
+          return letters[Math.floor(Math.random() * 26)];
+        })
+        .join("");
+
+      if (iteration >= input.dataset.value.length) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 30);
+  };
+</script>

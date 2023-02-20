@@ -2,182 +2,149 @@
 import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
-<HorizontalPageLayout id={"contact"}>
-  <div id="contact-text" class="component-hidden">
-    <div class="line">
-      <p class="word">Contact</p>
-      <p class="word">Me</p>
-    </div>
+<HorizontalPageLayout id={"contact"} class="bg-amber-500">
+  <div
+    id="contact-form-wrapper"
+    class="mx-auto max-w-6xl rounded-md bg-white p-6 shadow-lg"
+  >
+    <h2 class="text-4xl font-bold capitalize">Contact</h2>
 
-    <div class="line">
-      <p class="word">
-        Via A
-        <a
-          id="calendly-link"
-          href="https://calendly.com/charafmrah/15min"
-          target="_blank"
-          class="word fancy">Meeting</a
+    <form id="contact-form">
+      <input type="hidden" name="contact_number" />
+      <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div class="font-medium">
+          <label class="text-gray-700" for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+          />
+        </div>
+
+        <div class="font-medium">
+          <label class="text-gray-700" for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+          />
+        </div>
+      </div>
+
+      <div class="mt-5 font-medium">
+        <label class="text-gray-700" for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+        ></textarea>
+      </div>
+      <div class="mt-6 flex justify-end">
+        <button
+          class="transform rounded-md bg-orange-400 px-8 py-2.5 font-medium leading-5 text-white transition-colors duration-300 hover:bg-black hover:text-white focus:outline-none"
+          >Send</button
         >
-      </p>
-    </div>
+      </div>
+    </form>
+  </div>
+  <div id="success" class="hidden">
+    <div
+      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-md"
+    >
+      <div class="flex w-12 items-center justify-center bg-emerald-500">
+        <svg
+          class="h-6 w-6 fill-current text-white"
+          viewBox="0 0 40 40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"
+          ></path>
+        </svg>
+      </div>
 
-    <div class="line">
-      <p class="word">Or</p>
-      <a
-        id="social-link"
-        href="https://linkedin.com/in/charafmrah"
-        target="_blank"
-        class="word fancy"
-      >
-        LinkedIn</a
-      >
+      <div class="-mx-3 px-4 py-2">
+        <div class="mx-3">
+          <span class="font-semibold text-emerald-500">Success</span>
+          <p class="text-sm text-gray-600">
+            Your message was sent successfully!
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
+  <div id="error" class="hidden">
+    <div
+      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-md"
+    >
+      <div class="flex w-12 items-center justify-center bg-red-500">
+        <svg
+          class="h-6 w-6 fill-current text-white"
+          viewBox="0 0 40 40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z"
+          ></path>
+        </svg>
+      </div>
 
-    <div class="line">
-      <p class="word">Or By</p>
-      <a
-        id="email-link"
-        href="mailto:charaf4charaf@gmail.com"
-        class="component-hidden word fancy"
-        id="email"
-      >
-        Email
-      </a>
+      <div class="-mx-3 px-4 py-2">
+        <div class="mx-3">
+          <span class="font-semibold text-red-500">Error</span>
+          <p class="text-sm text-gray-600">Your message was not sent!</p>
+        </div>
+      </div>
     </div>
   </div>
 </HorizontalPageLayout>
 
-<style is:inline>
-  :root {
-    --primary: #fb923c;
-    --secondary: #fbbf24;
-  }
-  p {
-    all: unset;
-  }
-  @keyframes float {
-    from,
-    to {
-      transform: translateY(-0%);
-    }
-    50% {
-      transform: translateY(-3%);
-    }
-  }
-  @keyframes background-pan {
-    from {
-      background-position: 1000% center;
-    }
-    to {
-      background-position: 0% center;
-    }
-  }
-  .line {
-    display: flex;
-    justify-content: space-between;
-  }
-  .word {
-    color: #0f172a;
-    font-size: clamp(2rem, 8vw, 4rem);
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    margin: 0rem;
-    text-transform: uppercase;
-    transition: opacity 250ms ease;
-  }
-  a {
-    text-decoration: none;
-  }
-  #contact-text:has(.fancy:hover) .word:not(.fancy:hover) {
-    opacity: 0.2;
-  }
-  .fancy {
-    color: var(--primary);
-  }
-  .fancy span {
-    display: inline-block;
-  }
-  .fancy > .outer {
-    transition: transform 350ms ease;
-  }
-  .fancy:hover > .outer {
-    transition-duration: 800ms;
-  }
-  .fancy:hover > .outer > .inner {
-    animation: float 5s ease infinite;
-  }
-  .fancy:hover > .outer > .inner > .letter {
-    background: linear-gradient(
-      to right,
-      var(--primary),
-      var(--secondary),
-      var(--primary)
-    );
-    background-size: 1000%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: background-pan 150s linear infinite;
-  }
-  .fancy:hover > .outer:nth-child(1) {
-    transform: translate(-80%, 60%) rotate(8deg);
-  }
-  .fancy:hover > .outer:nth-child(2) {
-    transform: translate(-40%, 20%) rotate(4deg);
-  }
-  .fancy:hover > .outer:nth-child(3) {
-    transform: translate(-10%, 60%) rotate(-6deg);
-  }
-  .fancy:hover > .outer:nth-child(4) {
-    transform: translate(0%, 8%) rotate(-8deg);
-  }
-  .fancy:hover > .outer:nth-child(5) {
-    transform: translate(0%, -20%) rotate(5deg);
-  }
-  .fancy:hover > .outer:nth-child(6) {
-    transform: translate(0%, 20%) rotate(-3deg);
-  }
-  .fancy:hover > .outer:nth-child(7) {
-    transform: translate(0%, -40%) rotate(-5deg);
-  }
-  .fancy:hover > .outer:nth-child(8) {
-    transform: translate(0%, 15%) rotate(10deg);
-  }
-  .fancy:hover > .outer:nth-child(9) {
-    transform: translate(0%, -50%) rotate(8deg);
-  }
-  .fancy:hover > .outer:nth-child(10) {
-    transform: translate(0%, 15%) rotate(-6deg);
-  }
-  .fancy:hover > .outer:nth-child(11) {
-    transform: translate(50%, -10%) rotate(-3deg);
-  }
-  .fancy:hover > .outer:nth-child(12) {
-    transform: translate(120%, -30%) rotate(-10deg);
-  }
-</style>
-
-<script>
-  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-  const enhance = (id) => {
-    const element = document.getElementById(id),
-      text = element.innerText.split("");
-    element.innerText = "";
-    text.forEach((value, index) => {
-      const outer = document.createElement("span");
-      outer.className = "outer";
-      const inner = document.createElement("span");
-      inner.className = "inner";
-      inner.style.animationDelay = `${rand(-5000, 0)}ms`;
-      const letter = document.createElement("span");
-      letter.className = "letter";
-      letter.innerText = value;
-      letter.style.animationDelay = `${index * 1000}ms`;
-      inner.appendChild(letter);
-      outer.appendChild(inner);
-      element.appendChild(outer);
-    });
+<!-- EmailJS -->
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+></script>
+<script type="text/javascript">
+  (function () {
+    // https://dashboard.emailjs.com/admin/account
+    emailjs.init("_euaN4QLVAx11C2O5");
+  })();
+</script>
+<script type="text/javascript">
+  window.onload = function () {
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        // generate a five digit number for the contact_number variable
+        this.contact_number.value = (Math.random() * 100000) | 0;
+        if (
+          this.name.value === "" ||
+          this.email.value === "" ||
+          this.message.value === ""
+        ) {
+          alert("Please fill out all fields");
+          return;
+        }
+        // these IDs from the previous steps
+        emailjs.sendForm("service_eewf8uh", "template_edef2pr", this).then(
+          function () {
+            document
+              .getElementById("contact-form-wrapper")
+              .classList.add("hidden");
+            document.getElementById("success").classList.remove("hidden");
+          },
+          function (error) {
+            console.log("FAILED...", error);
+            document
+              .getElementById("contact-form-wrapper")
+              .classList.add("hidden");
+            document.getElementById("error").classList.remove("hidden");
+          }
+        );
+      });
   };
-  enhance("calendly-link");
-  enhance("social-link");
-  enhance("email-link");
 </script>
