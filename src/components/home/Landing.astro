@@ -5,11 +5,18 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
 <HorizontalPageLayout id={"home"}>
-  <div class="main-container relative m-0 h-screen w-screen">
-    <div id="left-container" class="side text-center">
+  <div class="relative m-0 h-screen w-screen">
+    <div
+      id="left-container"
+      class="absolute z-20 grid h-screen w-1/4 place-items-center overflow-hidden bg-orange-500 text-center text-white"
+    >
       <div>
-        <h1 class="title text-center lg:text-5xl">Hi! I'm Charaf Mrah</h1>
-        <div class="tagline fancy font-medium lg:text-xl">
+        <h1
+          class="mx-[10vw] mb-[5vh] w-[80vw] text-center text-[8vw] text-white"
+        >
+          Hi! I'm Charaf Mrah
+        </h1>
+        <div class="font-medium lg:text-xl">
           <TypewriterText
             text={["Software Engineer", "Web Developer", "Freelancer"]}
             client:load
@@ -26,10 +33,15 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
         </div>
       </div>
     </div>
-    <div id="right-container" class="side text-center">
+    <div
+      id="right-container"
+      class="absolute grid h-screen w-full place-items-center overflow-hidden bg-white text-center text-slate-900"
+    >
       <div>
-        <h1 class="title text-center lg:text-5xl">Hi! I'm Charaf Mrah</h1>
-        <div class="tagline fancy font-medium lg:text-xl">
+        <h1 class="mx-[10vw] mb-[5vh] w-[80vw] text-center text-[8vw]">
+          Hi! I'm Charaf Mrah
+        </h1>
+        <div class="font-medium lg:text-xl">
           <TypewriterText
             text={["Software Engineer", "Web Developer", "Freelancer"]}
             client:load
@@ -49,83 +61,6 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   </div>
 </HorizontalPageLayout>
 
-<style>
-  :root {
-    --dark: #0f172a;
-
-    --c1: #f97316;
-    --c2: #fff;
-
-    --left-color: var(--c1);
-    --right-color: var(--c2);
-  }
-
-  .main-container {
-    background-color: var(--dark);
-    margin: 0px;
-  }
-
-  .side {
-    display: grid;
-    height: 100vh;
-    overflow: hidden;
-    place-items: center;
-    position: absolute;
-    width: 100%;
-  }
-
-  .side .title {
-    font-size: 8vw;
-    margin: 0px 10vw;
-    margin-bottom: 5vh;
-    width: 80vw;
-  }
-
-  .side .tagline {
-    font-size: 1.5em;
-    margin: 0px 10vw;
-    width: 80vw;
-  }
-
-  .side .fancy {
-    font-size: 1.3em;
-    line-height: 0.8em;
-  }
-
-  #left-container {
-    background-color: var(--left-color);
-    width: 60%;
-    z-index: 2;
-  }
-
-  #left-container .title {
-    color: white;
-  }
-
-  #left-container .tagline {
-    color: white;
-  }
-
-  #left-container .fancy {
-    color: var(--right-color);
-  }
-
-  #right-container {
-    background-color: var(--right-color);
-  }
-
-  #right-container .title {
-    color: var(--dark);
-  }
-
-  #right-container .tagline {
-    color: var(--dark);
-  }
-
-  #right-container .fancy {
-  }
-</style>
-
 <script>
   // Slide effect
   const left = document.getElementById("left-container");
@@ -135,6 +70,4 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   };
 
   document.onmousemove = (e) => handleMove(e);
-
-  document.ontouchmove = (e) => handleMove(e.touches[0]);
 </script>
