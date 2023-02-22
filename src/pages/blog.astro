@@ -115,25 +115,27 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                               <p class="relative z-10 mt-2 mb-2 text-xl text-slate-600">
                                 {post.frontmatter.description}
                               </p>
-                              <div
-                                aria-hidden="true"
-                                class="relative z-10 mt-4 flex items-center text-sm font-medium text-black transition group-hover:text-orange-400"
-                              >
-                                Read article
-                                <svg
-                                  viewBox="0 0 16 16"
-                                  fill="none"
+                              <a href={post.url}>
+                                <div
                                   aria-hidden="true"
-                                  class="order-last ml-1 h-4 w-4 stroke-current transition group-hover:translate-x-6"
+                                  class="relative z-10 mt-4 flex items-center text-sm font-medium text-black transition group-hover:text-orange-400"
                                 >
-                                  <path
-                                    d="M6.75 5.75 9.25 8l-2.5 2.25"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  />
-                                </svg>
-                              </div>
+                                  Read article
+                                  <svg
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    aria-hidden="true"
+                                    class="order-last ml-1 h-4 w-4 stroke-current transition group-hover:translate-x-6"
+                                  >
+                                    <path
+                                      d="M6.75 5.75 9.25 8l-2.5 2.25"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </a>
                             </>
                           </div>
                           <time
