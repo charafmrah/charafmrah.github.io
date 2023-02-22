@@ -22,11 +22,11 @@ const MovingCards = ({ data }: Props) => {
 
   return (
     <div className="moving-cards">
-      {data.map((card) => (
+      {data.map((card, index) => (
         <div
-          key={card.id}
           className={`panel ${activeId === card.id ? "active" : ""}`}
           onClick={() => onClick(card.id)}
+          key={card.id}
           style={{
             background: card.bgColor,
           }}
@@ -61,10 +61,11 @@ const MovingCards = ({ data }: Props) => {
               {
                 /* images of technologies used */
                 card.technologies &&
-                  card.technologies.map((tech) => {
+                  card.technologies.map((tech, index) => {
                     return (
                       <img
                         src={`${tech}`}
+                        key={index}
                         alt="project screenshot"
                         className="h-auto w-auto"
                         loading="lazy"
