@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
+        SpaceGrotesk: ["Space Grotesk", "sans-serif"],
       },
       colors: {
         "light-orange": "#E07A5F",
