@@ -24,7 +24,16 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: "https://charafmrah.com",
-  integrations: [image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  }), mdx(), sitemap(), tailwind(), react(), compress(), partytown(), prefetch(), robotsTxt()]
+  integrations: [
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+    mdx(),
+    sitemap(),
+    tailwind(),
+    react(),
+    partytown(),
+    prefetch(),
+    robotsTxt(),
+  ],
 });

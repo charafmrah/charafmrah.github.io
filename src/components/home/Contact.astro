@@ -7,7 +7,12 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     id="contact-form-wrapper"
     class="mx-auto h-fit max-h-full w-full max-w-3xl rounded-md bg-white p-6 shadow-lg"
   >
-    <h2 class="mt-0 font-bold lg:mb-10">Contact</h2>
+    <h2 class="mt-0 mb-2 font-bold">Contact</h2>
+    <p class="mt-0 mb-5 lg:mb-16">
+      Fill out the form or email me at <a href="mailto:charaf4charaf@gmail.com"
+        >charaf4charaf@gmail.com</a
+      >
+    </p>
 
     <form id="contact-form">
       <input type="hidden" name="contact_number" />
@@ -101,50 +106,3 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     </div>
   </div>
 </HorizontalPageLayout>
-
-<!-- EmailJS -->
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-></script>
-<script type="text/javascript">
-  (function () {
-    // https://dashboard.emailjs.com/admin/account
-    emailjs.init("_euaN4QLVAx11C2O5");
-  })();
-</script>
-<script type="text/javascript">
-  window.onload = function () {
-    document
-      .getElementById("contact-form")
-      .addEventListener("submit", function (event) {
-        event.preventDefault();
-        // generate a five digit number for the contact_number variable
-        this.contact_number.value = (Math.random() * 100000) | 0;
-        if (
-          this.name.value === "" ||
-          this.email.value === "" ||
-          this.message.value === ""
-        ) {
-          alert("Please fill out all fields");
-          return;
-        }
-        // these IDs from the previous steps
-        emailjs.sendForm("service_eewf8uh", "template_edef2pr", this).then(
-          function () {
-            document
-              .getElementById("contact-form-wrapper")
-              .classList.add("hidden");
-            document.getElementById("success").classList.remove("hidden");
-          },
-          function (error) {
-            console.log("FAILED...", error);
-            document
-              .getElementById("contact-form-wrapper")
-              .classList.add("hidden");
-            document.getElementById("error").classList.remove("hidden");
-          }
-        );
-      });
-  };
-</script>
