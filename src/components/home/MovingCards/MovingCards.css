@@ -22,7 +22,7 @@
 }
 
 .panel .card-info {
-  @apply m-0 flex w-auto flex-col gap-8 text-3xl text-white transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5 lg:gap-2  lg:opacity-0;
+  @apply m-0 flex w-auto flex-col text-white transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5 lg:gap-8 lg:gap-2  lg:opacity-0;
 }
 
 .panel.active .card-info {

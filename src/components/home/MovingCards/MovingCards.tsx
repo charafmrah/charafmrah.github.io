@@ -57,7 +57,7 @@ const MovingCards = ({ data }: Props) => {
             />
           )*/}
           <div className="card-info">
-            <div className="flex flex-wrap gap-2">
+            <div className="mb-10 flex flex-wrap gap-2 lg:mb-5">
               {
                 /* images of technologies used */
                 card.technologies &&
@@ -75,7 +75,9 @@ const MovingCards = ({ data }: Props) => {
               }
             </div>
             <a href={card.projectUrl} target="_blank">
-              <p className="text-lg font-medium">{card.description}</p>
+              <p className="font-medium md:text-lg lg:text-xl">
+                {card.description}
+              </p>
             </a>
             <a href={card.projectUrl} target="_blank">
               <h3 className="m-0 text-white">{card.title}</h3>
