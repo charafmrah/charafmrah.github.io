@@ -105,7 +105,7 @@ const {
                 <p>{description}</p>
                 <hr class="mb-10" />
               </header>
-              <slot class="" />
+              <slot />
             </article>
           </div>
         </div>
@@ -150,7 +150,7 @@ const {
     </script>
     <style is:global>
       p {
-        @apply mb-10;
+        @apply mb-10 md:text-lg lg:text-xl;
       }
 
       img {
