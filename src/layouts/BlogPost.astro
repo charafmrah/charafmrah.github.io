@@ -74,7 +74,7 @@ const {
       <div class="container flex h-full min-w-full flex-row items-center">
         <div
           id="page-wrapper"
-          class="h-screen overflow-scroll scroll-smooth px-5 text-base md:px-40 lg:px-80 lg:pt-36"
+          class="h-screen overflow-scroll scroll-smooth px-5 text-base md:px-40 lg:pr-80 lg:pl-96 lg:pt-36"
         >
           <div class="pb-32">
             <div
@@ -159,16 +159,19 @@ const {
         @apply mb-5 max-w-full rounded-md shadow-md;
       }
 
-      .contents {
-        padding: 1em;
-        width: 100%;
-        max-width: 800px;
-        font-size: 1.2em;
+      h2,
+      h3 {
+        @apply pt-4;
       }
-      .contents h2,
-      .contents h3 {
-        padding-top: 1em;
+
+      .contents ul {
+        @apply list-inside list-disc md:text-lg lg:text-xl;
       }
+
+      .contents ol {
+        @apply list-inside list-decimal md:text-lg lg:text-xl;
+      }
+
       body[data-nav="true"] > .header {
         transition: all 500ms;
         transform: translateY(-100%);
