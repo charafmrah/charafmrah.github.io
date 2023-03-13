@@ -2,56 +2,70 @@
 import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 ---
 
-<HorizontalPageLayout id={"contact"} class="bg-orange-400">
+<HorizontalPageLayout
+  id={"contact"}
+  class="bg-orange-400 selection:bg-white selection:text-black"
+>
   <div
     id="contact-form-wrapper"
-    class="mx-auto h-fit max-h-full w-full max-w-3xl rounded-md bg-white p-6 shadow-lg"
+    class="mx-auto h-fit max-h-full w-full max-w-3xl rounded-md bg-orange-400 p-6 text-white"
   >
-    <h2 class="mt-0 mb-2 font-bold">Contact</h2>
-    <p class="mt-0 mb-5 lg:mb-16">
-      Fill out the form or email me at <a href="mailto:charaf4charaf@gmail.com"
-        >charaf4charaf@gmail.com</a
-      >
-    </p>
+    <h2 class="mt-0 mb-16 ml-[5px] font-bold text-white">Contact</h2>
 
-    <form id="contact-form">
+    <form id="contact-form" class="text-xl">
       <input type="hidden" name="contact_number" />
       <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div class="font-medium">
-          <label class="text-gray-700" for="name">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
-          />
+        <div class="group font-medium">
+          <input id="name" name="name" required="" type="text" class="input" />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label for="name">Name</label>
         </div>
 
-        <div class="font-medium">
-          <label class="text-gray-700" for="email">Email</label>
+        <div class="group font-medium">
           <input
             id="email"
+            required=""
             name="email"
-            type="email"
-            class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
+            type="text"
+            class="input"
           />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label for="email">Email</label>
         </div>
       </div>
 
-      <div class="mt-5 font-medium">
-        <label class="text-gray-700" for="message">Message</label>
+      <div class="group mt-16 font-medium">
         <textarea
           id="message"
+          required=""
           name="message"
           rows="4"
-          class="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-700 focus:border-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-40"
-        ></textarea>
+          class="text-area"></textarea>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="message">Message</label>
       </div>
       <div class="mt-6 flex justify-end">
-        <button
-          class="transform rounded-md bg-orange-400 px-8 py-2.5 font-medium leading-5 text-white transition-colors duration-300 hover:bg-black hover:text-white focus:outline-none"
-          >Send</button
-        >
+        <button>
+          <div class="svg-wrapper-1">
+            <div class="svg-wrapper">
+              <svg
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          <span>Send</span>
+        </button>
       </div>
     </form>
   </div>
@@ -106,3 +120,178 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     </div>
   </div>
 </HorizontalPageLayout>
+
+<style>
+  .group {
+    position: relative;
+  }
+
+  .input {
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+  }
+
+  .input:focus {
+    outline: none;
+  }
+
+  label {
+    color: #fff;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 2px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  .input:focus ~ label,
+  .input:valid ~ label {
+    top: -30px;
+    color: #fff;
+  }
+
+  .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .bar:before,
+  .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #fff;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  .bar:before {
+    left: 50%;
+  }
+
+  .bar:after {
+    right: 50%;
+  }
+
+  .input:focus ~ .bar:before,
+  .input:focus ~ .bar:after {
+    width: 50%;
+  }
+
+  .highlight {
+    position: absolute;
+    height: 60%;
+    width: 50%;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+  }
+
+  @keyframes inputHighlighter {
+    from {
+      background: #fff;
+    }
+
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  .text-area {
+    padding: 10px 10px 40px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    user-select: #fff;
+  }
+
+  .text-area:focus {
+    outline: none;
+  }
+
+  .text-area:focus ~ label,
+  .text-area:valid ~ label {
+    top: -30px;
+    color: #fff;
+  }
+
+  .text-area:focus ~ .bar:before,
+  .text-area:focus ~ .bar:after {
+    width: 50%;
+  }
+
+  .text-area:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+  }
+
+  button {
+    font-family: inherit;
+    font-weight: 700;
+    background: transparent;
+    border: 1.5px solid #fff;
+    color: #fff;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+
+  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+
+  button:hover span {
+    transform: translateX(5em);
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+</style>

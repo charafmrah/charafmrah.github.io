@@ -70,6 +70,18 @@ declare global {
               alert("Please fill out all fields");
               return;
             }
+
+            // check for valid email
+            if (
+              !this.email.value.includes("@") ||
+              !this.email.value.includes(".") ||
+              this.email.value.length < 5 ||
+              this.email.value.length > 50
+            ) {
+              alert("Please enter a valid email address");
+              return;
+            }
+
             // these IDs from the previous steps
             emailjs.sendForm("service_eewf8uh", "template_edef2pr", this).then(
               function () {
@@ -77,9 +89,9 @@ declare global {
                   .getElementById("contact-form-wrapper")
                   .classList.add("hidden");
                 document.getElementById("success").classList.remove("hidden");
+                document.getElementById("contact-form").reset();
               },
               function (error) {
-                console.log("FAILED...", error);
                 document
                   .getElementById("contact-form-wrapper")
                   .classList.add("hidden");
