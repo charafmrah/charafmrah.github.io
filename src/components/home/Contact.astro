@@ -14,7 +14,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
     <form id="contact-form" class="text-xl">
       <input type="hidden" name="contact_number" />
-      <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div class="mt-4 grid grid-cols-1 gap-16 sm:grid-cols-2 lg:gap-6">
         <div class="group font-medium">
           <input id="name" name="name" required="" type="text" class="input" />
           <span class="highlight"></span>
@@ -133,6 +133,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
+    color: #0f172a;
   }
 
   .input:focus {
@@ -220,7 +221,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
-    user-select: #fff;
+    color: #0f172a;
   }
 
   .text-area:focus {
@@ -246,10 +247,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     font-family: inherit;
     font-weight: 700;
     background: transparent;
-    border: 1.5px solid #fff;
     color: #fff;
-    padding: 0.7em 1em;
-    padding-left: 0.9em;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     border-radius: 0.3rem;
