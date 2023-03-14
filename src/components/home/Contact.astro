@@ -50,7 +50,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
         <label for="message">Message</label>
       </div>
       <div class="mt-6 flex justify-end">
-        <button>
+        <button id="submit">
           <div class="svg-wrapper-1">
             <div class="svg-wrapper">
               <svg
@@ -68,6 +68,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
           </div>
           <span>Send</span>
         </button>
+        <span id="loading" class="hidden font-bold">sending ...</span>
       </div>
     </form>
   </div>

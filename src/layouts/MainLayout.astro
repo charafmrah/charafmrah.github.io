@@ -60,6 +60,10 @@ declare global {
           .getElementById("contact-form")
           .addEventListener("submit", function (event) {
             event.preventDefault();
+
+            document.getElementById("loading").classList.remove("hidden");
+            document.getElementById("submit").classList.add("hidden");
+
             // generate a five digit number for the contact_number variable
             this.contact_number.value = (Math.random() * 100000) | 0;
             if (
@@ -96,6 +100,8 @@ declare global {
                   .getElementById("contact-form-wrapper")
                   .classList.add("hidden");
                 document.getElementById("error").classList.remove("hidden");
+                document.getElementById("loading").classList.add("hidden");
+                document.getElementById("submit").classList.remove("hidden");
               }
             );
           });
