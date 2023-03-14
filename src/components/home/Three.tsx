@@ -1,15 +1,15 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stage } from "@react-three/drei";
+import Globe from "./Globe";
 
 const Three = () => {
   return (
-    <Canvas>
-      <OrbitControls />
-      {/* globe here */}
+    <Canvas camera={{ fov: 25, position: [4, 4, 4] }}>
+      <OrbitControls enableZoom={false} autoRotate={true} />
       <mesh>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial color="red" />
+        <ambientLight intensity={0.5} />
+        <Globe />
       </mesh>
     </Canvas>
   );
