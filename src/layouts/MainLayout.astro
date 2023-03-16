@@ -156,8 +156,9 @@ declare global {
 
     <script>
       let options = {
-        root: null,
+        root: document.querySelector(".container"),
         rootMargin: "0px",
+        threshold: 0.5,
       };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -167,12 +168,12 @@ declare global {
             entry.target.classList.remove("show");
           }
         });
-      });
-
-      const hiddentElements = document.querySelectorAll(".component-hidden");
-      hiddentElements.forEach((element) => {
-        observer.observe(element);
       }, options);
+
+      const hiddenElements = document.querySelectorAll(".component-hidden");
+      hiddenElements.forEach((element) => {
+        observer.observe(element);
+      });
     </script>
   </body>
 </html>
