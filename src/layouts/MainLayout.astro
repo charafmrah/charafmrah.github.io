@@ -154,11 +154,10 @@ declare global {
       }
     </script>
 
-    <script>
+    <script defer>
       let options = {
         root: document.querySelector(".container"),
         rootMargin: "0px",
-        threshold: 0.5,
       };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
