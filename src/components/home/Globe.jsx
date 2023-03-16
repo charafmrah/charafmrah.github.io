@@ -7,10 +7,10 @@ Source: https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f
 Title: Stylized planet
 */
 
-import React, { useRef } from "react";
+import React, { useRef, memo } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
-export default function Model(props) {
+const Model = memo((props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/globe-transformed.glb");
   const { actions } = useAnimations(animations, group);
@@ -40,6 +40,8 @@ export default function Model(props) {
       </group>
     </group>
   );
-}
+});
 
 useGLTF.preload("/globe-transformed.glb");
+
+export default Model;

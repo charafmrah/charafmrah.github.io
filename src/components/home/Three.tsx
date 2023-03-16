@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stage } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import Globe from "./Globe";
+import { Euler, Vector3 } from "three";
 
 const Three = () => {
+  const cameraPosition = useMemo(() => new Vector3(4, 4, 4), []);
+
   return (
-    <Canvas camera={{ fov: 25, position: [4, 4, 4] }}>
-      <OrbitControls enableZoom={false} autoRotate={true} />
-      <mesh>
-        <ambientLight intensity={0.5} />
-        <Globe />
-      </mesh>
+    <Canvas camera={{ fov: 25, position: cameraPosition }}>
+      {useMemo(
+        () => (
+          <OrbitControls enableZoom={false} autoRotate={true} />
+        ),
+        []
+      )}
+      <Globe />
     </Canvas>
   );
 };
