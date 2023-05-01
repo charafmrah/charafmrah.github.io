@@ -8,15 +8,13 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   <div class="relative m-0 h-full w-screen">
     <div
       id="left-container"
-      class="absolute z-20 hidden h-full w-1/4 place-items-center overflow-hidden bg-orange-400 text-center text-white lg:grid"
+      class="absolute z-20 hidden h-full place-items-center overflow-hidden bg-slate-100 text-center text-slate-900 lg:grid"
     >
       <div>
-        <h1
-          class="mx-[10vw] w-[80vw] text-center text-4xl text-white md:text-[5vw] lg:mb-[5vh]"
-        >
+        <h1 class="mx-[10vw] w-[80vw] text-center text-4xl md:text-5xl lg:mb-5">
           Hi! I'm Charaf Mrah
         </h1>
-        <div class="font-medium lg:text-xl">
+        <div class="font-medium text-slate-800 lg:text-lg">
           <TypewriterText
             text={[
               "Software Engineer",
@@ -39,43 +37,5 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
         </div>
       </div>
     </div>
-    <div
-      id="right-container"
-      class="absolute grid h-full w-full place-items-center overflow-hidden bg-white text-center text-slate-900"
-    >
-      <div>
-        <h1
-          class="mx-[10vw] mt-0 mb-[5vh] w-[80vw] text-center font-SpaceGrotesk text-4xl font-bold text-slate-900 md:text-[5vw] lg:mb-[5vh]"
-        >
-          Hi! I'm Charaf Mrah
-        </h1>
-        <div class="font-medium lg:text-xl">
-          <TypewriterText
-            text={["Software Engineer", "Web Developer", "Freelancer"]}
-            client:load
-          />
-        </div>
-        <div class="items-align mt-5 flex flex-col justify-center lg:hidden">
-          <lottie-player
-            src="/swipe-left.json"
-            background="transparent"
-            speed="1"
-            style="height: 100px;"
-            loop
-            autoplay></lottie-player>
-        </div>
-      </div>
-    </div>
   </div>
 </HorizontalPageLayout>
-
-<script>
-  // Slide effect
-  const left = document.getElementById("left-container");
-
-  const handleMove = (e) => {
-    left.style.width = `${(e.clientX / window.innerWidth) * 100}%`;
-  };
-
-  document.onmousemove = (e) => handleMove(e);
-</script>

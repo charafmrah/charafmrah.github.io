@@ -109,10 +109,7 @@ declare global {
     </script>
   </head>
 
-  <body
-    data-nav="false"
-    class="m-0 w-screen bg-black font-Inter text-slate-700"
-  >
+  <body data-nav="false" class="m-0 bg-black font-Inter text-slate-700">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
@@ -132,7 +129,7 @@ declare global {
       class="relative z-[2] m-0 transform bg-white bg-cover bg-center transition-all duration-500 ease-in-out"
     >
       <div
-        class="container flex min-w-full snap-x snap-mandatory flex-row items-center overflow-y-hidden overflow-x-scroll scroll-smooth"
+        class="container flex h-[var(--page-height)] max-h-[var(--page-height)] min-h-[-webkit-fill-available] min-w-full snap-x snap-mandatory flex-row items-center overflow-x-scroll scroll-smooth"
       >
         <slot />
       </div>
