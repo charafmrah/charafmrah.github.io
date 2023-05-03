@@ -66,8 +66,7 @@ const MovingCards = ({ data }: Props) => {
                       <img
                         src={`${tech}`}
                         key={index}
-                        alt="project screenshot"
-                        className="h-auto w-auto"
+                        className="h-auto w-auto rounded-md"
                         loading="lazy"
                       />
                     );
