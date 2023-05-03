@@ -9,9 +9,11 @@ import Three from "./Three";
   class="bg-gradient-to-b from-amber-400 to-amber-500"
 >
   <div
-    class="about max-h-xl flex h-full w-full max-w-3xl scroll-m-0 flex-col items-center justify-center overflow-auto lg:justify-center lg:py-52"
+    class="about max-h-xl flex h-full w-full max-w-3xl scroll-m-0 flex-col items-center justify-center overflow-hidden lg:justify-center lg:py-52"
   >
-    <div class="flex gap-5 overflow-auto lg:gap-14">
+    <div
+      class="flex gap-5 overflow-hidden overflow-y-auto md:overflow-y-hidden lg:gap-14"
+    >
       <div>
         <h2 class="mt-0 self-start text-left lg:text-6xl">Who am I?</h2>
         <div class="flex flex-col font-medium">
