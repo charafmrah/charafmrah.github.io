@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/charafmrah/charaf-mrah-portfolio">
+  <a href="https://charafmrah.com">
     <img src="public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -15,7 +15,7 @@
     <a href="https://github.com/charafmrah/charaf-mrah-portfolio"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://charafmrah.github.io/charaf-mrah-portfolio/">View Demo</a>
+    <a href="https://charafmrah.com">View Demo</a>
     ·
     <a href="https://github.com/charafmrah/charaf-mrah-portfolio/issues">Report Bug</a>
     ·

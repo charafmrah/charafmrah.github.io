@@ -25,7 +25,14 @@
 */
   window.addEventListener("DOMContentLoaded", (event) => {
     const article = document.getElementById("single-article");
-    const headings = article.querySelectorAll("h2, h3");
+    let headings = article.querySelectorAll("h2, h3");
+
+    // if h3 are too long, they will be hidden
+    const h3s = article.querySelectorAll("h3");
+    if (h3s.length > 7) {
+      headings = article.querySelectorAll("h2");
+    }
+
     const toc = document.getElementById("toc");
     const totalHeadings = headings.length;
     let tocOl = document.createElement("ul");

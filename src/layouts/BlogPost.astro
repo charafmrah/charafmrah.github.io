@@ -91,7 +91,7 @@ const {
             </div>
             <TableOfContents />
             <div class="contents">
-              <article id="single-article">
+              <article id="single-article" class="prose lg:prose-x">
                 <header>
                   <h1 class="title">{title}</h1>
                   {
@@ -176,6 +176,35 @@ const {
         transition: all 500ms;
         transform: translateY(-100%);
         visibility: hidden;
+      }
+
+      /* Style for code blocks */
+      pre {
+        background-color: #2b2b2b;
+        border: 1px solid #3c3c3c;
+        border-radius: 0.4rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow: auto;
+        padding: 1em;
+        white-space: pre;
+        word-wrap: normal;
+        color: #f8f8f8;
+      }
+
+      /* Style for inline code */
+      code {
+        display: flex;
+        flex-direction: column;
+        border-radius: 3px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 14px;
+        padding: 0.2em 0.4em;
+        white-space: nowrap;
+        color: #f8f8f8;
       }
     </style>
     <style>

@@ -1,64 +1,154 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "Astro JS: The Fast and Furious Web Development Framework"
+title: "Building My Portfolio Website with Astro.js, Tailwind CSS, and React: A Comprehensive Review"
 pubDate: "Jun 25 2023"
 heroImage: "astro"
-description: "Astro js is a modern web development framework that has been gaining popularity among developers recently. In this post, we will provide a detailed explanation of what Astro js is, how it works, how to get started with it, its features, advantages, limitations, and real-world examples of Astro js in action."
+description: "I recently decided to rebuild my portfolio website, moving away from WordPress in favor of something more custom and where I can get more creative. After some research, I landed on Astro.js, an up-and-coming front-end framework, and combined it with Tailwind CSS and React to create a sleek, modern, and performant website. In this blog post, I'll share my development experience, discussing the strengths and weaknesses of using Astro.js with Tailwind CSS and React."
 ---
+## Overview of Astro.js
 
-## Introduction
+### What is Astro.js?
 
-### What is Astro js
+Astro.js is a modern front-end framework that focuses on delivering fast, optimized websites by leveraging static rendering and partial hydration. It allows developers to build websites using their favorite JavaScript frameworks (like React, Vue, or Svelte) while producing minimal JavaScript bundles.
 
-Astro js is a modern web development framework that has been gaining popularity among developers recently.
+### Core features
 
-Astro js is a framework that has been designed to help developers build web applications that are optimized for performance and user experience. It provides a number of features that make it easy to create responsive and dynamic web applications that load quickly and smoothly. By using Astro js, developers can build applications that are faster, more reliable, and more enjoyable to use.
+- Static rendering by default
+- Supports multiple JavaScript frameworks
+- Markdown support
+- Scoped CSS
 
-In the following sections, we will provide a detailed explanation of what Astro js is, how it works, how to get started with it, its features, advantages, limitations, and real-world examples of Astro js in action. Whether you are an experienced developer or a beginner, this post will provide you with everything you need to know to start using Astro js in your web development projects.
+### Comparison to other frameworks (Next.js, Gatsby, etc.)
 
-## How does Astro js work
+Astro.js stands out from other popular frameworks like Next.js and Gatsby because of its strong focus on performance, lightweight JavaScript bundles, and its ability to use multiple frameworks in a single project.
 
-Astro js works by breaking web applications down into components, each of which can be easily reused across multiple pages. These components can include HTML, CSS, and JavaScript, and can be organized into a hierarchical structure that makes it easy to build complex applications.
+## Setting up the Project
 
-Astro js also includes a built-in rendering engine that allows components to be rendered on the server or the client, depending on the needs of the application. This makes it possible to build applications that load quickly and provide a seamless user experience.
+Installing Astro.js is a breeze. I started by running the following command to create a new Astro project:
 
-## Why use Astro js
+```bash
+    npm create astro@latest
+```
 
-Some of the benefits of using Astro js include:
+To use Tailwind CSS with Astro, I followed these steps:
 
-- Improved performance: Astro js is designed to be fast and optimized, which can help improve the performance of web applications.
-- Modular approach: Astro js allows developers to break applications down into reusable components, making it easier to build and maintain complex applications.
-- Simplified development: Astro js provides a clean, easy-to-understand syntax that simplifies web development and makes it easier to collaborate on projects.
-- Enhanced user experience: By providing fast, responsive applications that load quickly, Astro js can help provide an enhanced user experience for website visitors.
+- Install dependencies using Astro's Automatic CLI
 
-For information on how to get started with Astro js, refer to [the documentation](https://docs.astro.build/en/install/auto/).
+```bash
+    npx astro add tailwindcss
+```
 
-Overall, Astro js is a powerful web development framework that provides developers with a flexible and modular approach to building web applications. In the following sections, we will provide more detailed information on how to get started with Astro js and its various features.
+- Import Tailwind CSS into my Astro project by creating a styles.css file in the src/ folder and adding the following:
 
-## Features of Astro js
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-## Advantages of using Astro js
+And then, Astro.js made it simple to incorporate React components into my project using the Automatic CLI again:
 
-**Improved performance**:
-Astro js is optimized for speed and performance, and includes a range of features that can help to improve application performance, such as lazy loading, code splitting, and asset optimization. This can lead to faster load times and a better user experience.
+```bash
+npx astro add react
+```
 
-**Increased productivity**:
-Astro js provides a modular design system and a component-based architecture, which can help to streamline the development process and improve productivity. This allows developers to focus on building reusable components and layouts, rather than writing repetitive code.
+Then, I created a new React component file with the .tsx extension and imported the component:
 
-**Enhanced user experience**:
-Astro js is designed to provide a seamless and responsive user experience, with features such as server-side rendering, caching, and offline mode. This can lead to a better user experience and increased user engagement.
+And then I'm able to use the component in my Astro components and pages and control when it's hydrated:
 
-## Real-world examples of Astro js
+```jsx
+---
+import MyReactComponent from './MyReactComponent.tsx';
+---
+<div>
+    <MyReactComponent client:visible />
+</div>
+```
 
-Several websites have been built using Astro js, including the official Astro js website, as well as a range of other websites across various industries. Some examples include:
+## Development Experience
 
-- https://astro.build/
-- https://charafmrah.com/ (my personal website)
+- Creating reusable components
+
+Astro.js makes it easy to create reusable components with React. I built each component either as a standalone React component or an Astro component (depending on how whether I needed stateg management or not), and then used Astro's import syntax to include them in my pages.
+
+- Handling state and props
+
+Managing state and passing props in Astro.js is similar to a typical React project. For local state, I used React hooks, while for prop passing, I simply passed them as attributes to my components.
+
+### Styling with Tailwind CSS
+
+1. Utility-first approach
+
+Tailwind's utility-first approach allowed me to quickly style my components and pages by applying utility classes directly to HTML elements. This helped keep my CSS organized and easily maintainable.
+
+- Customization and responsiveness
+
+Customizing the design and making it responsive was a breeze, thanks to Tailwind's configuration options and responsive utility classes.
+
+### Optimizing performance
+
+- Lazy-loading components
+
+Astro.js optimizes performance by automatically lazy-loading/hydrating React components when they become visible on the screen. This helped to reduce the initial page load time.
+
+- Automatic image optimization
+
+Astro.js has an integration called @astrojs/image which automatically optimizes images, which helped improve the site's loading times and overall performance without much effort.
+
+## Strengths of Astro.js with Tailwind CSS and React
+
+### Improved performance
+
+Astro.js's focus on static rendering and minimal JavaScript results in faster websites with smaller bundles.
+
+### Flexibility in using multiple frameworks
+
+One of the things I appreciated most about Astro.js was its ability to work seamlessly with multiple frameworks, including React, Vue, and Svelte. This flexibility allows developers to use their favorite tools without compromising on performance.
+
+### Enhanced developer experience
+
+Astro.js offers a great developer experience, with features like:
+
+- Fast build times
+- Markdown support
+- Scoped CSS
+
+These features made it easy and enjoyable to develop my new portfolio website (the one you're reading now).
+
+## Weaknesses of Astro.js with Tailwind CSS and React
+
+### Learning curve for newcomers
+
+For developers new to Astro.js or modern web development in general, there might be a learning curve. However, once you become familiar with the concepts, the development process becomes more intuitive.
+
+### Limited ecosystem and community (compared to more established frameworks)
+
+Astro.js is a newer framework, which means its ecosystem and community are not as extensive as more established frameworks like Next.js or Gatsby. As a result, finding solutions to specific problems or third-party libraries might be more challenging.
+
+### Potential compatibility issues with certain React libraries
+
+Since Astro.js focuses on minimal JavaScript and static rendering, you may encounter compatibility issues with some React libraries that rely heavily on JavaScript or client-side rendering.
+
+## Final Thoughts and Recommendations
+
+### Recap of the development experience
+
+Overall, I had a positive experience building my portfolio website with Astro.js, Tailwind CSS, and React. The resulting website is fast, visually appealing, and customizable.
+
+### When to consider using Astro.js, Tailwind CSS, and React
+
+If you're looking to build a fast, modern website with a focus on performance and flexibility, Astro.js with Tailwind CSS and React is a great choice. It's especially suitable for static websites like portfolios, blogs, and documentation sites.
+
+### Potential improvements for Astro.js and the ecosystem
+
+As the Astro.js ecosystem grows, it would be great to see:
+
+- More third-party libraries and integrations
+- Improved compatibility with popular React libraries
+- Continued enhancements in developer experience and performance optimizations
 
 ## Conclusion
 
-Astro js is a modern web development framework that provides a range of features to help developers build fast, optimized web applications. With its rendering engine, component model, and built-in caching system, Astro js is designed to deliver a seamless and responsive user experience, while also streamlining the development process and improving productivity.
+In summary, rebuilding my portfolio website with Astro.js, Tailwind CSS, and React was a rewarding experience. I'm thrilled with the performance and flexibility it offers and would recommend it to others looking to create custom, creative, and fast websites.
 
-Astro js is still a relatively new framework, but it has already gained a significant following and is being used to build a range of web applications across various industries. As the framework continues to evolve and mature, it is likely that we will see even more applications built with Astro js in the future
-
-If you are a web developer looking for a modern, fast, and optimized framework for building web applications, Astro js is definitely worth considering. With its powerful features and active community, Astro js provides a great platform for building web applications that are fast, reliable, and user-friendly. So why not give it a try and see what you can build with Astro js?
+I'd love to hear about your experiences with Astro.js, Tailwind CSS, and React, so please feel free to share your thoughts and work in the comments below!

@@ -17,6 +17,6 @@ module.exports = {
         "blueish-purple": "#9BB1FF",
       },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/typography")],
   },
 };
