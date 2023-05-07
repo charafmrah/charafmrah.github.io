@@ -41,10 +41,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
     />
   </head>
 
-  <body
-    data-nav="false"
-    class="m-0 w-screen bg-black font-Inter text-slate-700"
-  >
+  <body data-nav="false" class="m-0 bg-black font-Inter text-slate-700">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
@@ -59,7 +56,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
     </script>
 
     <div
-      class="absolute top-0 left-0 z-20 flex w-full items-center justify-start gap-3 py-2 px-5 transition-all duration-500 ease-in-out"
+      class="absolute top-0 left-0 z-20 flex items-center justify-start gap-3 py-2 px-5 transition-all duration-500 ease-in-out"
     >
       <a href="/#home" class="shrink-0">
         <Logo text="Charaf" />
@@ -69,12 +66,10 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       role="main"
       class="relative z-[2] m-0 transform bg-white bg-cover bg-center transition-all duration-500 ease-in-out"
     >
-      <div
-        class="container flex min-w-full snap-x snap-mandatory flex-row items-center overflow-y-hidden overflow-x-scroll scroll-smooth"
-      >
+      <div class="container flex w-full flex-row items-center scroll-smooth">
         <div
           id="page-wrapper"
-          class="h-screen overflow-scroll scroll-smooth px-5 pb-32 text-base lg:pt-20"
+          class="w-full scroll-smooth px-5 pb-32 text-base lg:pt-20"
         >
           <div class="min-h-screen w-full lg:col-span-3">
             <section
@@ -178,26 +173,6 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       }
     </script>
 
-    <script>
-      let options = {
-        root: null,
-        rootMargin: "0px",
-      };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          } else {
-            entry.target.classList.remove("show");
-          }
-        });
-      });
-
-      const hiddentElements = document.querySelectorAll(".component-hidden");
-      hiddentElements.forEach((element) => {
-        observer.observe(element);
-      }, options);
-    </script>
     <style>
       ul {
         list-style-type: none;

@@ -129,27 +129,6 @@ const {
           document.body.dataset.nav === "true" ? "false" : "true";
       }
     </script>
-
-    <script>
-      let options = {
-        root: null,
-        rootMargin: "0px",
-      };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          } else {
-            entry.target.classList.remove("show");
-          }
-        });
-      });
-
-      const hiddentElements = document.querySelectorAll(".component-hidden");
-      hiddentElements.forEach((element) => {
-        observer.observe(element);
-      }, options);
-    </script>
     <style is:global>
       p {
         @apply mb-10 md:text-lg lg:text-xl;
