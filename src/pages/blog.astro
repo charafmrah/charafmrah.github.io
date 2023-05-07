@@ -69,7 +69,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       <div class="container flex w-full flex-row items-center scroll-smooth">
         <div
           id="page-wrapper"
-          class="w-full scroll-smooth px-5 pb-32 text-base lg:pt-20"
+          class="h-[var(--page-height)] min-h-[-webkit-fill-available] w-full overflow-scroll scroll-smooth px-5 pb-32 text-base lg:pt-20"
         >
           <div class="min-h-screen w-full lg:col-span-3">
             <section
@@ -157,6 +157,11 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       </div>
     </main>
     <Footer />
+    <style is:inline>
+      nav {
+        height: 40vh !important;
+      }
+    </style>
 
     <script is:inline>
       document
