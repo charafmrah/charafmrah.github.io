@@ -66,6 +66,7 @@ a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+  width: 5px;
   background: #1e293b;
 }
 

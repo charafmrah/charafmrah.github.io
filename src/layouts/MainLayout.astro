@@ -72,6 +72,8 @@ declare global {
               this.message.value === ""
             ) {
               alert("Please fill out all fields");
+              document.getElementById("loading").classList.add("hidden");
+              document.getElementById("submit").classList.remove("hidden");
               return;
             }
 
@@ -83,6 +85,8 @@ declare global {
               this.email.value.length > 50
             ) {
               alert("Please enter a valid email address");
+              document.getElementById("loading").classList.add("hidden");
+              document.getElementById("submit").classList.remove("hidden");
               return;
             }
 
