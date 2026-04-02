@@ -1,10 +1,10 @@
 ---
 import Header from "../components/global/Header.astro";
 import BaseHead from "../components/global/BaseHead.astro";
-import Logo from "../components/global/Logo.astro";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { SEO } from "astro-seo";
+import { getHeroImage } from "../utils/heroImage";
 
 declare global {
   interface Window {
@@ -13,12 +13,25 @@ declare global {
   }
 }
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
+const modules = import.meta.glob<{ frontmatter: Record<string, string> }>(
+  "./blog/*.{md,mdx}",
+  { eager: true }
 );
+
+const posts = Object.entries(modules)
+  .map(([path, mod]) => {
+    const slug = path.replace(/^.*\/([^/]+)\.(md|mdx)$/, "$1");
+    return {
+      ...mod,
+      url: `/blog/${slug}`,
+      frontmatter: mod.frontmatter,
+    };
+  })
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  );
 ---
 
 <!DOCTYPE html>
@@ -71,72 +84,75 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
           class="mt-8 mb-32 space-y-12 text-base text-zinc-800 lg:col-span-3 lg:mt-32"
         >
           {
-            posts.map((post) => (
-              <>
-                <article class="md:grid md:grid-cols-4 md:items-baseline md:gap-12">
-                  <>
-                    <div class="group relative flex flex-col items-start hover:cursor-pointer md:col-span-3">
-                      <>
-                        <a rel="prefetch" href={post.url}>
-                          <h2 class="mt-0 text-2xl font-semibold tracking-tight text-black">
-                            {post.frontmatter.title}:
-                          </h2>
-                        </a>
-                        {post.frontmatter.heroImage && (
-                          <Image
-                            src={import(
-                              `../assets/images/hero/${post.frontmatter.heroImage}.png`
-                            )}
-                            alt={post.frontmatter.title}
-                            class="relative z-10 mb-5 h-64 w-full rounded-lg object-cover shadow-lg"
-                          />
-                        )}
-                      </>
+            posts.map((post) => {
+              const heroSrc = post.frontmatter.heroImage
+                ? getHeroImage(post.frontmatter.heroImage)
+                : undefined;
+              return (
+                <>
+                  <article class="md:grid md:grid-cols-4 md:items-baseline md:gap-12">
+                    <>
+                      <div class="group relative flex flex-col items-start hover:cursor-pointer md:col-span-3">
+                        <>
+                          <a rel="prefetch" href={post.url}>
+                            <h2 class="mt-0 text-2xl font-semibold tracking-tight text-black">
+                              {post.frontmatter.title}:
+                            </h2>
+                          </a>
+                          {heroSrc && (
+                            <Image
+                              src={heroSrc}
+                              alt={post.frontmatter.title}
+                              class="relative z-10 mb-5 h-64 w-full rounded-lg object-cover shadow-lg"
+                            />
+                          )}
+                        </>
 
-                      <>
-                        <p class="relative z-10 mt-2 mb-2 text-xl text-slate-600">
-                          {post.frontmatter.description}
-                        </p>
-                        <a href={post.url}>
-                          <div
-                            aria-hidden="true"
-                            class="relative z-10 mt-4 flex items-center text-sm font-medium text-black transition group-hover:text-orange-400"
-                          >
-                            Read article
-                            <svg
-                              viewBox="0 0 16 16"
-                              fill="none"
+                        <>
+                          <p class="relative z-10 mt-2 mb-2 text-xl text-slate-600">
+                            {post.frontmatter.description}
+                          </p>
+                          <a href={post.url}>
+                            <div
                               aria-hidden="true"
-                              class="order-last ml-1 h-4 w-4 stroke-current transition group-hover:translate-x-6"
+                              class="relative z-10 mt-4 flex items-center text-sm font-medium text-black transition group-hover:text-orange-400"
                             >
-                              <path
-                                d="M6.75 5.75 9.25 8l-2.5 2.25"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </div>
-                        </a>
-                      </>
-                    </div>
-                    <time
-                      class="relative z-10 order-first mt-1 mb-3 flex items-center text-base text-zinc-500 dark:text-zinc-400 md:block md:text-right"
-                      datetime={post.frontmatter.pubDate}
-                    >
-                      {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                        "en-us",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
-                    </time>
-                  </>
-                </article>
-              </>
-            ))
+                              Read article
+                              <svg
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                aria-hidden="true"
+                                class="order-last ml-1 h-4 w-4 stroke-current transition group-hover:translate-x-6"
+                              >
+                                <path
+                                  d="M6.75 5.75 9.25 8l-2.5 2.25"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </div>
+                          </a>
+                        </>
+                      </div>
+                      <time
+                        class="relative z-10 order-first mt-1 mb-3 flex items-center text-base text-zinc-500 dark:text-zinc-400 md:block md:text-right"
+                        datetime={post.frontmatter.pubDate}
+                      >
+                        {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                          "en-us",
+                          {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          }
+                        )}
+                      </time>
+                    </>
+                  </article>
+                </>
+              );
+            })
           }
         </div>
       </section>

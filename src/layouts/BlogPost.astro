@@ -1,7 +1,8 @@
 ---
 import BaseHead from "../components/global/BaseHead.astro";
 import TableOfContents from "../components/blog-post/TableOfContents.astro";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
+import { getHeroImage } from "../utils/heroImage";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { SEO } from "astro-seo";
 
@@ -24,6 +25,8 @@ export interface Props {
 const {
   content: { title, description, pubDate, updatedDate, heroImage },
 } = Astro.props;
+
+const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
 ---
 
 <!DOCTYPE html>
@@ -35,7 +38,7 @@ const {
       description={description}
       openGraph={{
         basic: {
-          title: { title },
+          title,
           type: "website",
           image: "https://charafmrah.com/thumbnail.jpg",
         },
@@ -89,10 +92,10 @@ const {
             <header>
               <h1 class="title">{title}</h1>
               {
-                heroImage && (
+                heroSrc && (
                   <Image
                     class="mb-10 w-full rounded-lg"
-                    src={import(`../assets/images/hero/${heroImage}.png`)}
+                    src={heroSrc}
                     alt="Hero image"
                   />
                 )
