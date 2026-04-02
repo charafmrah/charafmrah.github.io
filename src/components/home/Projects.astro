@@ -1,9 +1,9 @@
 ---
 import MovingCards from "./MovingCards/MovingCards";
 import { cardsData } from "./MovingCards/PortfolioData";
-import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
+import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HorizontalPageLayout id={"projects"}>
+<HomeSection id="projects">
   <MovingCards data={cardsData} client:load />
-</HorizontalPageLayout>
+</HomeSection>

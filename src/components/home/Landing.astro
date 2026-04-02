@@ -1,39 +1,37 @@
 ---
 import TypewriterText from "../../components/global/TypewriterText";
-import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
+import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HorizontalPageLayout id={"home"}>
-  <div class="relative m-0 h-full w-screen">
-    <div
-      class="z-20 grid h-screen place-items-center overflow-hidden bg-slate-100 text-center text-slate-900"
-    >
-      <div>
-        <h1 class="mx-[10vw] w-[80vw] text-center text-4xl md:text-5xl lg:mb-5">
-          Hi! I'm Charaf Mrah
-        </h1>
-        <div class="font-medium text-slate-800 lg:text-lg">
-          <TypewriterText
-            text={[
-              "Software Engineer",
-              "Web Developer",
-              "Full-Stack Developer",
-            ]}
-            client:load
-          />
-        </div>
-        <div class="items-align flex flex-col justify-center lg:hidden">
-          <div class="mt-20">
-            <lottie-player
-              src="/swipe-left.json"
-              background="transparent"
-              speed="1"
-              style="height: 80px;"
-              loop
-              autoplay></lottie-player>
-          </div>
+<HomeSection id="home">
+  <div
+    class="-mx-6 flex w-[calc(100%+3rem)] min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-100 text-center text-slate-900"
+  >
+    <div>
+      <h1 class="mx-[10vw] w-[80vw] text-center text-4xl md:text-5xl lg:mb-5">
+        Hi! I'm Charaf Mrah
+      </h1>
+      <div class="font-medium text-slate-800 lg:text-lg">
+        <TypewriterText
+          text={[
+            "Software Engineer",
+            "Web Developer",
+            "Full-Stack Developer",
+          ]}
+          client:load
+        />
+      </div>
+      <div class="flex flex-col items-center justify-center lg:hidden">
+        <div class="mt-20">
+          <lottie-player
+            src="/swipe-left.json"
+            background="transparent"
+            speed="1"
+            style="height: 80px;"
+            loop
+            autoplay></lottie-player>
         </div>
       </div>
     </div>
   </div>
-</HorizontalPageLayout>
+</HomeSection>

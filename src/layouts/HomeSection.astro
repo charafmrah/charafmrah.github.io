@@ -1,0 +1,13 @@
+---
+const { id, class: className } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[
+    className,
+    "flex min-h-screen w-full max-w-full flex-none snap-start flex-col items-center justify-center px-6",
+  ]}
+>
+  <slot />
+</section>
