@@ -112,7 +112,7 @@ declare global {
     </script>
   </head>
 
-  <body data-nav="false" class="m-0">
+  <body data-nav="false" data-header-theme="light" class="m-0">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
@@ -133,6 +133,11 @@ declare global {
     >
       <slot />
     </main>
+
+    <script>
+      import { initHeaderTheme } from "../scripts/header-theme.ts";
+      initHeaderTheme();
+    </script>
 
     <!-- <script defer>
       let options = {

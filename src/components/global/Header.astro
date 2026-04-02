@@ -5,13 +5,13 @@ import Logo from "./Logo.astro";
 ---
 
 <header
-  class="header fixed top-0 left-0 z-20 flex w-full items-center justify-between gap-3 py-2 px-5 transition-all duration-500 ease-in-out"
+  class="header fixed top-0 left-0 z-20 flex w-full items-center justify-between gap-3 px-5 py-2 transition-colors duration-300 ease-out"
 >
-  <a href="/#home" class="shrink-0">
+  <a href="/#home" class="header-logo shrink-0">
     <Logo text="Charaf" />
   </a>
   <div
-    class="flex items-center justify-center gap-4 text-[0.9375rem] font-medium text-fg md:gap-5 md:text-base"
+    class="header-nav-inner flex items-center justify-center gap-4 text-[0.9375rem] font-medium text-fg md:gap-5 md:text-base"
   >
     <!--
     <DarkLightMode />
@@ -38,4 +38,18 @@ import Logo from "./Logo.astro";
     transform: translateY(-100%);
     visibility: hidden;
   }
+
+  body[data-header-theme="dark"] .header-nav-inner,
+  body[data-header-theme="dark"] .header nav a {
+    @apply text-on-accent;
+  }
+
+  body[data-header-theme="dark"] .header nav a:hover {
+    @apply text-accent-secondary;
+  }
+
+  :global(body[data-header-theme="dark"] .header .button .text-fg) {
+    color: var(--color-on-accent);
+  }
+
 </style>

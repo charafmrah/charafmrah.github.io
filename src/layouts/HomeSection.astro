@@ -1,9 +1,17 @@
 ---
-const { id, class: className } = Astro.props;
+export interface Props {
+  id: string;
+  class?: string;
+  /** "light" = dark ink on header; "dark" = light ink (for dark section backgrounds under fixed header) */
+  headerTheme?: "light" | "dark";
+}
+
+const { id, class: className, headerTheme = "light" } = Astro.props;
 ---
 
 <section
   id={id}
+  data-header-theme={headerTheme}
   class:list={[
     className,
     "flex min-h-screen w-full max-w-full flex-none snap-start flex-col items-center justify-center px-6",
