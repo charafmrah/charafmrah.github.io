@@ -1,14 +1,9 @@
 ---
-import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
+import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HorizontalPageLayout
-  id={"skills"}
-  class="bg-gradient-to-b from-blue-500 to-blue-600"
->
-  <div
-    class="component-hidden skills-card flex max-h-full max-w-3xl flex-col justify-center"
-  >
+<HomeSection id="skills" class="bg-section-skills" headerTheme="dark">
+  <div class="skills-card flex max-h-full max-w-3xl flex-col justify-center">
     <div class="tools">
       <div class="circle">
         <span class="red box"></span>
@@ -21,30 +16,33 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
       </div>
     </div>
     <div
-      class="flex flex-col justify-center gap-2 p-5 text-lg font-semibold md:text-xl"
+      class="flex flex-col justify-center gap-2 p-5 text-sm font-medium leading-relaxed text-fg md:text-base"
     >
       <div>
         <h3>Programming languages:</h3>
-        <p>JavaScript - Java - Python - PHP - Kotlin - TypeScript</p>
+        <p class="skills-body">
+          JavaScript - Java - Python - PHP - Kotlin - TypeScript
+        </p>
       </div>
       <div>
         <h3>Technologies:</h3>
-        <p>
+        <p class="skills-body">
           React - HTML - CSS - Node.js - Next.js - Express.js - WordPress -
           Android SDK - Flutter - Git - MySQL - SQLite - Firebase - Linux
         </p>
       </div>
     </div>
   </div>
-</HorizontalPageLayout>
+</HomeSection>
 
 <style>
   .skills-card {
+    position: relative;
     width: fit-content;
     height: fit-content;
     margin: 0 auto;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    background-color: #f8fbfe;
+    box-shadow: 0 0 10px 0 var(--color-shadow-soft);
+    background-color: var(--color-surface-card);
     border-radius: 8px;
     z-index: 1;
   }
@@ -71,14 +69,43 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   }
 
   .red {
-    background-color: #f87171;
+    background-color: var(--color-traffic-red);
   }
 
   .yellow {
-    background-color: #fb923c;
+    background-color: var(--color-traffic-amber);
   }
 
   .green {
-    background-color: #34d399;
+    background-color: var(--color-traffic-green);
+  }
+
+  .skills-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-fg);
+    letter-spacing: -0.02em;
+  }
+
+  .skills-card > div.flex.flex-col > div + div h3 {
+    margin-top: 1rem;
+  }
+
+  .skills-body {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-fg-muted);
+  }
+
+  @media (min-width: 768px) {
+    .skills-card h3 {
+      font-size: 1.0625rem;
+    }
+    .skills-body {
+      font-size: 1rem;
+    }
   }
 </style>

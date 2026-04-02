@@ -1,3 +1,4 @@
+/** Panel colors: forest, wine, caramel, plum, indigo, terracotta — one warm hue each. */
 export const cardsData = [
   {
     id: 1,
@@ -6,7 +7,7 @@ export const cardsData = [
     description:
       "A single page application that allows users to generate and save AI-generated art. ",
     projectUrl: "https://github.com/charafmrah/web-pangolin-studio-frontend",
-    bgColor: "#e879f9",
+    bgColor: "#283d3b",
     technologies: [
       "https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white",
       "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
@@ -24,7 +25,7 @@ export const cardsData = [
     description:
       "An Android app that helps users find the most efficient route through a network of airports. ",
     projectUrl: "https://github.com/charafmrah/flight-planning-system",
-    bgColor: "#22d3ee",
+    bgColor: "#722f37",
     technologies: [
       "https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white",
       "https://img.shields.io/badge/kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white",
@@ -38,7 +39,7 @@ export const cardsData = [
     description:
       "Applying machine learning algorithms to classify military network connections as normal or anomalous. ",
     projectUrl: "https://github.com/charafmrah/network-intrusion-detection",
-    bgColor: "#f87171",
+    bgColor: "#6f523c",
     technologies: [
       "https://img.shields.io/badge/Python-ffe873?style=for-the-badge&logo=python",
     ],
@@ -50,7 +51,7 @@ export const cardsData = [
     description:
       "An IoT device & Next Js website to control & visualize the data using AWS.",
     projectUrl: "https://github.com/charafmrah/home-health-monitor",
-    bgColor: "#34d399",
+    bgColor: "#5a3d5a",
     technologies: [
       "https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white",
       "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
@@ -66,7 +67,7 @@ export const cardsData = [
     title: "the college route",
     description: "A blog website for college students.",
     projectUrl: "https://thecollegeroute.com",
-    bgColor: "#a78bfa",
+    bgColor: "#464b6e",
     technologies: [
       "https://img.shields.io/badge/php-777BB4?style=for-the-badge&logo=php&logoColor=white",
       "https://img.shields.io/badge/WordPress-21759B?style=for-the-badge&logo=wordpress&logoColor=white",
@@ -78,7 +79,7 @@ export const cardsData = [
     title: "Portfolio Website",
     description: "My portfolio website.",
     projectUrl: "https://charafmrah.com",
-    bgColor: "#fbbf24",
+    bgColor: "#9a5c4a",
     technologies: [
       "https://img.shields.io/badge/Astro-ff5a1f?style=for-the-badge&logo=astro&logoColor=white",
       "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white",

@@ -10,10 +10,14 @@ import BaseHead from "../components/global/BaseHead.astro";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <body class="h-screen max-h-full min-h-[-webkit-fill-available]">
+  <body
+    class="h-screen max-h-full min-h-[-webkit-fill-available] bg-surface text-fg-subtle"
+  >
     <!-- social links like linktree -->
     <div class="flex h-full flex-col items-center justify-between py-20 px-5">
-      <h1 class="text-center">Charaf Mrah Quick Links</h1>
+      <h1 class="text-center text-3xl font-semibold tracking-tight text-fg md:text-4xl">
+        Charaf Mrah Quick Links
+      </h1>
       <ul class="flex flex-col gap-5">
         <a href="https://charafmrah.com" target="_blank">
           <li>Portfolio Website</li>
@@ -66,7 +70,7 @@ import BaseHead from "../components/global/BaseHead.astro";
 
       <style>
         li {
-          @apply w-full rounded-lg bg-slate-200 px-20 py-5 text-center text-base font-bold text-slate-800 shadow-md hover:cursor-pointer  hover:bg-orange-400 hover:text-white lg:text-xl;
+          @apply w-full rounded-lg bg-surface-hero px-20 py-4 text-center text-sm font-semibold text-fg shadow-md hover:cursor-pointer hover:bg-accent hover:text-on-accent md:py-5 md:text-base;
         }
       </style>
     </div>

@@ -4,26 +4,33 @@ import Resume from "../../assets/icons/Resume.astro";
 import Logo from "./Logo.astro";
 ---
 
-<div
-  class="header absolute top-0 left-0 z-20 flex w-full items-center justify-between gap-3 py-2 px-5 transition-all duration-500 ease-in-out"
+<header
+  class="header fixed top-0 left-0 z-20 flex w-full items-center justify-between gap-3 px-5 py-2 transition-colors duration-300 ease-out"
 >
-  <a href="/#home" class="shrink-0">
+  <a href="/#home" class="header-logo shrink-0">
     <Logo text="Charaf" />
   </a>
   <div
-    class="flex items-center justify-center gap-5 text-xl font-semibold text-black"
+    class="header-nav-inner flex items-center justify-center gap-4 text-[0.9375rem] font-medium text-fg md:gap-5 md:text-base"
   >
     <!--
     <DarkLightMode />
-   -->
+    -->
     <a
       href="https://docs.google.com/document/d/1C0H51uE7jfJ9IL7-pILhSeYVvDy_crgKwBM2Sb3aeAg/edit?usp=sharing"
       target="_blank"
     >
-      <Resume />
+      <!-- <Resume /> -->
     </a>
+    <nav class="flex flex-wrap items-center justify-between gap-3">
+      <a href="/#home">Home</a>
+      <a href="/#projects">Projects</a>
+      <a href="/blog">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
 
 <style>
   body[data-nav="true"] > .header {
@@ -31,4 +38,18 @@ import Logo from "./Logo.astro";
     transform: translateY(-100%);
     visibility: hidden;
   }
+
+  body[data-header-theme="dark"] .header-nav-inner,
+  body[data-header-theme="dark"] .header nav a {
+    @apply text-on-accent;
+  }
+
+  body[data-header-theme="dark"] .header nav a:hover {
+    @apply text-accent-secondary;
+  }
+
+  :global(body[data-header-theme="dark"] .header .button .text-fg) {
+    color: var(--color-on-accent);
+  }
+
 </style>

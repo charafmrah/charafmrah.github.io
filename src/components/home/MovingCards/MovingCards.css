@@ -14,7 +14,7 @@
 }
 
 .panel {
-  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col rounded-lg bg-cover bg-center bg-no-repeat p-5 text-white shadow-lg transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5];
+  @apply relative flex h-[50vh] min-w-full cursor-pointer flex-col rounded-lg bg-cover bg-center bg-no-repeat p-5 text-on-accent shadow-lg transition-all duration-300 ease-in-out lg:min-w-0 lg:flex-[0.5];
 }
 
 .panel.active {
@@ -22,7 +22,7 @@
 }
 
 .panel .card-info {
-  @apply m-0 flex w-auto flex-col text-white transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5 lg:gap-8 lg:gap-2  lg:opacity-0;
+  @apply m-0 flex w-auto flex-col text-on-accent transition-all duration-100 ease-in lg:absolute lg:bottom-5 lg:left-5 lg:gap-8 lg:gap-2  lg:opacity-0;
 }
 
 .panel.active .card-info {
@@ -30,7 +30,7 @@
 }
 
 .panel > .card-id {
-  @apply absolute top-5 left-5 flex justify-center text-8xl font-extrabold text-white opacity-0 lg:opacity-100;
+  @apply absolute top-5 left-5 flex justify-center text-5xl font-semibold text-on-accent opacity-0 lg:text-6xl lg:opacity-100;
 }
 
 .panel.active > .card-id {
@@ -38,7 +38,7 @@
 }
 
 .panel a {
-  @apply text-white lg:hidden;
+  @apply text-on-accent lg:hidden;
 }
 
 .panel.active a {
@@ -46,7 +46,7 @@
 }
 
 .panel svg {
-  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-white opacity-0 transition;
+  @apply absolute top-5 right-5 flex justify-center text-5xl font-semibold text-on-accent opacity-0 transition lg:text-6xl;
 }
 
 .panel.active svg {

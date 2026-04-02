@@ -1,7 +1,12 @@
 ---
 import Bars from "../../assets/icons/Bars.astro";
 import Close from "../../assets/icons/Close.astro";
-import { Image, Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
+import homeImg from "../../assets/images/home.jpg";
+import projectsImg from "../../assets/images/projects.jpg";
+import blogImg from "../../assets/images/blog.jpg";
+import aboutImg from "../../assets/images/about.jpg";
+import contactImg from "../../assets/images/contact.jpg";
 ---
 
 <footer>
@@ -11,7 +16,7 @@ import { Image, Picture } from "@astrojs/image/components";
         <span class="nav-link-label">Home</span>
         <Image
           class="nav-link-image"
-          src={import("../../assets/images/home.jpg")}
+          src={homeImg}
           alt="Home"
           loading={"eager"}
         />
@@ -20,8 +25,8 @@ import { Image, Picture } from "@astrojs/image/components";
         <span class="nav-link-label">Projects</span>
         <Image
           class="nav-link-image"
-          src={import("../../assets/images/projects.jpg")}
-          alt="Home"
+          src={projectsImg}
+          alt="Projects"
           loading={"eager"}
         />
       </a>
@@ -29,8 +34,8 @@ import { Image, Picture } from "@astrojs/image/components";
         <span class="nav-link-label">Blog</span>
         <Image
           class="nav-link-image"
-          src={import("../../assets/images/blog.jpg")}
-          alt="Home"
+          src={blogImg}
+          alt="Blog"
           loading={"eager"}
         />
       </a>
@@ -38,8 +43,8 @@ import { Image, Picture } from "@astrojs/image/components";
         <span class="nav-link-label">About</span>
         <Image
           class="nav-link-image"
-          src={import("../../assets/images/about.jpg")}
-          alt="Home"
+          src={aboutImg}
+          alt="About"
           loading={"eager"}
         />
       </a>
@@ -47,8 +52,8 @@ import { Image, Picture } from "@astrojs/image/components";
         <span class="nav-link-label rubik-font">Contact</span>
         <Image
           class="nav-link-image"
-          src={import("../../assets/images/contact.jpg")}
-          alt="Home"
+          src={contactImg}
+          alt="Contact"
           loading={"eager"}
         />
       </a>
@@ -67,7 +72,7 @@ import { Image, Picture } from "@astrojs/image/components";
 
 <style is:global>
   body[data-nav="true"] > main {
-    @apply translate-y-[-100%] md:translate-y-[-50%];
+    @apply translate-y-[-5%] md:translate-y-[-50%];
   }
 
   body[data-nav="true"] > footer > nav > #nav-links {
@@ -75,7 +80,7 @@ import { Image, Picture } from "@astrojs/image/components";
   }
 
   body[data-nav="true"] > footer > #nav-toggle {
-    @apply bg-white;
+    @apply bg-surface;
   }
 
   body:not([data-nav="true"]) > footer > #nav-toggle > .nav-toggle-icon {
@@ -95,8 +100,9 @@ import { Image, Picture } from "@astrojs/image/components";
   }
 
   .nav-link-label {
-    font-size: large;
-    font-weight: 700;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   #nav-links > .nav-link {
@@ -104,8 +110,8 @@ import { Image, Picture } from "@astrojs/image/components";
   }
 
   #nav-links > .nav-link > .nav-link-label {
-    color: white;
-    font-size: 1.25rem;
+    color: var(--color-on-accent);
+    font-size: 1.0625rem;
     margin: 0rem;
   }
 
@@ -121,7 +127,7 @@ import { Image, Picture } from "@astrojs/image/components";
   }
 
   #nav-toggle {
-    @apply bottom-6 h-20 w-20 bg-orange-400 md:bottom-12;
+    @apply bottom-6 h-20 w-20 bg-accent md:bottom-12;
   }
   #nav-toggle {
     position: fixed;

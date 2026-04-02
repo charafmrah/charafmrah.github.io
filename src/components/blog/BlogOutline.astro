@@ -1,0 +1,241 @@
+---
+---
+
+<nav
+  id="blog-outline"
+  class="blog-outline hidden w-52 shrink-0 min-[1920px]:w-64"
+  aria-hidden="true"
+>
+  <div
+    class="blog-outline-inner flex min-h-0 flex-1 flex-col py-8 pr-2 pl-1 min-[1920px]:pl-6 min-[1920px]:pr-5"
+  >
+    <p
+      class="mb-3 shrink-0 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-fg-subtle"
+    >
+      Outline
+    </p>
+    <div
+      id="blog-outline-list"
+      class="blog-outline-list min-h-0 flex-1 overflow-y-auto pb-[env(safe-area-inset-bottom)]"
+    ></div>
+  </div>
+</nav>
+
+<script is:inline>
+  (function () {
+    function slugify(text) {
+      return String(text)
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w\-]/g, "");
+    }
+
+    function ensureHeadingId(el, index, used) {
+      var base = slugify(el.textContent || "") || "section";
+      var id = base;
+      var n = 0;
+      while (used[id] || document.getElementById(id)) {
+        n += 1;
+        id = base + "-" + n;
+      }
+      used[id] = true;
+      el.id = id;
+    }
+
+    function buildOutline() {
+      var article = document.getElementById("single-article");
+      var host = document.getElementById("blog-outline-list");
+      var outlineNav = document.getElementById("blog-outline");
+      if (!article || !host || !outlineNav) return;
+
+      var prose = article.querySelector(".publish-prose");
+      var scope = prose || article;
+      var headings = scope.querySelectorAll("h2, h3");
+      var list = [];
+      headings.forEach(function (el) {
+        list.push(el);
+      });
+
+      if (list.length === 0) {
+        outlineNav.classList.add("hidden");
+        outlineNav.classList.remove(
+          "lg:flex",
+          "lg:flex-col",
+          "lg:h-[100dvh]",
+          "lg:max-h-[100dvh]",
+          "lg:sticky",
+          "lg:top-0"
+        );
+        outlineNav.setAttribute("aria-hidden", "true");
+        outlineNav.removeAttribute("aria-label");
+        return;
+      }
+
+      outlineNav.classList.add(
+        "hidden",
+        "lg:flex",
+        "lg:flex-col",
+        "lg:h-[100dvh]",
+        "lg:max-h-[100dvh]",
+        "lg:sticky",
+        "lg:top-0"
+      );
+      outlineNav.setAttribute("aria-label", "On this page");
+      outlineNav.removeAttribute("aria-hidden");
+
+      var mainUl = document.createElement("ul");
+      mainUl.className = "blog-outline-ul";
+      var mainLi = null;
+      var subUl = null;
+      var usedIds = {};
+
+      list.forEach(function (el, index) {
+        if (!el.id) ensureHeadingId(el, index, usedIds);
+        var a = document.createElement("a");
+        a.href = "#" + el.id;
+        a.textContent = el.textContent || "";
+        a.className = "blog-outline-link";
+
+        if (el.tagName === "H2") {
+          mainLi = document.createElement("li");
+          mainLi.className = "blog-outline-li";
+          mainLi.appendChild(a);
+          mainUl.appendChild(mainLi);
+          subUl = null;
+        } else if (el.tagName === "H3") {
+          if (!mainLi) {
+            mainLi = document.createElement("li");
+            mainLi.className = "blog-outline-li";
+            mainLi.appendChild(a);
+            mainUl.appendChild(mainLi);
+            subUl = null;
+            return;
+          }
+          if (!subUl) {
+            subUl = document.createElement("ul");
+            subUl.className = "blog-outline-sub";
+            mainLi.appendChild(subUl);
+          }
+          var subLi = document.createElement("li");
+          subLi.className = "blog-outline-li-sub";
+          subLi.appendChild(a);
+          subUl.appendChild(subLi);
+        }
+      });
+
+      host.appendChild(mainUl);
+
+      var links = host.querySelectorAll("a");
+      var byId = {};
+      links.forEach(function (link) {
+        var hash = link.getAttribute("href");
+        if (hash && hash.charAt(0) === "#") {
+          byId[hash.slice(1)] = link;
+        }
+      });
+
+      function setActive(id) {
+        links.forEach(function (l) {
+          l.classList.remove("is-active");
+        });
+        if (id && byId[id]) byId[id].classList.add("is-active");
+      }
+
+      var headroom = 112;
+
+      function updateActiveFromScroll() {
+        var currentId = list[0] ? list[0].id : null;
+        for (var i = 0; i < list.length; i++) {
+          var h = list[i];
+          if (h.getBoundingClientRect().top <= headroom) {
+            currentId = h.id;
+          }
+        }
+        setActive(currentId);
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            updateActiveFromScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      updateActiveFromScroll();
+    }
+
+    function run() {
+      buildOutline();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", run);
+    } else {
+      run();
+    }
+  })();
+</script>
+
+<style is:global>
+  .blog-outline {
+    border-left: 1px solid var(--publish-border, rgb(20 26 25 / 0.1));
+  }
+
+  .blog-outline-inner {
+    --publish-muted: var(--color-fg-subtle);
+  }
+
+  .blog-outline-ul,
+  .blog-outline-sub {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .blog-outline-sub {
+    margin-top: 0.25rem;
+    margin-left: 0.65rem;
+    padding-left: 0.65rem;
+    border-left: 1px solid rgb(20 26 25 / 0.12);
+  }
+
+  .blog-outline-li {
+    margin-bottom: 0.35rem;
+  }
+
+  .blog-outline-li-sub {
+    margin-bottom: 0.25rem;
+  }
+
+  .blog-outline-link {
+    display: block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--color-fg-subtle);
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 0.15rem 0.25rem;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .blog-outline-link:hover {
+    color: var(--color-fg);
+    background: rgb(20 26 25 / 0.05);
+  }
+
+  .blog-outline-link.is-active {
+    color: var(--color-accent);
+    font-weight: 600;
+    background: rgb(114 47 55 / 0.1);
+  }
+</style>

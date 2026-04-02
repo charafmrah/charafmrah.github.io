@@ -4,8 +4,93 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Anchors: forest #283d3b + wine #722f37.
+  Other hues are deliberately off-green: petrol (blue), plum, indigo, terracotta — no extra teals.
+*/
 :root {
   --page-height: 100%;
+
+  --color-fg: #141a19;
+  --color-fg-muted: #2c3836;
+  --color-fg-subtle: #4a5654;
+
+  --color-surface: #fafcfb;
+  --color-surface-hero: #f4f6f8;
+  --color-surface-card: #f5f8f7;
+
+  /* Anchors */
+  --color-forest: #283d3b;
+  --color-wine: #722f37;
+
+  --color-accent: var(--color-wine);
+  --color-accent-secondary: #9a4d5a;
+
+  --color-on-accent: #f7f5f4;
+
+  /* Extended palette — different hues, same restrained saturation */
+  --color-petrol: #2d4a5c;
+  --color-plum: #5a3d5a;
+  /* Blue-violet — reads clearly as indigo, not another forest/teal */
+  --color-indigo: #464b6e;
+  --color-terracotta: #9a5c4a;
+  /* Dark caramel / toasted beige — warm, pairs wine + forest without reading blue or grey */
+  --color-caramel: #6f523c;
+
+  /* About: petrol blue mist (not another green wash) */
+  --color-section-about-from: #e8ecf1;
+  --color-section-about-to: #cfd9e4;
+
+  /* Skills: petrol (blue) → forest (green) — only one green stop */
+  --color-section-skills-from: var(--color-petrol);
+  --color-section-skills-to: var(--color-forest);
+
+  /* Contact intro: dusty plum wash */
+  --color-section-contact-info-from: #f2eaef;
+  --color-section-contact-info-to: #e5d8e0;
+
+  /* Contact form: deep wine */
+  --color-section-contact: #2d181c;
+
+  /* Traffic: three different hue families */
+  --color-traffic-red: #8e4a5a;
+  --color-traffic-amber: #c49a4a;
+  --color-traffic-green: var(--color-forest);
+
+  --color-success: var(--color-forest);
+  --color-error: #a84840;
+  --color-ui-muted: #5c6664;
+
+  --color-shadow-soft: rgb(20 26 25 / 0.08);
+
+  --color-scrollbar-thumb: #4a6272;
+  --color-scrollbar-thumb-hover: var(--color-petrol);
+}
+
+@layer utilities {
+  .bg-section-about {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-section-about-from),
+      var(--color-section-about-to)
+    );
+  }
+
+  .bg-section-skills {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-section-skills-from),
+      var(--color-section-skills-to)
+    );
+  }
+
+  .bg-section-contact-info {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-section-contact-info-from),
+      var(--color-section-contact-info-to)
+    );
+  }
 }
 
 html {
@@ -13,7 +98,7 @@ html {
 }
 
 body {
-  @apply scroll-smooth font-Inter;
+  @apply scroll-smooth font-Inter text-base leading-relaxed text-fg-subtle;
 }
 
 h1,
@@ -22,61 +107,65 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mb-5 mt-8 text-left font-SpaceGrotesk text-2xl font-bold text-slate-900;
+  @apply mb-4 mt-6 text-left font-SpaceGrotesk text-xl font-semibold tracking-tight text-fg;
 }
 
 h1 {
-  @apply mt-0 mb-5 text-4xl lg:text-6xl;
+  @apply mt-0 mb-4 text-3xl md:text-4xl lg:text-5xl;
 }
 
 h2 {
-  @apply mb-5 text-4xl font-bold lg:text-6xl;
+  @apply mb-4 text-3xl font-semibold md:text-4xl lg:text-5xl;
 }
 
 h3 {
-  @apply mb-5 text-3xl font-bold text-slate-800 lg:text-4xl;
+  @apply mb-3 text-xl font-semibold md:text-2xl lg:text-3xl;
 }
 
 p {
-  @apply mb-5 text-left text-base text-slate-800;
+  @apply mb-4 text-left text-base leading-relaxed text-fg-muted;
+}
+
+header nav a,
+footer nav a {
+  @apply text-[0.9375rem] font-medium text-fg md:text-base;
+}
+
+header nav a:hover,
+footer nav a:hover {
+  @apply text-accent;
 }
 
 a {
-  @apply text-left text-orange-500;
+  @apply text-left text-accent;
 }
 
 .component-hidden {
-  @apply translate-x-full opacity-0 blur-sm transition-all duration-500 motion-reduce:transition-none;
+  @apply translate-x-full opacity-0 blur-sm transition-all duration-300 motion-reduce:transition-none;
 }
 
 .show {
   @apply translate-x-0 opacity-100 blur-0;
 }
 
-/* Scrollbar */
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   width: 5px;
-  background: #1e293b;
+  background: var(--color-scrollbar-thumb);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #0f172a;
+  background: var(--color-scrollbar-thumb-hover);
 }
 
-/* Selection */
 ::selection {
-  color: white;
-  background: #fb923c;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
 }

@@ -1,6 +1,5 @@
 ---
 import BaseHead from "../components/global/BaseHead.astro";
-import Footer from "../components/global/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/global/Header.astro";
 import { SEO } from "astro-seo";
@@ -113,7 +112,7 @@ declare global {
     </script>
   </head>
 
-  <body data-nav="false" class="m-0 bg-black font-Inter text-slate-700">
+  <body data-nav="false" data-header-theme="light" class="m-0">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
@@ -130,32 +129,17 @@ declare global {
     <Header />
     <main
       role="main"
-      class="relative z-[2] m-0 transform bg-white bg-cover bg-center transition-all duration-500 ease-in-out"
+      class="relative z-[2] m-0 transform bg-surface bg-cover bg-center transition-all duration-500 ease-in-out"
     >
-      <div
-        class="container box-border flex h-[var(--page-height)] max-h-[var(--page-height)] min-h-[-webkit-fill-available] w-full min-w-full snap-x snap-mandatory flex-row items-center overflow-y-hidden overflow-x-scroll scroll-smooth"
-      >
-        <slot />
-      </div>
+      <slot />
     </main>
-    <Footer />
 
-    <script is:inline>
-      document
-        .getElementById("nav-toggle")
-        .addEventListener("click", toggleNav);
-
-      document.querySelectorAll("a.nav-link").forEach((link) => {
-        link.addEventListener("click", toggleNav);
-      });
-
-      function toggleNav() {
-        document.body.dataset.nav =
-          document.body.dataset.nav === "true" ? "false" : "true";
-      }
+    <script>
+      import { initHeaderTheme } from "../scripts/header-theme.ts";
+      initHeaderTheme();
     </script>
 
-    <script defer>
+    <!-- <script defer>
       let options = {
         root: document.querySelector(".container"),
         rootMargin: "0px",
@@ -174,6 +158,6 @@ declare global {
       hiddenElements.forEach((element) => {
         observer.observe(element);
       });
-    </script>
+    </script> -->
   </body>
 </html>

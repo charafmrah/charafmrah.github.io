@@ -1,20 +1,21 @@
 ---
-import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
+import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HorizontalPageLayout
-  id={"contact"}
-  class="bg-orange-400 selection:bg-white selection:text-black"
+<HomeSection
+  id="contact"
+  class="bg-section-contact selection:bg-surface selection:text-fg"
+  headerTheme="dark"
 >
   <div
     id="contact-form-wrapper"
-    class="mx-auto h-fit max-h-full w-full max-w-3xl rounded-md bg-orange-400 p-6 text-white"
+    class="mx-auto h-fit max-h-full w-full max-w-3xl rounded-md bg-transparent p-6 text-on-accent"
   >
-    <h2 class="mt-0 mb-16 ml-[5px] font-bold text-white">
+    <h2 class="mt-0 mb-12 ml-[5px] text-3xl font-semibold tracking-tight text-on-accent md:mb-14 md:text-4xl">
       <span data-value="Contact" id="contact-header">Contact</span>
     </h2>
 
-    <form id="contact-form" class="text-xl">
+    <form id="contact-form" class="text-base md:text-lg">
       <input type="hidden" name="contact_number" />
       <div class="mt-4 grid grid-cols-1 gap-16 sm:grid-cols-2 lg:gap-6">
         <div class="group font-medium">
@@ -74,9 +75,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   </div>
   <div id="success" class="hidden">
     <div
-      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-md"
+      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-surface shadow-md"
     >
-      <div class="flex w-12 items-center justify-center bg-emerald-500">
+      <div class="flex w-12 shrink-0 items-center justify-center bg-success">
         <svg
           class="h-6 w-6 fill-current text-white"
           viewBox="0 0 40 40"
@@ -90,8 +91,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
       <div class="-mx-3 px-4 py-2">
         <div class="mx-3">
-          <span class="font-semibold text-emerald-500">Success</span>
-          <p class="text-sm text-gray-600">
+          <span class="font-semibold text-success">Success</span>
+          <p class="text-sm text-ui-muted">
             Your message was sent successfully!
           </p>
         </div>
@@ -100,9 +101,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   </div>
   <div id="error" class="hidden">
     <div
-      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-md"
+      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-surface shadow-md"
     >
-      <div class="flex w-12 items-center justify-center bg-red-500">
+      <div class="flex w-12 shrink-0 items-center justify-center bg-error">
         <svg
           class="h-6 w-6 fill-current text-white"
           viewBox="0 0 40 40"
@@ -116,13 +117,13 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
       <div class="-mx-3 px-4 py-2">
         <div class="mx-3">
-          <span class="font-semibold text-red-500">Error</span>
-          <p class="text-sm text-gray-600">Your message was not sent!</p>
+          <span class="font-semibold text-error">Error</span>
+          <p class="text-sm text-ui-muted">Your message was not sent!</p>
         </div>
       </div>
     </div>
   </div>
-</HorizontalPageLayout>
+</HomeSection>
 
 <style>
   .group {
@@ -134,9 +135,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--color-on-accent);
     background: transparent;
-    color: #0f172a;
+    color: var(--color-fg);
   }
 
   .input:focus {
@@ -144,7 +145,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   }
 
   label {
-    color: #fff;
+    color: var(--color-on-accent);
     position: absolute;
     pointer-events: none;
     left: 5px;
@@ -157,7 +158,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   .input:focus ~ label,
   .input:valid ~ label {
     top: -30px;
-    color: #fff;
+    color: var(--color-on-accent);
   }
 
   .bar {
@@ -173,7 +174,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: #fff;
+    background: var(--color-on-accent);
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -208,7 +209,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
 
   @keyframes inputHighlighter {
     from {
-      background: #fff;
+      background: var(--color-on-accent);
     }
 
     to {
@@ -222,9 +223,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--color-on-accent);
     background: transparent;
-    color: #0f172a;
+    color: var(--color-fg);
   }
 
   .text-area:focus {
@@ -234,7 +235,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   .text-area:focus ~ label,
   .text-area:valid ~ label {
     top: -30px;
-    color: #fff;
+    color: var(--color-on-accent);
   }
 
   .text-area:focus ~ .bar:before,
@@ -250,7 +251,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     font-family: inherit;
     font-weight: 700;
     background: transparent;
-    color: #fff;
+    color: var(--color-on-accent);
     margin-top: 1rem;
     padding-bottom: 0.5rem;
     display: flex;

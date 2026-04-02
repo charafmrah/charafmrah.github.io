@@ -1,9 +1,13 @@
 ---
-import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
+import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HorizontalPageLayout id={"contact-info"}>
-  <div id="contact-text" class="component-hidden font-SpaceGrotesk">
+<HomeSection
+  id="contact-info"
+  class="bg-section-contact-info"
+  headerTheme="light"
+>
+  <div id="contact-text" class="font-SpaceGrotesk">
     <div class="line">
       <p class="word">Contact</p>
       <p class="word">Me</p>
@@ -34,13 +38,9 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
       </a>
     </div>
   </div>
-</HorizontalPageLayout>
+</HomeSection>
 
 <style is:inline>
-  :root {
-    --orange: #fb923c;
-    --yellow: #fbbf24;
-  }
   p {
     all: unset;
   }
@@ -66,8 +66,8 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     justify-content: space-between;
   }
   .word {
-    color: #0f172a;
-    font-size: clamp(2rem, 8vw, 4rem);
+    color: var(--color-fg);
+    font-size: clamp(1.125rem, 3.5vw, 2rem);
     font-weight: 600;
     margin: 0rem;
     text-transform: uppercase;
@@ -80,7 +80,7 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
     opacity: 0.2;
   }
   .fancy {
-    color: var(--orange);
+    color: var(--color-accent);
   }
   .fancy span {
     display: inline-block;
@@ -97,9 +97,11 @@ import HorizontalPageLayout from "../../layouts/HorizontalPageLayout.astro";
   .fancy:hover > .outer > .inner > .letter {
     background: linear-gradient(
       to right,
-      var(--orange),
-      var(--yellow),
-      var(--orange)
+      var(--color-wine),
+      var(--color-plum),
+      var(--color-indigo),
+      var(--color-petrol),
+      var(--color-wine)
     );
     background-size: 1000%;
     -webkit-background-clip: text;

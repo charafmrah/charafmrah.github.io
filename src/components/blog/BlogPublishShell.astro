@@ -1,0 +1,319 @@
+---
+import Logo from "../global/Logo.astro";
+
+export interface PostNavItem {
+  title: string;
+  url: string;
+  pubDate?: string;
+}
+
+interface Props {
+  posts: PostNavItem[];
+  currentUrl?: string;
+  pageLabel?: string;
+}
+
+const { posts, currentUrl = "", pageLabel = "Blog" } = Astro.props;
+---
+
+<div class="publish-root min-h-screen bg-publish-canvas text-publish-fg">
+  <!-- Mobile: top bar -->
+  <header
+    class="publish-mobile-bar sticky top-0 z-40 flex items-center gap-3 border-b border-publish-border bg-publish-sidebar px-3 py-2.5 lg:hidden"
+  >
+    <button
+      type="button"
+      class="publish-menu-btn shrink-0 rounded-md border border-publish-border bg-publish-paper px-2.5 py-1.5 text-sm font-medium text-publish-fg"
+      aria-expanded="false"
+      aria-controls="publish-sidebar"
+      id="publish-menu-btn"
+    >
+      Menu
+    </button>
+    <a
+      href="/#home"
+      class="publish-mobile-logo shrink-0"
+      aria-label="Charaf Mrah — home"
+    >
+      <Logo text="Charaf" />
+    </a>
+    <span class="min-w-0 flex-1 truncate font-medium text-publish-fg">{pageLabel}</span>
+  </header>
+
+  <div
+    id="publish-backdrop"
+    class="publish-backdrop fixed inset-0 z-30 hidden bg-black/25 lg:hidden"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div
+    class="publish-shell mx-auto flex min-h-[calc(100vh-3.25rem)] w-full max-w-none items-start min-[1920px]:max-w-[min(100%,100rem)] lg:min-h-screen"
+  >
+    <aside
+      id="publish-sidebar"
+      class="publish-sidebar fixed inset-y-0 left-0 z-40 flex h-[100dvh] max-h-[100dvh] w-[min(100%,17.5rem)] -translate-x-full flex-col border-r border-publish-border bg-publish-sidebar pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] transition-transform duration-200 ease-out lg:sticky lg:top-0 lg:z-0 lg:h-[100dvh] lg:max-h-[100dvh] lg:w-60 lg:shrink-0 lg:translate-x-0 min-[1920px]:pr-7"
+      aria-label="Blog navigation"
+    >
+      <div
+        class="publish-sidebar-brand shrink-0 border-b border-publish-border px-4 py-4 lg:pt-4"
+      >
+        <a href="/#home" class="publish-logo-link inline-block" aria-label="Charaf Mrah — home">
+          <Logo text="Charaf" />
+        </a>
+        <div class="mt-2 flex items-center gap-1 text-xs text-publish-muted">
+          <a href="/blog" class="hover:text-accent">Blog</a>
+          <span aria-hidden="true">/</span>
+          <span class="truncate">{pageLabel}</span>
+        </div>
+      </div>
+
+      <nav class="min-h-0 flex-1 overflow-y-auto px-2 py-3" aria-label="All posts">
+        <p
+          class="mb-2 px-2 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-publish-muted"
+        >
+          Notes
+        </p>
+        <ul class="publish-notes-list space-y-1 font-mono">
+          {
+            posts.map((post) => {
+              const active = currentUrl === post.url;
+              return (
+                <li>
+                  <a
+                    href={post.url}
+                    rel={active ? undefined : "prefetch"}
+                    class:list={[
+                      "publish-notes-link group flex min-w-0 flex-col rounded-md px-2 py-1 text-[0.6875rem] font-normal leading-snug transition-colors",
+                      active
+                        ? "bg-publish-active text-publish-fg"
+                        : "text-publish-muted hover:bg-publish-hover hover:text-publish-fg",
+                    ]}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    <span class="min-w-0 break-words">{post.title}</span>
+                    {post.pubDate && (
+                      <time
+                        class="mt-1 text-[0.6rem] opacity-80"
+                        datetime={post.pubDate}
+                      >
+                        {new Date(post.pubDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </time>
+                    )}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+
+      <div
+        class="publish-sidebar-social mt-auto shrink-0 border-t border-publish-border px-3 py-2.5"
+      >
+        <div
+          class="publish-sidebar-social-inner flex items-center justify-center gap-3.5 leading-none"
+        >
+          <a
+            href="https://twitter.com/charafmrah"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="publish-social-icon text-publish-muted transition-colors hover:text-accent"
+            aria-label="Twitter"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path
+                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/charafmrah"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="publish-social-icon text-publish-muted transition-colors hover:text-accent"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"
+              ></circle>
+            </svg>
+          </a>
+          <a
+            href="mailto:charaf@webpangolin.com"
+            class="publish-social-icon text-publish-muted transition-colors hover:text-accent"
+            aria-label="Email charaf@webpangolin.com"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex min-w-0 flex-1 flex-col lg:flex-row">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById("publish-menu-btn");
+    var sidebar = document.getElementById("publish-sidebar");
+    var backdrop = document.getElementById("publish-backdrop");
+
+    function setOpen(open) {
+      if (!sidebar) return;
+      sidebar.classList.toggle("-translate-x-full", !open);
+      if (backdrop) backdrop.classList.toggle("hidden", !open);
+      if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    btn &&
+      btn.addEventListener("click", function () {
+        var isOpen = sidebar && !sidebar.classList.contains("-translate-x-full");
+        setOpen(!isOpen);
+      });
+
+    backdrop &&
+      backdrop.addEventListener("click", function () {
+        setOpen(false);
+      });
+
+    if (sidebar) {
+      sidebar.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          if (window.matchMedia("(max-width: 1023px)").matches) setOpen(false);
+        });
+      });
+    }
+  })();
+</script>
+
+<style>
+  .publish-sidebar-brand {
+    --color-surface: var(--publish-sidebar);
+  }
+
+  .publish-mobile-logo {
+    --color-surface: var(--publish-sidebar);
+  }
+
+  .publish-mobile-logo :global(.button) {
+    letter-spacing: 2px;
+  }
+
+  .publish-social-icon {
+    display: inline-flex;
+    height: 1rem;
+    width: 1rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .publish-social-icon svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .publish-root {
+    --publish-fg: var(--color-fg);
+    --publish-muted: var(--color-fg-subtle);
+    --publish-canvas: #fcfcfa;
+    --publish-sidebar: #f4f3f0;
+    --publish-paper: #ffffff;
+    --publish-border: rgb(20 26 25 / 0.1);
+    --publish-hover: rgb(20 26 25 / 0.06);
+    --publish-active: rgb(114 47 55 / 0.12);
+  }
+
+  :global(.dark) .publish-root {
+    --publish-canvas: #1c1c1a;
+    --publish-sidebar: #232321;
+    --publish-paper: #2a2a28;
+    --publish-fg: #e8eae9;
+    --publish-muted: #9ca8a6;
+    --publish-border: rgb(255 255 255 / 0.08);
+    --publish-hover: rgb(255 255 255 / 0.06);
+    --publish-active: rgb(114 47 55 / 0.35);
+  }
+
+  .text-publish-fg {
+    color: var(--publish-fg);
+  }
+  .text-publish-muted {
+    color: var(--publish-muted);
+  }
+  .bg-publish-canvas {
+    background: var(--publish-canvas);
+  }
+  .bg-publish-sidebar {
+    background: var(--publish-sidebar);
+  }
+  .bg-publish-paper {
+    background: var(--publish-paper);
+  }
+  .border-publish-border {
+    border-color: var(--publish-border);
+  }
+  .bg-publish-hover:hover {
+    background: var(--publish-hover);
+  }
+  .bg-publish-active {
+    background: var(--publish-active);
+  }
+
+  /* Full-bleed sidebar tint left of the column when the shell is centered (matches gutter to nav bg) */
+  @media (min-width: 1024px) {
+    #publish-sidebar {
+      isolation: isolate;
+    }
+
+    #publish-sidebar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      width: 100vw;
+      background: var(--publish-sidebar);
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+</style>
