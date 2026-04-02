@@ -39,7 +39,7 @@ const MovingCards = ({ data }: Props) => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="white"
-              className="absolute top-2 right-2 h-20 w-20 "
+              className="absolute top-2 right-2 h-10 w-10 md:h-12 md:w-12"
             >
               <path
                 strokeLinecap="round"
@@ -57,7 +57,7 @@ const MovingCards = ({ data }: Props) => {
             />
           )*/}
           <div className="card-info">
-            <div className="mb-10 flex flex-wrap gap-2 lg:mb-5">
+            <div className="mb-6 flex flex-wrap gap-2 lg:mb-4">
               {
                 /* images of technologies used */
                 card.technologies &&
@@ -74,12 +74,14 @@ const MovingCards = ({ data }: Props) => {
               }
             </div>
             <a href={card.projectUrl} target="_blank">
-              <p className="font-medium md:text-lg lg:text-xl">
+              <p className="font-normal leading-relaxed md:text-base lg:text-lg">
                 {card.description}
               </p>
             </a>
             <a href={card.projectUrl} target="_blank">
-              <h3 className="m-0 text-on-accent">{card.title}</h3>
+              <h3 className="m-0 text-lg font-semibold tracking-tight text-on-accent md:text-xl">
+                {card.title}
+              </h3>
             </a>
           </div>
         </div>

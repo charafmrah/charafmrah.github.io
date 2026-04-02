@@ -76,7 +76,7 @@ const posts = Object.entries(modules)
     >
       <section class="flex w-full shrink-0 flex-col lg:flex-row lg:gap-40">
         <h1
-          class="mt-40 text-4xl font-bold tracking-tighter text-fg lg:mt-32 lg:text-8xl"
+          class="mt-40 text-4xl font-semibold tracking-tight text-fg md:text-5xl lg:mt-32 lg:text-6xl"
         >
           Blog
         </h1>
@@ -95,7 +95,7 @@ const posts = Object.entries(modules)
                       <div class="group relative flex flex-col items-start hover:cursor-pointer md:col-span-3">
                         <>
                           <a rel="prefetch" href={post.url}>
-                            <h2 class="mt-0 text-2xl font-semibold tracking-tight text-fg">
+                            <h2 class="mt-0 text-xl font-semibold tracking-tight text-fg md:text-2xl">
                               {post.frontmatter.title}:
                             </h2>
                           </a>
@@ -109,7 +109,7 @@ const posts = Object.entries(modules)
                         </>
 
                         <>
-                          <p class="relative z-10 mt-2 mb-2 text-xl text-slate-600">
+                          <p class="relative z-10 mt-2 mb-2 text-base leading-relaxed text-fg-subtle md:text-lg">
                             {post.frontmatter.description}
                           </p>
                           <a href={post.url}>

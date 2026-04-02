@@ -111,7 +111,7 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
 
     <style is:global>
       p {
-        @apply mb-10 md:text-lg lg:text-xl;
+        @apply mb-8 text-base leading-relaxed md:text-lg;
       }
 
       img {
@@ -124,11 +124,11 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
       }
 
       .contents ul {
-        @apply list-inside list-disc md:text-lg lg:text-xl;
+        @apply list-inside list-disc text-base md:text-lg;
       }
 
       .contents ol {
-        @apply list-inside list-decimal md:text-lg lg:text-xl;
+        @apply list-inside list-decimal text-base md:text-lg;
       }
 
       body[data-nav="true"] > .header {
@@ -168,14 +168,14 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
     </style>
     <style>
       #learn-more {
-        --orangeDark: #ff6b00;
-        --orangeLight: #ff9f00;
+        --btn-depth: #1a1214;
+        --btn-highlight: #b8c9c8;
         min-width: 200px;
         color: var(--color-fg);
         text-transform: uppercase;
         padding: 1.25em 2em;
-        background: #fed7aa;
-        border: 2px solid #fdba74;
+        background: #e4eceb;
+        border: 2px solid var(--btn-highlight);
         border-radius: 0.75em;
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
@@ -195,10 +195,11 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
         left: 0;
         right: 0;
         bottom: 0;
-        background: #fb923c;
+        background: var(--color-accent);
         border-radius: inherit;
-        -webkit-box-shadow: 0 0 0 2px var(--orangeDark), 0 0.625em 0 0 #fff;
-        box-shadow: 0 0 0 2px var(--orangeDark), 0 0.625em 0 0 #fff;
+        -webkit-box-shadow: 0 0 0 2px var(--btn-depth),
+          0 0.625em 0 0 var(--color-surface);
+        box-shadow: 0 0 0 2px var(--btn-depth), 0 0.625em 0 0 var(--color-surface);
         -webkit-transform: translate3d(0, 0.75em, -1em);
         transform: translate3d(0, 0.75em, -1em);
         transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
@@ -208,27 +209,30 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
       }
 
       #learn-more:hover {
-        background: #fb923c;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
         -webkit-transform: translate(0, 0.25em);
         transform: translate(0, 0.25em);
       }
 
       #learn-more:hover::before {
-        -webkit-box-shadow: 0 0 0 2px var(--orangeDark), 0 0.5em 0 0 #fff;
-        box-shadow: 0 0 0 2px var(--orangeDark), 0 0.5em 0 0 #fff;
+        -webkit-box-shadow: 0 0 0 2px var(--btn-depth),
+          0 0.5em 0 0 var(--color-surface);
+        box-shadow: 0 0 0 2px var(--btn-depth), 0 0.5em 0 0 var(--color-surface);
         -webkit-transform: translate3d(0, 0.5em, -1em);
         transform: translate3d(0, 0.5em, -1em);
       }
 
       #learn-more:active {
-        background: #fb923c;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
         -webkit-transform: translate(0em, 0.75em);
         transform: translate(0em, 0.75em);
       }
 
       #learn-more:active::before {
-        -webkit-box-shadow: 0 0 0 2px var(--orangeDark), 0 0 var(--orangeLight);
-        box-shadow: 0 0 0 2px var(--orangeDark), 0 0 var(--orangeLight);
+        -webkit-box-shadow: 0 0 0 2px var(--btn-depth), 0 0 var(--btn-highlight);
+        box-shadow: 0 0 0 2px var(--btn-depth), 0 0 var(--btn-highlight);
         -webkit-transform: translate3d(0, 0, -1em);
         transform: translate3d(0, 0, -1em);
       }

@@ -4,42 +4,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens — single source of truth for color */
+/*
+  Anchors: forest #283d3b + wine #722f37.
+  Other hues are deliberately off-green: petrol (blue), plum, indigo, terracotta — no extra teals.
+*/
 :root {
   --page-height: 100%;
 
-  /* Primary ink — hero headline, logo, nav, all headings */
-  --color-fg: #0f172a;
-  --color-fg-muted: #1e293b;
-  --color-fg-subtle: #334155;
+  --color-fg: #141a19;
+  --color-fg-muted: #2c3836;
+  --color-fg-subtle: #4a5654;
 
-  --color-surface: #ffffff;
-  --color-surface-hero: #f1f5f9;
-  --color-surface-card: #f8fbfe;
+  --color-surface: #fafcfb;
+  --color-surface-hero: #f4f6f8;
+  --color-surface-card: #f5f8f7;
 
-  --color-accent: #fb923c;
-  --color-accent-secondary: #fbbf24;
+  /* Anchors */
+  --color-forest: #283d3b;
+  --color-wine: #722f37;
 
-  --color-on-accent: #ffffff;
+  --color-accent: var(--color-wine);
+  --color-accent-secondary: #9a4d5a;
 
-  --color-section-about-from: #fbbf24;
-  --color-section-about-to: #f59e0b;
-  --color-section-skills-from: #3b82f6;
-  --color-section-skills-to: #2563eb;
-  --color-section-contact: #fb923c;
+  --color-on-accent: #f7f5f4;
 
-  --color-traffic-red: #f87171;
-  --color-traffic-amber: #fb923c;
-  --color-traffic-green: #34d399;
+  /* Extended palette — different hues, same restrained saturation */
+  --color-petrol: #2d4a5c;
+  --color-plum: #5a3d5a;
+  /* Blue-violet — reads clearly as indigo, not another forest/teal */
+  --color-indigo: #464b6e;
+  --color-terracotta: #9a5c4a;
+  /* Dark caramel / toasted beige — warm, pairs wine + forest without reading blue or grey */
+  --color-caramel: #6f523c;
 
-  --color-success: #10b981;
-  --color-error: #ef4444;
-  --color-ui-muted: #4b5563;
+  /* About: petrol blue mist (not another green wash) */
+  --color-section-about-from: #e8ecf1;
+  --color-section-about-to: #cfd9e4;
 
-  --color-shadow-soft: rgb(0 0 0 / 0.1);
+  /* Skills: petrol (blue) → forest (green) — only one green stop */
+  --color-section-skills-from: var(--color-petrol);
+  --color-section-skills-to: var(--color-forest);
 
-  --color-scrollbar-thumb: #1e293b;
-  --color-scrollbar-thumb-hover: #0f172a;
+  /* Contact intro: dusty plum wash */
+  --color-section-contact-info-from: #f2eaef;
+  --color-section-contact-info-to: #e5d8e0;
+
+  /* Contact form: deep wine */
+  --color-section-contact: #2d181c;
+
+  /* Traffic: three different hue families */
+  --color-traffic-red: #8e4a5a;
+  --color-traffic-amber: #c49a4a;
+  --color-traffic-green: var(--color-forest);
+
+  --color-success: var(--color-forest);
+  --color-error: #a84840;
+  --color-ui-muted: #5c6664;
+
+  --color-shadow-soft: rgb(20 26 25 / 0.08);
+
+  --color-scrollbar-thumb: #4a6272;
+  --color-scrollbar-thumb-hover: var(--color-petrol);
 }
 
 @layer utilities {
@@ -58,6 +83,14 @@
       var(--color-section-skills-to)
     );
   }
+
+  .bg-section-contact-info {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-section-contact-info-from),
+      var(--color-section-contact-info-to)
+    );
+  }
 }
 
 html {
@@ -65,7 +98,7 @@ html {
 }
 
 body {
-  @apply scroll-smooth font-Inter text-fg-subtle;
+  @apply scroll-smooth font-Inter text-base leading-relaxed text-fg-subtle;
 }
 
 h1,
@@ -74,27 +107,27 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mb-5 mt-8 text-left font-SpaceGrotesk text-2xl font-bold text-fg;
+  @apply mb-4 mt-6 text-left font-SpaceGrotesk text-xl font-semibold tracking-tight text-fg;
 }
 
 h1 {
-  @apply mt-0 mb-5 text-4xl lg:text-6xl;
+  @apply mt-0 mb-4 text-3xl md:text-4xl lg:text-5xl;
 }
 
 h2 {
-  @apply mb-5 text-4xl font-bold lg:text-6xl;
+  @apply mb-4 text-3xl font-semibold md:text-4xl lg:text-5xl;
 }
 
 h3 {
-  @apply mb-5 text-3xl font-bold text-fg lg:text-4xl;
+  @apply mb-3 text-xl font-semibold md:text-2xl lg:text-3xl;
 }
 
 p {
-  @apply mb-5 text-left text-base text-fg-muted;
+  @apply mb-4 text-left text-base leading-relaxed text-fg-muted;
 }
 
 nav a {
-  @apply text-lg text-fg;
+  @apply text-[0.9375rem] font-medium text-fg md:text-base;
 }
 
 nav a:hover {

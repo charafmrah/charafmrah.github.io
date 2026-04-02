@@ -10,11 +10,11 @@ import HomeSection from "../../layouts/HomeSection.astro";
     id="contact-form-wrapper"
     class="mx-auto h-fit max-h-full w-full max-w-3xl rounded-md bg-transparent p-6 text-on-accent"
   >
-    <h2 class="mt-0 mb-16 ml-[5px] font-bold text-on-accent">
+    <h2 class="mt-0 mb-12 ml-[5px] text-3xl font-semibold tracking-tight text-on-accent md:mb-14 md:text-4xl">
       <span data-value="Contact" id="contact-header">Contact</span>
     </h2>
 
-    <form id="contact-form" class="text-xl">
+    <form id="contact-form" class="text-base md:text-lg">
       <input type="hidden" name="contact_number" />
       <div class="mt-4 grid grid-cols-1 gap-16 sm:grid-cols-2 lg:gap-6">
         <div class="group font-medium">
@@ -74,9 +74,9 @@ import HomeSection from "../../layouts/HomeSection.astro";
   </div>
   <div id="success" class="hidden">
     <div
-      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-md"
+      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-surface shadow-md"
     >
-      <div class="flex w-12 items-center justify-center bg-emerald-500">
+      <div class="flex w-12 shrink-0 items-center justify-center bg-success">
         <svg
           class="h-6 w-6 fill-current text-white"
           viewBox="0 0 40 40"
@@ -100,9 +100,9 @@ import HomeSection from "../../layouts/HomeSection.astro";
   </div>
   <div id="error" class="hidden">
     <div
-      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-md"
+      class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-surface shadow-md"
     >
-      <div class="flex w-12 items-center justify-center bg-red-500">
+      <div class="flex w-12 shrink-0 items-center justify-center bg-error">
         <svg
           class="h-6 w-6 fill-current text-white"
           viewBox="0 0 40 40"

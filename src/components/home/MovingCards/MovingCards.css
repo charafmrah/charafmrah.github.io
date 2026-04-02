@@ -30,7 +30,7 @@
 }
 
 .panel > .card-id {
-  @apply absolute top-5 left-5 flex justify-center text-8xl font-extrabold text-on-accent opacity-0 lg:opacity-100;
+  @apply absolute top-5 left-5 flex justify-center text-5xl font-semibold text-on-accent opacity-0 lg:text-6xl lg:opacity-100;
 }
 
 .panel.active > .card-id {
@@ -46,7 +46,7 @@
 }
 
 .panel svg {
-  @apply absolute top-5 right-5 flex justify-center text-8xl font-extrabold text-on-accent opacity-0 transition;
+  @apply absolute top-5 right-5 flex justify-center text-5xl font-semibold text-on-accent opacity-0 transition lg:text-6xl;
 }
 
 .panel.active svg {

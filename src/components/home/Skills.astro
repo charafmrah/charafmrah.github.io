@@ -16,15 +16,17 @@ import HomeSection from "../../layouts/HomeSection.astro";
       </div>
     </div>
     <div
-      class="flex flex-col justify-center gap-2 p-5 text-lg font-semibold md:text-xl"
+      class="flex flex-col justify-center gap-2 p-5 text-sm font-medium leading-relaxed text-fg md:text-base"
     >
       <div>
         <h3>Programming languages:</h3>
-        <p>JavaScript - Java - Python - PHP - Kotlin - TypeScript</p>
+        <p class="skills-body">
+          JavaScript - Java - Python - PHP - Kotlin - TypeScript
+        </p>
       </div>
       <div>
         <h3>Technologies:</h3>
-        <p>
+        <p class="skills-body">
           React - HTML - CSS - Node.js - Next.js - Express.js - WordPress -
           Android SDK - Flutter - Git - MySQL - SQLite - Firebase - Linux
         </p>
@@ -76,5 +78,34 @@ import HomeSection from "../../layouts/HomeSection.astro";
 
   .green {
     background-color: var(--color-traffic-green);
+  }
+
+  .skills-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-fg);
+    letter-spacing: -0.02em;
+  }
+
+  .skills-card > div.flex.flex-col > div + div h3 {
+    margin-top: 1rem;
+  }
+
+  .skills-body {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-fg-muted);
+  }
+
+  @media (min-width: 768px) {
+    .skills-card h3 {
+      font-size: 1.0625rem;
+    }
+    .skills-body {
+      font-size: 1rem;
+    }
   }
 </style>

@@ -2,7 +2,7 @@
 import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HomeSection id="contact-info">
+<HomeSection id="contact-info" class="bg-section-contact-info">
   <div id="contact-text" class="font-SpaceGrotesk">
     <div class="line">
       <p class="word">Contact</p>
@@ -63,7 +63,7 @@ import HomeSection from "../../layouts/HomeSection.astro";
   }
   .word {
     color: var(--color-fg);
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(1.125rem, 3.5vw, 2rem);
     font-weight: 600;
     margin: 0rem;
     text-transform: uppercase;
@@ -93,9 +93,11 @@ import HomeSection from "../../layouts/HomeSection.astro";
   .fancy:hover > .outer > .inner > .letter {
     background: linear-gradient(
       to right,
-      var(--color-accent),
-      var(--color-accent-secondary),
-      var(--color-accent)
+      var(--color-wine),
+      var(--color-plum),
+      var(--color-indigo),
+      var(--color-petrol),
+      var(--color-wine)
     );
     background-size: 1000%;
     -webkit-background-clip: text;
