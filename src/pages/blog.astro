@@ -54,7 +54,7 @@ const posts = Object.entries(modules)
     />
   </head>
 
-  <body data-nav="false" class="m-0 font-Inter text-slate-700">
+  <body data-nav="false" class="m-0 font-Inter text-fg-subtle">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
@@ -72,11 +72,11 @@ const posts = Object.entries(modules)
 
     <main
       role="main"
-      class="relative z-[2] m-0 transform bg-white bg-cover bg-center px-5 transition-all duration-500 ease-in-out"
+      class="relative z-[2] m-0 transform bg-surface bg-cover bg-center px-5 transition-all duration-500 ease-in-out"
     >
       <section class="flex w-full shrink-0 flex-col lg:flex-row lg:gap-40">
         <h1
-          class="mt-40 text-4xl font-bold tracking-tighter text-black lg:mt-32 lg:text-8xl"
+          class="mt-40 text-4xl font-bold tracking-tighter text-fg lg:mt-32 lg:text-8xl"
         >
           Blog
         </h1>
@@ -95,7 +95,7 @@ const posts = Object.entries(modules)
                       <div class="group relative flex flex-col items-start hover:cursor-pointer md:col-span-3">
                         <>
                           <a rel="prefetch" href={post.url}>
-                            <h2 class="mt-0 text-2xl font-semibold tracking-tight text-black">
+                            <h2 class="mt-0 text-2xl font-semibold tracking-tight text-fg">
                               {post.frontmatter.title}:
                             </h2>
                           </a>
@@ -115,7 +115,7 @@ const posts = Object.entries(modules)
                           <a href={post.url}>
                             <div
                               aria-hidden="true"
-                              class="relative z-10 mt-4 flex items-center text-sm font-medium text-black transition group-hover:text-orange-400"
+                              class="relative z-10 mt-4 flex items-center text-sm font-medium text-fg transition group-hover:text-accent"
                             >
                               Read article
                               <svg

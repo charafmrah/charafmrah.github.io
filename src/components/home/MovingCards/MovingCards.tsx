@@ -79,7 +79,7 @@ const MovingCards = ({ data }: Props) => {
               </p>
             </a>
             <a href={card.projectUrl} target="_blank">
-              <h3 className="m-0 text-white">{card.title}</h3>
+              <h3 className="m-0 text-on-accent">{card.title}</h3>
             </a>
           </div>
         </div>

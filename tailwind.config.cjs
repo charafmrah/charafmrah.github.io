@@ -9,12 +9,27 @@ module.exports = {
         SpaceGrotesk: ["Space Grotesk", "sans-serif"],
       },
       colors: {
-        "light-orange": "#E07A5F",
-        "light-pink": "#D4CBE5",
-        "light-green": "#81B29A",
-        "light-yellow": "#F2CC8F",
-        "dark-purple": "#3D405B",
-        "blueish-purple": "#9BB1FF",
+        fg: {
+          DEFAULT: "var(--color-fg)",
+          muted: "var(--color-fg-muted)",
+          subtle: "var(--color-fg-subtle)",
+        },
+        surface: {
+          DEFAULT: "var(--color-surface)",
+          hero: "var(--color-surface-hero)",
+          card: "var(--color-surface-card)",
+        },
+        accent: {
+          DEFAULT: "var(--color-accent)",
+          secondary: "var(--color-accent-secondary)",
+        },
+        "on-accent": "var(--color-on-accent)",
+        section: {
+          contact: "var(--color-section-contact)",
+        },
+        success: "var(--color-success)",
+        error: "var(--color-error)",
+        "ui-muted": "var(--color-ui-muted)",
       },
     },
   },

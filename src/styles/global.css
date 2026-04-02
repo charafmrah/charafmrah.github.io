@@ -4,8 +4,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens — single source of truth for color */
 :root {
   --page-height: 100%;
+
+  /* Primary ink — hero headline, logo, nav, all headings */
+  --color-fg: #0f172a;
+  --color-fg-muted: #1e293b;
+  --color-fg-subtle: #334155;
+
+  --color-surface: #ffffff;
+  --color-surface-hero: #f1f5f9;
+  --color-surface-card: #f8fbfe;
+
+  --color-accent: #fb923c;
+  --color-accent-secondary: #fbbf24;
+
+  --color-on-accent: #ffffff;
+
+  --color-section-about-from: #fbbf24;
+  --color-section-about-to: #f59e0b;
+  --color-section-skills-from: #3b82f6;
+  --color-section-skills-to: #2563eb;
+  --color-section-contact: #fb923c;
+
+  --color-traffic-red: #f87171;
+  --color-traffic-amber: #fb923c;
+  --color-traffic-green: #34d399;
+
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-ui-muted: #4b5563;
+
+  --color-shadow-soft: rgb(0 0 0 / 0.1);
+
+  --color-scrollbar-thumb: #1e293b;
+  --color-scrollbar-thumb-hover: #0f172a;
+}
+
+@layer utilities {
+  .bg-section-about {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-section-about-from),
+      var(--color-section-about-to)
+    );
+  }
+
+  .bg-section-skills {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-section-skills-from),
+      var(--color-section-skills-to)
+    );
+  }
 }
 
 html {
@@ -13,7 +65,7 @@ html {
 }
 
 body {
-  @apply scroll-smooth font-Inter;
+  @apply scroll-smooth font-Inter text-fg-subtle;
 }
 
 h1,
@@ -22,7 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mb-5 mt-8 text-left font-SpaceGrotesk text-2xl font-bold text-slate-900;
+  @apply mb-5 mt-8 text-left font-SpaceGrotesk text-2xl font-bold text-fg;
 }
 
 h1 {
@@ -34,23 +86,23 @@ h2 {
 }
 
 h3 {
-  @apply mb-5 text-3xl font-bold text-slate-800 lg:text-4xl;
+  @apply mb-5 text-3xl font-bold text-fg lg:text-4xl;
 }
 
 p {
-  @apply mb-5 text-left text-base text-slate-800;
+  @apply mb-5 text-left text-base text-fg-muted;
 }
 
 nav a {
-  @apply  text-slate-700 text-lg;
+  @apply text-lg text-fg;
 }
 
 nav a:hover {
-  @apply text-orange-500;
+  @apply text-accent;
 }
 
 a {
-  @apply text-left text-orange-500;
+  @apply text-left text-accent;
 }
 
 .component-hidden {
@@ -61,30 +113,24 @@ a {
   @apply translate-x-0 opacity-100 blur-0;
 }
 
-/* Scrollbar */
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   width: 5px;
-  background: #1e293b;
+  background: var(--color-scrollbar-thumb);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #0f172a;
+  background: var(--color-scrollbar-thumb-hover);
 }
 
-/* Selection */
 ::selection {
-  color: white;
-  background: #fb923c;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
 }

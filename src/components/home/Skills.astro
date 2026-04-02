@@ -2,10 +2,7 @@
 import HomeSection from "../../layouts/HomeSection.astro";
 ---
 
-<HomeSection
-  id="skills"
-  class="bg-gradient-to-b from-blue-500 to-blue-600"
->
+<HomeSection id="skills" class="bg-section-skills">
   <div class="skills-card flex max-h-full max-w-3xl flex-col justify-center">
     <div class="tools">
       <div class="circle">
@@ -42,8 +39,8 @@ import HomeSection from "../../layouts/HomeSection.astro";
     width: fit-content;
     height: fit-content;
     margin: 0 auto;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    background-color: #f8fbfe;
+    box-shadow: 0 0 10px 0 var(--color-shadow-soft);
+    background-color: var(--color-surface-card);
     border-radius: 8px;
     z-index: 1;
   }
@@ -70,14 +67,14 @@ import HomeSection from "../../layouts/HomeSection.astro";
   }
 
   .red {
-    background-color: #f87171;
+    background-color: var(--color-traffic-red);
   }
 
   .yellow {
-    background-color: #fb923c;
+    background-color: var(--color-traffic-amber);
   }
 
   .green {
-    background-color: #34d399;
+    background-color: var(--color-traffic-green);
   }
 </style>

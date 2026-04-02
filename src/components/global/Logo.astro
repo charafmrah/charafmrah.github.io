@@ -3,7 +3,7 @@ const text = Astro.props.text;
 ---
 
 <button class="button">
-  <span class="text-slate-900">&nbsp;{text}&nbsp;</span>
+  <span class="text-fg">&nbsp;{text}&nbsp;</span>
   <span class="hover-text" aria-hidden="true">&nbsp;{text}&nbsp;</span>
 </button>
 
@@ -15,7 +15,7 @@ const text = Astro.props.text;
     padding: 0;
     border: none;
     --border-right: 6px;
-    --animation-color: #fb923c;
+    --animation-color: var(--color-accent);
     --fs-size: 2em;
     letter-spacing: 3px;
     text-decoration: none;
@@ -31,7 +31,7 @@ const text = Astro.props.text;
     box-sizing: border-box;
     content: attr(data-text);
     color: var(--animation-color);
-    background-color: #fff;
+    background-color: var(--color-surface);
     width: 0%;
     inset: 0;
     border-right: var(--border-right) solid var(--animation-color);
