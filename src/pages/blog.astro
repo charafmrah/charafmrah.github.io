@@ -1,15 +1,13 @@
 ---
-import Header from "../components/global/Header.astro";
+import BlogPublishShell from "../components/blog/BlogPublishShell.astro";
 import BaseHead from "../components/global/BaseHead.astro";
-import { Image } from "astro:assets";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { SEO } from "astro-seo";
-import { getHeroImage } from "../utils/heroImage";
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
   }
 }
 
@@ -22,15 +20,15 @@ const posts = Object.entries(modules)
   .map(([path, mod]) => {
     const slug = path.replace(/^.*\/([^/]+)\.(md|mdx)$/, "$1");
     return {
-      ...mod,
+      title: mod.frontmatter.title,
       url: `/blog/${slug}`,
-      frontmatter: mod.frontmatter,
+      pubDate: mod.frontmatter.pubDate,
+      description: mod.frontmatter.description,
     };
   })
   .sort(
     (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
+      new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf()
   );
 ---
 
@@ -39,11 +37,11 @@ const posts = Object.entries(modules)
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <SEO
-      title="Charaf Mrah - Blog"
+      title="Blog — Charaf Mrah"
       description={SITE_DESCRIPTION}
       openGraph={{
         basic: {
-          title: "Charaf Mrah",
+          title: "Charaf Mrah — Blog",
           type: "website",
           image: "https://charafmrah.com/thumbnail.jpg",
         },
@@ -54,8 +52,7 @@ const posts = Object.entries(modules)
     />
   </head>
 
-  <body data-nav="false" class="m-0 font-Inter text-fg-subtle">
-    <!-- Google tag (gtag.js) -->
+  <body class="m-0 bg-publish-canvas font-Inter text-fg-subtle">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
     <script is:inline>
@@ -64,118 +61,79 @@ const posts = Object.entries(modules)
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-59JLRZ4JB2");
     </script>
 
-    <Header />
+    <BlogPublishShell posts={posts} currentUrl="/blog" pageLabel="Blog">
+      <main class="min-w-0 flex-1 min-[1920px]:pl-2">
+        <div class="mx-auto max-w-[min(100%,42rem)] px-5 py-10 lg:px-10 lg:py-14 min-[1920px]:px-14">
+          <header class="mb-12 border-b border-publish-border pb-8">
+            <h1
+              class="font-SpaceGrotesk text-2xl font-semibold tracking-tight text-fg md:text-3xl"
+            >
+              Blog
+            </h1>
+            <p class="mt-3 max-w-prose text-base leading-relaxed text-fg-muted">
+              Notes and write-ups in a quiet, reading-first layout.
+            </p>
+          </header>
 
-    <main
-      role="main"
-      class="relative z-[2] m-0 transform bg-surface bg-cover bg-center px-5 transition-all duration-500 ease-in-out"
-    >
-      <section class="flex w-full shrink-0 flex-col lg:flex-row lg:gap-40">
-        <h1
-          class="mt-40 text-4xl font-semibold tracking-tight text-fg md:text-5xl lg:mt-32 lg:text-6xl"
-        >
-          Blog
-        </h1>
-        <div
-          class="mt-8 mb-32 space-y-12 text-base text-zinc-800 lg:col-span-3 lg:mt-32"
-        >
-          {
-            posts.map((post) => {
-              const heroSrc = post.frontmatter.heroImage
-                ? getHeroImage(post.frontmatter.heroImage)
-                : undefined;
-              return (
-                <>
-                  <article class="md:grid md:grid-cols-4 md:items-baseline md:gap-12">
-                    <>
-                      <div class="group relative flex flex-col items-start hover:cursor-pointer md:col-span-3">
-                        <>
-                          <a rel="prefetch" href={post.url}>
-                            <h2 class="mt-0 text-xl font-semibold tracking-tight text-fg md:text-2xl">
-                              {post.frontmatter.title}:
-                            </h2>
-                          </a>
-                          {heroSrc && (
-                            <Image
-                              src={heroSrc}
-                              alt={post.frontmatter.title}
-                              class="relative z-10 mb-5 h-64 w-full rounded-lg object-cover shadow-lg"
-                            />
-                          )}
-                        </>
-
-                        <>
-                          <p class="relative z-10 mt-2 mb-2 text-base leading-relaxed text-fg-subtle md:text-lg">
-                            {post.frontmatter.description}
-                          </p>
-                          <a href={post.url}>
-                            <div
-                              aria-hidden="true"
-                              class="relative z-10 mt-4 flex items-center text-sm font-medium text-fg transition group-hover:text-accent"
-                            >
-                              Read article
-                              <svg
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                aria-hidden="true"
-                                class="order-last ml-1 h-4 w-4 stroke-current transition group-hover:translate-x-6"
-                              >
-                                <path
-                                  d="M6.75 5.75 9.25 8l-2.5 2.25"
-                                  stroke-width="1.5"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </a>
-                        </>
-                      </div>
-                      <time
-                        class="relative z-10 order-first mt-1 mb-3 flex items-center text-base text-zinc-500 dark:text-zinc-400 md:block md:text-right"
-                        datetime={post.frontmatter.pubDate}
-                      >
-                        {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                          "en-us",
-                          {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                          }
-                        )}
-                      </time>
-                    </>
-                  </article>
-                </>
-              );
-            })
-          }
+          <ul class="space-y-0 divide-y divide-publish-border border-t border-publish-border">
+            {
+              posts.map((post) => (
+                <li>
+                  <a
+                    href={post.url}
+                    rel="prefetch"
+                    class="group flex flex-col gap-1 py-5 transition-colors hover:bg-publish-hover sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                  >
+                    <span class="font-medium text-fg group-hover:text-accent">
+                      {post.title}
+                    </span>
+                    <time
+                      class="shrink-0 font-mono text-xs text-fg-subtle"
+                      datetime={post.pubDate}
+                    >
+                      {new Date(post.pubDate).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
-      </section>
-    </main>
+      </main>
+    </BlogPublishShell>
 
     <style>
-      main ul {
-        list-style-type: none;
-        padding: unset;
+      .bg-publish-canvas {
+        background: #fcfcfa;
       }
-      main ul li {
-        display: flex;
+
+      .divide-publish-border {
+        border-color: rgb(20 26 25 / 0.1);
       }
-      main a {
-        color: #000;
+
+      .border-publish-border {
+        border-color: rgb(20 26 25 / 0.1);
       }
-      main ul li time {
-        flex: 0 0 130px;
-        font-style: italic;
-        color: #595959;
+
+      .hover\:bg-publish-hover:hover {
+        background: rgb(20 26 25 / 0.04);
       }
-      main ul li a:visited {
-        color: rgb(246, 120, 56);
+
+      @media (prefers-color-scheme: dark) {
+        .bg-publish-canvas {
+          background: #1c1c1a;
+        }
+
+        .hover\:bg-publish-hover:hover {
+          background: rgb(255 255 255 / 0.04);
+        }
       }
     </style>
   </body>

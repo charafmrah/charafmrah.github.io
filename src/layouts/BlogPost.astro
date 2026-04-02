@@ -1,17 +1,18 @@
 ---
+import BlogPublishShell from "../components/blog/BlogPublishShell.astro";
+import BlogOutline from "../components/blog/BlogOutline.astro";
 import BaseHead from "../components/global/BaseHead.astro";
-import TableOfContents from "../components/blog-post/TableOfContents.astro";
 import { Image } from "astro:assets";
 import { getHeroImage } from "../utils/heroImage";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { SEO } from "astro-seo";
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
   }
 }
+
 export interface Props {
   content: {
     title: string;
@@ -26,20 +27,39 @@ const {
   content: { title, description, pubDate, updatedDate, heroImage },
 } = Astro.props;
 
+const modules = import.meta.glob<{ frontmatter: Record<string, string> }>(
+  "../pages/blog/*.{md,mdx}",
+  { eager: true }
+);
+
+const posts = Object.entries(modules)
+  .map(([path, mod]) => {
+    const slug = path.replace(/^.*\/([^/]+)\.(md|mdx)$/, "$1");
+    return {
+      title: mod.frontmatter.title,
+      url: `/blog/${slug}`,
+      pubDate: mod.frontmatter.pubDate,
+    };
+  })
+  .sort(
+    (a, b) =>
+      new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf()
+  );
+
 const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={title} description={description} />
     <SEO
       title={title}
       description={description}
       openGraph={{
         basic: {
           title,
-          type: "website",
+          type: "article",
           image: "https://charafmrah.com/thumbnail.jpg",
         },
       }}
@@ -49,8 +69,7 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
     />
   </head>
 
-  <body data-nav="false" class="m-0 pb-32 font-Inter text-fg-subtle">
-    <!-- Google tag (gtag.js) -->
+  <body class="m-0 bg-publish-canvas font-Inter text-fg-subtle">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JLRZ4JB2"
     ></script>
     <script is:inline>
@@ -59,182 +78,151 @@ const heroSrc = heroImage ? getHeroImage(heroImage) : undefined;
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-59JLRZ4JB2");
     </script>
 
-    <!--
-
- -->
-    <main
-      role="main"
-      class="relative z-[2] transform bg-surface bg-cover bg-center transition-all duration-500 ease-in-out lg:pt-0"
-    >
-      <div
-        id="page-wrapper"
-        class="px-5 text-base md:px-40 lg:pr-80 lg:pl-96 lg:pt-36"
-      >
-        <div
-          class="header z-20 flex w-full items-center justify-start gap-3 bg-surface py-4 transition-all duration-500 ease-in-out lg:absolute lg:top-0 lg:left-0 lg:w-32 lg:bg-transparent lg:px-8"
+    <BlogPublishShell posts={posts} currentUrl={Astro.url.pathname} pageLabel={title}>
+      <main class="min-w-0 flex-1 border-r border-black/10 min-[1920px]:pl-2">
+        <article
+          id="single-article"
+          class="publish-article mx-auto max-w-[min(100%,42rem)] px-5 py-10 lg:px-10 lg:py-14 min-[1920px]:px-14"
         >
-          <a rel="prefetch" href="/blog" class="w-full shrink-0">
-            <button
-              type="button"
-              id="learn-more"
-              class="mb-10 w-full cursor-pointer rounded-lg border-2 border-black py-2 px-14 text-lg font-bold text-black hover:bg-black hover:text-white lg:mb-0 lg:w-auto"
-              >Back</button
+          <header class="mb-10 border-b border-black/10 pb-8">
+            <h1
+              class="mb-4 font-SpaceGrotesk text-2xl font-semibold leading-tight tracking-tight text-fg md:text-3xl"
             >
-          </a>
-        </div>
-        <TableOfContents />
-        <div class="contents">
-          <article id="single-article" class="prose lg:prose-x">
-            <header>
-              <h1 class="title">{title}</h1>
+              {title}
+            </h1>
+            <div
+              class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-fg-subtle"
+            >
               {
-                heroSrc && (
-                  <Image
-                    class="mb-10 w-full rounded-lg"
-                    src={heroSrc}
-                    alt="Hero image"
-                  />
+                pubDate && (
+                  <time datetime={pubDate}>
+                    {new Date(pubDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
                 )
               }
-              <p>{description}</p>
-              <hr class="mb-10" />
-            </header>
+              {
+                updatedDate && (
+                  <span class="text-fg-subtle/80">
+                    · Updated{" "}
+                    <time datetime={updatedDate}>
+                      {new Date(updatedDate).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </span>
+                )
+              }
+            </div>
+            <p class="mt-4 text-base leading-relaxed text-fg-muted md:text-lg">
+              {description}
+            </p>
+            {
+              heroSrc && (
+                <figure class="mt-8">
+                  <Image
+                    class="w-full rounded-md border border-black/10 shadow-sm"
+                    src={heroSrc}
+                    alt={title}
+                  />
+                </figure>
+              )
+            }
+          </header>
+
+          <div class="publish-prose">
             <slot />
-          </article>
-        </div>
-      </div>
-    </main>
+          </div>
+        </article>
+      </main>
+      <BlogOutline />
+    </BlogPublishShell>
 
     <style is:global>
-      p {
-        @apply mb-8 text-base leading-relaxed md:text-lg;
+      .publish-article {
+        --publish-border: rgb(20 26 25 / 0.12);
       }
 
-      img {
-        @apply mb-5 max-w-full rounded-md shadow-md;
+      .publish-prose > :first-child {
+        margin-top: 0;
       }
 
-      h2,
-      h3 {
-        @apply pt-4;
+      .publish-prose h2 {
+        @apply mb-3 mt-12 scroll-mt-24 font-SpaceGrotesk text-xl font-semibold tracking-tight text-fg md:text-2xl;
       }
 
-      .contents ul {
-        @apply list-inside list-disc text-base md:text-lg;
+      .publish-prose h3 {
+        @apply mb-2 mt-8 scroll-mt-24 font-SpaceGrotesk text-lg font-semibold tracking-tight text-fg md:text-xl;
       }
 
-      .contents ol {
-        @apply list-inside list-decimal text-base md:text-lg;
+      .publish-prose p {
+        @apply mb-5 text-base leading-[1.75] text-fg-muted md:text-[1.0625rem];
       }
 
-      body[data-nav="true"] > .header {
-        transition: all 500ms;
-        transform: translateY(-100%);
-        visibility: hidden;
+      .publish-prose ul {
+        @apply mb-6 list-disc space-y-2 pl-6 text-fg-muted;
       }
 
-      /* Style for code blocks */
-      pre {
-        background-color: #2b2b2b;
-        border: 1px solid #3c3c3c;
-        border-radius: 0.4rem;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 14px;
-        line-height: 1.5;
-        overflow: auto;
-        padding: 1em;
-        white-space: pre;
-        word-wrap: normal;
-        color: #f8f8f8;
+      .publish-prose ol {
+        @apply mb-6 list-decimal space-y-2 pl-6 text-fg-muted;
       }
 
-      /* Style for inline code */
-      code {
-        display: flex;
-        flex-direction: column;
-        border-radius: 3px;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 14px;
-        padding: 0.2em 0.4em;
-        white-space: nowrap;
-        color: #f8f8f8;
+      .publish-prose li {
+        @apply pl-1 leading-[1.75];
+      }
+
+      .publish-prose a {
+        @apply text-accent underline underline-offset-2 transition;
+        text-decoration-color: rgb(114 47 55 / 0.35);
+      }
+
+      .publish-prose a:hover {
+        text-decoration-color: var(--color-accent);
+      }
+
+      .publish-prose blockquote {
+        @apply my-6 border-l-2 pl-4 text-fg-muted italic;
+        border-left-color: rgb(114 47 55 / 0.45);
+      }
+
+      .publish-prose hr {
+        @apply my-10 border-t border-black/10;
+      }
+
+      .publish-prose img {
+        @apply my-6 max-w-full rounded-md border border-black/10;
+      }
+
+      .publish-prose pre {
+        @apply my-6 overflow-x-auto rounded-lg border border-black/10 bg-[#1e1e1e] p-4 text-[0.8125rem] leading-relaxed text-[#e8e8e8];
+      }
+
+      .publish-prose pre code {
+        @apply block bg-transparent p-0 font-mono text-[0.8125rem] text-inherit;
+      }
+
+      .publish-prose :not(pre) > code {
+        @apply rounded bg-surface-card px-1.5 py-0.5 font-mono text-[0.85em] text-fg;
       }
     </style>
+
     <style>
-      #learn-more {
-        --btn-depth: #1a1214;
-        --btn-highlight: #b8c9c8;
-        min-width: 200px;
-        color: var(--color-fg);
-        text-transform: uppercase;
-        padding: 1.25em 2em;
-        background: #e4eceb;
-        border: 2px solid var(--btn-highlight);
-        border-radius: 0.75em;
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-        -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1),
-          -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
-        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
-          background 150ms cubic-bezier(0, 0, 0.58, 1),
-          -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+      .bg-publish-canvas {
+        background: #fcfcfa;
       }
 
-      #learn-more::before {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--color-accent);
-        border-radius: inherit;
-        -webkit-box-shadow: 0 0 0 2px var(--btn-depth),
-          0 0.625em 0 0 var(--color-surface);
-        box-shadow: 0 0 0 2px var(--btn-depth), 0 0.625em 0 0 var(--color-surface);
-        -webkit-transform: translate3d(0, 0.75em, -1em);
-        transform: translate3d(0, 0.75em, -1em);
-        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
-          box-shadow 150ms cubic-bezier(0, 0, 0.58, 1),
-          -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1),
-          -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-      }
-
-      #learn-more:hover {
-        background: var(--color-accent);
-        color: var(--color-on-accent);
-        -webkit-transform: translate(0, 0.25em);
-        transform: translate(0, 0.25em);
-      }
-
-      #learn-more:hover::before {
-        -webkit-box-shadow: 0 0 0 2px var(--btn-depth),
-          0 0.5em 0 0 var(--color-surface);
-        box-shadow: 0 0 0 2px var(--btn-depth), 0 0.5em 0 0 var(--color-surface);
-        -webkit-transform: translate3d(0, 0.5em, -1em);
-        transform: translate3d(0, 0.5em, -1em);
-      }
-
-      #learn-more:active {
-        background: var(--color-accent);
-        color: var(--color-on-accent);
-        -webkit-transform: translate(0em, 0.75em);
-        transform: translate(0em, 0.75em);
-      }
-
-      #learn-more:active::before {
-        -webkit-box-shadow: 0 0 0 2px var(--btn-depth), 0 0 var(--btn-highlight);
-        box-shadow: 0 0 0 2px var(--btn-depth), 0 0 var(--btn-highlight);
-        -webkit-transform: translate3d(0, 0, -1em);
-        transform: translate3d(0, 0, -1em);
+      @media (prefers-color-scheme: dark) {
+        .bg-publish-canvas {
+          background: #1c1c1a;
+        }
       }
     </style>
   </body>

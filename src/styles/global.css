@@ -126,11 +126,13 @@ p {
   @apply mb-4 text-left text-base leading-relaxed text-fg-muted;
 }
 
-nav a {
+header nav a,
+footer nav a {
   @apply text-[0.9375rem] font-medium text-fg md:text-base;
 }
 
-nav a:hover {
+header nav a:hover,
+footer nav a:hover {
   @apply text-accent;
 }
 
